@@ -1,471 +1,422 @@
-# TFW Glossary
+# Глоссарий TFW
 
-Terms route to their one normative owner. Procedures, field schemas, refusal algorithms,
-and incident histories live at the linked authority or durable history source.
+Каждый термин отсылает к единственному нормативному источнику. Процедуры, схемы полей, алгоритмы отказа и история инцидентов хранятся в указанном нормативном источнике или долговечной истории.
 
-## Coordination
+## Координация
 
 ### Activation
-**Meaning:** Authorization for one exact `/tfw-*` workflow, task/phase, role unit and lineage source. Provisioning, a role prompt, a title or a wait result is not activation. **Authority:** [conventions.md](conventions.md#7-coordination), `Coordination`.
+**Значение:** Разрешение запустить один точный рабочий процесс `/tfw-*` для конкретного поручения или этапа, ролевого подразделения и источника происхождения. Создание исполнителя, ролевой промпт, заголовок или результат ожидания сами по себе не являются активацией. **Нормативный источник:** [conventions.md](conventions.md#7-coordination), `Coordination`.
 
 ### Continuation
-**Meaning:** Resumption by the same working unit under the same immutable authority and routing spine. **Authority:** [conventions.md](conventions.md#7-coordination), `Coordination`.
+**Значение:** Возобновление работы тем же рабочим подразделением при тех же неизменных полномочиях и маршруте передачи. **Нормативный источник:** [conventions.md](conventions.md#7-coordination), `Coordination`.
 
 ### Routing spine
-**Meaning:** The seven status fields binding lower-role recipient, upward route, authority and operating selection. Validation belongs to the status contract. **Authority:** [conventions.md](conventions.md#5-task-statuses), `Task Statuses`, and `.tfw/templates/status.md`.
+**Значение:** Семь полей статуса, связывающих получателя нижестоящей роли, маршрут передачи вверх, полномочия и выбранный режим работы. Проверка этих данных определяется контрактом статуса. **Нормативный источник:** [conventions.md](conventions.md#5-task-statuses), `Task Statuses` и `.tfw/templates/status.md`.
 
 ### Current selection
-**Meaning:** Status alone carries the effective launch, dialogue, owner-context topology and reporting choice. `selection_ref` binds an immutable actual human `coordination_selected` event or the verified baseline; pending events grant nothing. **Authority:** [conventions.md](conventions.md#5-task-statuses), `Task Statuses`, and `.tfw/templates/journal/event.md`.
+**Значение:** Только статус содержит действующий выбор способа запуска, диалога, структуры контекста владельца и отчётности. `selection_ref` ссылается на неизменяемое фактическое событие человека `coordination_selected` либо на проверенную исходную версию; ожидающие события полномочий не дают. **Нормативный источник:** [conventions.md](conventions.md#5-task-statuses), `Task Statuses` и `.tfw/templates/journal/event.md`.
 
 ### Task Coordinator
-**Meaning:** The actual Coordinator unit that carries task purpose, owner decisions, dependencies, ready-phase launch and safe successor selection. In a one-phase task it runs the local cycle directly. It owns the owner upward route, never another Role Lock's artifact. **Authority:** [conventions.md](conventions.md#7-coordination), `Coordination`.
+**Значение:** Фактическое подразделение Coordinator, которое отвечает за цель поручения, решения владельца, зависимости, запуск готового этапа и безопасный выбор преемника. В одноэтапном поручении оно самостоятельно ведёт локальный цикл. Оно отвечает за передачу решения владельцу вверх, но не создаёт артефакт другой роли, ограниченной Role Lock. **Нормативный источник:** [conventions.md](conventions.md#7-coordination), `Coordination`.
 
 ### Phase Coordinator
-**Meaning:** A distinct Coordinator unit bounded to one phase of long work. It owns that phase's TS, worker gates, independent review route and durable phase return to the task Coordinator named in `upstream_route`; it does not own task strategy or sibling phases. **Authority:** [conventions.md](conventions.md#7-coordination), `Coordination`.
+**Значение:** Отдельное подразделение Coordinator, ограниченное одним этапом длительной работы. Оно отвечает за TS этого этапа, контрольные точки исполнителя, независимую проверку и долговечный возврат этапа Task Coordinator, указанному в `upstream_route`. Оно не отвечает за стратегию всего поручения или соседние этапы. **Нормативный источник:** [conventions.md](conventions.md#7-coordination), `Coordination`.
 
 ### Successor Coordinator
-**Meaning:** An exact replacement unit activated at a safe checkpoint, after reconstructing task authority and open work from durable files. The old route remains effective until acknowledgement and an authorized route switch. **Authority:** [conventions.md](conventions.md#7-coordination), `Coordination`.
+**Значение:** Точное заменяющее подразделение, активированное на безопасной контрольной точке после восстановления полномочий и открытой работы поручения по долговечным файлам. Старый маршрут действует, пока не получено подтверждение и не разрешено переключение маршрута. **Нормативный источник:** [conventions.md](conventions.md#7-coordination), `Coordination`.
 
 ### gate_answer
-**Meaning:** An immutable authority-owned event that answers a blocked workflow question and cites status, blocked role artifact, and exact HL/TS authority. **Authority:** [conventions.md](conventions.md#7-coordination), `Coordination`, and `.tfw/templates/journal/event.md`.
+**Значение:** Неизменяемое событие, принадлежащее уполномоченному лицу. Оно отвечает на заблокированный вопрос рабочего процесса и ссылается на статус, артефакт заблокированной роли и точные полномочия HL/TS. **Нормативный источник:** [conventions.md](conventions.md#7-coordination), `Coordination` и `.tfw/templates/journal/event.md`.
 
-## Artifact Types
+## Типы артефактов
 
 ### HL (High Level)
-**Meaning:** The task's meaning, outcome, boundaries, and approved contract baseline. **Authority:** [conventions.md](conventions.md#hl-high-level), `HL (High Level)`, and `.tfw/templates/HL.md`.
+**Значение:** Смысл поручения, его результат и границы, а также утверждённая исходная версия контракта. **Нормативный источник:** [conventions.md](conventions.md#hl-high-level), `HL (High Level)` и `.tfw/templates/HL.md`.
 
 ### RES (Research Report)
-**Meaning:** The cumulative structured investigation record produced by the Researcher. **Authority:** [conventions.md](conventions.md#res-research-report), `RES (Research Report)`, and `.tfw/templates/RES.md`.
+**Значение:** Накопительная структурированная запись исследования, которую ведёт Researcher. **Нормативный источник:** [conventions.md](conventions.md#res-research-report), `RES (Research Report)` и `.tfw/templates/RES.md`.
 
 ### TS (Task Spec)
-**Meaning:** The self-contained executable order for one task or phase. **Authority:** [conventions.md](conventions.md#ts-task-spec), `TS (Task Spec)`, and `.tfw/templates/TS.md`.
+**Значение:** Самодостаточное исполнимое поручение для одной задачи или этапа. **Нормативный источник:** [conventions.md](conventions.md#ts-task-spec), `TS (Task Spec)` и `.tfw/templates/TS.md`.
 
 ### RF (Result File)
-**Meaning:** The Executor's authoritative record of delivered results, verification, evidence, and observations. **Authority:** [conventions.md](conventions.md#rf-result-file), `RF (Result File)`, and `.tfw/templates/RF.md`.
+**Значение:** Авторитетная запись Executor о поставленном результате, проверке, свидетельствах и наблюдениях. **Нормативный источник:** [conventions.md](conventions.md#rf-result-file), `RF (Result File)` и `.tfw/templates/RF.md`.
 
 ### ONB (Onboarding Report)
-**Meaning:** The Executor's pre-work record of understanding, questions, recommendations, risks, and inconsistencies. **Authority:** [conventions.md](conventions.md#onb-onboarding-report), `ONB (Onboarding Report)`, and `.tfw/templates/ONB.md`.
+**Значение:** Создаваемая Executor до начала работы запись о понимании поручения, вопросах, рекомендациях, рисках и противоречиях. **Нормативный источник:** [conventions.md](conventions.md#onb-onboarding-report), `ONB (Onboarding Report)` и `.tfw/templates/ONB.md`.
 
 ### REVIEW (Review Report)
-**Meaning:** The Reviewer-locked record of ordered VALUE, ASSURANCE and TRACE assessment, classified item routes and Candidate effects, and one aggregate verdict after independent verification. **Authority:** [conventions.md](conventions.md#review-review-report), `REVIEW (Review Report)`, and `.tfw/templates/REVIEW.md`.
+**Значение:** Запись под Role Lock Reviewer: упорядоченная оценка VALUE, ASSURANCE и TRACE, маршруты классифицированных замечаний, последствия для Candidate и общий вердикт после независимой проверки. **Нормативный источник:** [conventions.md](conventions.md#review-review-report), `REVIEW (Review Report)` и `.tfw/templates/REVIEW.md`.
 
 ### KNOWLEDGE.md
-**Meaning:** The stable ordinary-file entry for architecture/reference, preserved legacy topics/D rows and independent qualified records; no maintained counts or inventory. **Authority:** [conventions.md](conventions.md#102-knowledge-infrastructure), `Knowledge Infrastructure`.
+**Значение:** Устойчивая точка входа в обычном файле для архитектуры и справочных материалов, сохранённых прежних тем и строк D, а также отдельных подтверждённых записей. В ней не ведут текущие подсчёты или опись. **Нормативный источник:** [conventions.md](conventions.md#102-knowledge-infrastructure), `Knowledge Infrastructure`.
 
 ### RELEASE.md
-**Meaning:** Project-specific release context and checks used by the release workflow. **Authority:** [.tfw/workflows/release.md](workflows/release.md), `TFW Release`.
+**Значение:** Контекст конкретного проекта и проверки, используемые рабочим процессом выпуска. **Нормативный источник:** [.tfw/workflows/release.md](workflows/release.md), `TFW Release`.
 
 ### Update receipt
-**Meaning:** An immutable record of one upstream update attempt, including its pinned source, authority,
-semantic effects, preservation references, verification, and next action. It is not the receiver's state
-registry. **Authority:** [.tfw/templates/update_receipt.md](templates/update_receipt.md), `.tfw/workflows/update.md`.
+**Значение:** Неизменяемая запись одной попытки обновить upstream: закреплённый источник, полномочия, смысловые последствия, ссылки на сохранённое, проверка и следующий шаг. Это не реестр состояния проекта-получателя. **Нормативный источник:** [.tfw/templates/update_receipt.md](templates/update_receipt.md), `.tfw/workflows/update.md`.
 
 ### Incidental trace
-**Meaning:** A selected evidence or coordination trace outside the direct VALUE selector. It is admitted
-only by exact path, producer identity, and a stated semantic effect; it cannot widen scope or grant
-authority. **Authority:** [conventions.md](conventions.md#trace-boundary-and-selected-siblings).
+**Значение:** Отобранное свидетельство или запись координации за пределами прямого селектора VALUE. Оно принимается только при наличии точного пути, идентичности автора и указанного смыслового последствия; оно не может расширять объём работ или предоставлять полномочия. **Нормативный источник:** [conventions.md](conventions.md#trace-boundary-and-selected-siblings).
 
 ### Selected stable uncommitted sibling trace
-**Meaning:** A named trace in a related task or phase that has not yet committed, but whose exact path,
-producer, relationship, and semantic contribution are fixed by the governing artifact. It may be read or
-referenced without requiring the sibling to reach DONE. **Authority:** [conventions.md](conventions.md#trace-boundary-and-selected-siblings).
+**Значение:** Именованный Trace связанного поручения или этапа, ещё не зафиксированный коммитом, но имеющий точный путь, автора, связь и смысловой вклад, установленные управляющим артефактом. Его можно прочитать или процитировать, не дожидаясь состояния DONE у связанного поручения. **Нормативный источник:** [conventions.md](conventions.md#trace-boundary-and-selected-siblings).
 
-## Contract and Purpose Defence
+## Контракт и защита цели
 
 ### HL Contract
-**Meaning:** Owner approval freezes HL §§1, 3–7 while leaving only the declared free sections editable. **Authority:** [conventions.md](conventions.md#hl-high-level), `HL Contract`.
+**Значение:** Утверждение владельцем замораживает разделы HL 1, 3–7; редактировать можно только разделы, заранее объявленные свободными. **Нормативный источник:** [conventions.md](conventions.md#hl-high-level), `HL Contract`.
 
 ### Contract Baseline
-**Meaning:** The approved HL revision against which later purpose and amendment decisions are judged. **Authority:** [conventions.md](conventions.md#hl-high-level), `Contract Baseline`.
+**Значение:** Утверждённая редакция HL, по которой позднее оценивают соответствие цели и поправки. **Нормативный источник:** [conventions.md](conventions.md#hl-high-level), `Contract Baseline`.
 
 ### Frozen Section
-**Meaning:** An approved declarative HL claim that no role may change outside the amendment protocol. **Authority:** [conventions.md](conventions.md#hl-high-level), `HL Contract` rules 3–5.
+**Значение:** Утверждённое декларативное положение HL, которое ни одна роль не вправе менять вне процедуры внесения поправок. **Нормативный источник:** [conventions.md](conventions.md#hl-high-level), правила 3–5 `HL Contract`.
 
 ### Amendment
-**Meaning:** An evidence-, cost-, and impact-backed proposal for an owner ruling on a frozen claim. **Authority:** [conventions.md](conventions.md#hl-high-level), `HL Contract` rules 10–12.
+**Значение:** Подкреплённое свидетельствами, стоимостью и оценкой влияния предложение, по которому владелец должен вынести решение об изменении замороженного положения. **Нормативный источник:** [conventions.md](conventions.md#hl-high-level), правила 10–12 `HL Contract`.
 
 ### Amendment Log
-**Meaning:** HL §12's append-only record of amendment proposals, owner verdicts, and resulting state. **Authority:** `.tfw/templates/HL.md` §12.
+**Значение:** Дополняемая только в конец запись в разделе 12 HL о предложениях поправок, вердиктах владельца и последующих изменениях состояния. **Нормативный источник:** `.tfw/templates/HL.md` §12.
 
 ### Project North Star
-**Meaning:** The highest-priority statement of what the project builds, why, and what it deliberately does not build. **Authority:** [conventions.md](conventions.md#project-north-star), `Project North Star`.
+**Значение:** Приоритетное утверждение о том, что создаёт проект, зачем он нужен и от чего он сознательно отказывается. **Нормативный источник:** [conventions.md](conventions.md#project-north-star), `Project North Star`.
 
 ### Purpose Check
-**Meaning:** The Reviewer's independent comparison of the delivered result with the North Star and frozen contract baseline. **Authority:** `.tfw/templates/review/judge.md`, `Purpose Check`.
+**Значение:** Независимое сравнение Reviewer поставленного результата с North Star и замороженной исходной версией контракта. **Нормативный источник:** `.tfw/templates/review/judge.md`, `Purpose Check`.
 
 ### not fit for purpose
-**Meaning:** A Purpose Check result stating that green local criteria still fail the approved intended outcome. **Authority:** `.tfw/templates/review/judge.md`, `Purpose Check`.
+**Значение:** Результат Purpose Check, означающий, что даже при успешных локальных критериях результат не соответствует утверждённой цели. **Нормативный источник:** `.tfw/templates/review/judge.md`, `Purpose Check`.
 
 ### Deferral confession
-**Meaning:** An explicit statement that the contract remains unmet when a material gap is deliberately deferred. **Authority:** [.tfw/templates/review/judge.md](templates/review/judge.md#purpose-check), `Purpose Check`.
+**Значение:** Явное признание, что контракт не выполнен, когда существенный пробел намеренно откладывают. **Нормативный источник:** [.tfw/templates/review/judge.md](templates/review/judge.md#purpose-check), `Purpose Check`.
 
-## Knowledge Terms
+## Термины работы со знаниями
 
 ### Fact Candidate
-**Meaning:** An unverified observation whose value depends on human knowledge and may be promoted only through consolidation. **Authority:** [.tfw/workflows/knowledge.md](workflows/knowledge.md#step-2--gather), `Step 2 — Gather`.
+**Значение:** Непроверенное наблюдение, ценность которого зависит от человеческого знания; его можно повысить до знания только в ходе обобщения. **Нормативный источник:** [.tfw/workflows/knowledge.md](workflows/knowledge.md#step-2--gather), `Step 2 — Gather`.
 
 ### Strategic Insight
-**Meaning:** Human-sourced domain knowledge captured with implications during planning, research, or execution. **Authority:** `.tfw/templates/{HL,RES,RF}.md`, each `Strategic Insights` section.
+**Значение:** Полученное от человека знание предметной области с зафиксированными последствиями; его сохраняют при планировании, исследовании или выполнении. **Нормативный источник:** `.tfw/templates/{HL,RES,RF}.md`, раздел `Strategic Insights` в каждом файле.
 
 ### Value Flow
-**Meaning:** HL §3.2's input-to-transformation-to-outcome view of how the proposed result creates value. **Authority:** `.tfw/templates/HL.md` §3.2.
+**Значение:** Представление в HL §3.2 о входных данных, преобразовании и результате, показывающее, как предложенное решение создаёт ценность. **Нормативный источник:** `.tfw/templates/HL.md` §3.2.
 
 ### Result Visualization
-**Meaning:** HL §3.1's concrete preview of the completed result. **Authority:** `.tfw/templates/HL.md` §3.1.
+**Значение:** Конкретный предварительный образ завершённого результата в HL §3.1. **Нормативный источник:** `.tfw/templates/HL.md` §3.1.
 
 ### Findings Map
-**Meaning:** RES's analytical visualization of relationships among findings, causes, or alternatives. **Authority:** `.tfw/templates/RES.md`, `Findings Map`.
+**Значение:** Аналитическая визуализация в RES, показывающая связи между выводами, причинами или альтернативами. **Нормативный источник:** `.tfw/templates/RES.md`, `Findings Map`.
 
 ### Per-template Naming
-**Meaning:** One cognitive mode keeps one section name, while distinct modes use distinct names. **Authority:** [conventions.md](conventions.md#artifact-owned-semantic-sections), `Artifact-owned semantic sections`.
+**Значение:** Для одного типа мыслительной работы используется одно название раздела, а разные типы получают разные названия. **Нормативный источник:** [conventions.md](conventions.md#artifact-owned-semantic-sections), `Artifact-owned semantic sections`.
 
-## Evidence Terms
+## Термины работы со свидетельствами
 
 ### Evidence
-**Meaning:** Observation of completed work in its intended environment, distinct from synthetic verification output. **Authority:** [conventions.md](conventions.md#artifact-owned-semantic-sections), `Artifact-owned semantic sections`.
+**Значение:** Наблюдение за выполненной работой в целевой среде; отличается от результата синтетической проверки. **Нормативный источник:** [conventions.md](conventions.md#artifact-owned-semantic-sections), `Artifact-owned semantic sections`.
 
 ### Evidence Plan
-**Meaning:** The TS per-criterion prescription of environment, action, and observable success. **Authority:** `.tfw/templates/TS.md` §5.
+**Значение:** Заданные в TS для каждого критерия среда, действие и наблюдаемый признак успеха. **Нормативный источник:** `.tfw/templates/TS.md` §5.
 
 ### Evidence Collection
-**Meaning:** The Executor activity after the build gate and before the Pre-RF Gate that records each AC using the evidence vocabulary. **Authority:** [.tfw/workflows/handoff.md](workflows/handoff.md#step-2--implement-and-prove), `Step 2 — Implement and prove`.
+**Значение:** Этап работы Executor после контрольной точки сборки и до Pre-RF Gate, когда каждый AC фиксируется по принятому словарю свидетельств. **Нормативный источник:** [.tfw/workflows/handoff.md](workflows/handoff.md#step-2--implement-and-prove), `Step 2 — Implement and prove`.
 
 ### Evidence Audit
-**Meaning:** The Reviewer's independent check that EV claims resolve and agree with the delivered result. **Authority:** `.tfw/templates/review/verify.md`, `Evidence Verification`.
+**Значение:** Независимая проверка Reviewer: действительно ли подтверждаются утверждения EV и соответствуют ли они поставленному результату. **Нормативный источник:** `.tfw/templates/review/verify.md`, `Evidence Verification`.
 
 ### Evidence Status Vocabulary
-**Meaning:** The closed EV result set `VERIFIED`, `DEFERRED`, `BLOCKED`, and `N/A`. **Authority:** `.tfw/templates/evidence/EV.md`, `Evidence Table`.
+**Значение:** Закрытый набор итогов EV: `VERIFIED`, `DEFERRED`, `BLOCKED` и `N/A`. **Нормативный источник:** `.tfw/templates/evidence/EV.md`, `Evidence Table`.
 
-## Commit Attribution
+## Атрибуция коммита
 
-**Meaning:** The structured first-line prefix that makes an AI-authored commit searchable without classifying unmarked commits. **Authority:** [conventions.md](conventions.md#commit-attribution), `Commit Attribution`.
+**Значение:** Структурированный префикс первой строки коммита, позволяющий находить коммиты, созданные ИИ, не классифицируя те, где такой отметки нет. **Нормативный источник:** [conventions.md](conventions.md#commit-attribution), `Commit Attribution`.
 
-## Task Naming
+## Именование поручений
 
 ### Local Daily Task
 
-**Meaning:** An optional bounded one-worker application of existing Goal, Value, Context,
-Boundaries, Task and selected Trace meanings outside the formal Full task corpus. It is not a
-cadence, risk grade, edition or formal lifecycle status. Existing project record forms prevail;
-new-project records use an immutable dated folder and a Daily-owned task.md. A local check does
-not assert human acceptance or a Full review verdict. **Authority:**
-[conventions.md](conventions.md#formal-full-task-scope-and-local-daily-work),
-`Formal Full task scope and local Daily work`, and the optional
-[canonical skill](extensions/daily-task/SKILL.md).
+**Значение:** Необязательное ограниченное применение одним исполнителем существующих понятий Goal, Value, Context, Boundaries, Task и выбранного Trace вне формального набора задач Full. Это не периодичность, оценка риска, редакция или формальный статус жизненного цикла. Действуют существующие формы записей проекта; в новом проекте записи хранятся в неизменяемой папке с датой, а файл `task.md` принадлежит Daily. Локальная проверка не означает человеческую приёмку или вердикт Full Review. **Нормативный источник:** [conventions.md](conventions.md#formal-full-task-scope-and-local-daily-work), `Formal Full task scope and local Daily work` и необязательный [канонический навык](extensions/daily-task/SKILL.md).
 
-**Meaning:** A current task uses the full approved `{PREFIX}_{YYYYMMDD-HHMMSS}_{ABBR}` directory name as its identifier. **Authority:** [conventions.md](conventions.md#identifier), `Identifier`, and `tfw.task_prefix`.
+**Значение:** Текущее поручение использует полное утверждённое имя каталога `{PREFIX}_{YYYYMMDD-HHMMSS}_{ABBR}` в качестве своего идентификатора. **Нормативный источник:** [conventions.md](conventions.md#identifier), `Identifier` и `tfw.task_prefix`.
 
-## Status Flow
+## Поток статусов
 
-**Meaning:** The closed task/phase lifecycle from TODO through execution, review, optional knowledge
-capture, and a terminal outcome. **Authority:** [conventions.md](conventions.md#5-task-statuses),
-`Task Statuses`, and `.tfw/templates/status.md`.
+**Значение:** Закрытый жизненный цикл поручения или этапа: от TODO через выполнение и проверку, при необходимости фиксацию знаний, до конечного результата. **Нормативный источник:** [conventions.md](conventions.md#5-task-statuses), `Task Statuses` и `.tfw/templates/status.md`.
 
 ### UNDECLARED
-**Meaning:** A non-selectable migration value preserving a legacy status outside the closed vocabulary until an owner resolves it by a two-act transition. **Authority:** [conventions.md](conventions.md#5-task-statuses), `Task Statuses`.
+**Значение:** Недопустимое для выбора миграционное значение, временно сохраняющее старый статус вне закрытого словаря, пока владелец не разрешит его двумя действиями. **Нормативный источник:** [conventions.md](conventions.md#5-task-statuses), `Task Statuses`.
 
 ### KNW (Knowledge Capture)
-**Meaning:** The post-review stage for applicable documentation, knowledge qualification and checked final effects before closure. **Authority:** [conventions.md](conventions.md#closing-and-record-recovery), `Closing and record recovery`.
+**Значение:** Этап после проверки: подходящая документация, квалификация знаний и проверка окончательных последствий перед закрытием. **Нормативный источник:** [conventions.md](conventions.md#closing-and-record-recovery), `Closing and record recovery`.
 
 ### Revision
-**Meaning:** A repair round whose individual findings retain their class, route and Candidate effect;
-the highest required authority sequences only the next act and selects either the existing approved
-TS plus ruled live REVIEW or the highest approved TS sibling, while ONB/RF/EV append. **Authority:** [conventions.md](conventions.md#5-task-statuses),
-`The 🔄 REVISE route`, and `Artifact file naming`.
+**Значение:** Цикл исправления, в котором каждый вывод сохраняет собственный класс, маршрут и последствия для Candidate. Роль с наивысшими необходимыми полномочиями задаёт только следующее действие и выбирает один из вариантов: действующий утверждённый TS вместе с решением по текущему REVIEW либо наиболее высокий утверждённый соседний TS; ONB/RF/EV дополняются. **Нормативный источник:** [conventions.md](conventions.md#5-task-statuses), `The 🔄 REVISE route` и `Artifact file naming`.
 
 ### Citation bar
-**Meaning:** A returning item must cite the affected approved claim or authority and state the fact,
-oracle, harm and material consequence; a breach or citation alone is insufficient. **Authority:** [conventions.md](conventions.md#5-task-statuses), `REVISE`, and `.tfw/templates/REVIEW.md` §5.
+**Значение:** При возврате замечания нужно сослаться на затронутое утверждённое положение или полномочие и указать факт, эталон, вред и существенное последствие. Само нарушение или ссылка недостаточны. **Нормативный источник:** [conventions.md](conventions.md#5-task-statuses), `REVISE` и `.tfw/templates/REVIEW.md` §5.
 
 ### Rung
-**Meaning:** The authority and owner needed to complete one material finding. It does not reclassify
-other items or move their Candidate. **Authority:** [conventions.md](conventions.md#15-role-lock-protocol), `Role Lock Protocol`.
+**Значение:** Полномочия и решение владельца, необходимые для закрытия одного существенного вывода. Они не меняют классификацию других замечаний или их Candidate. **Нормативный источник:** [conventions.md](conventions.md#15-role-lock-protocol), `Role Lock Protocol`.
 
-## Concept Taxonomy
+## Таксономия понятий
 
-| Level | Question | Owner |
+| Уровень | Вопрос | Источник |
 |---|---|---|
-| Purpose | Why and for whom? | Project North Star / HL |
-| Architecture | Which durable structure? | HL / KNOWLEDGE decisions |
-| Convention | Which shared rule? | `conventions.md` |
-| Implementation | How in this scope? | TS / code / RF |
+| Purpose | Зачем и для кого? | Project North Star / HL |
+| Architecture | Какая долговечная структура? | Решения HL / KNOWLEDGE |
+| Convention | Какое общее правило действует? | `conventions.md` |
+| Implementation | Как выполнить эту задачу? | TS / код / RF |
 
-## Roles
+## Роли
 
 ### User (Human)
-**Meaning:** The accountable stakeholder who approves scope, frozen claims, and human-only decisions. **Authority:** [conventions.md](conventions.md#15-role-lock-protocol), `Role Lock Protocol`.
+**Значение:** Ответственный участник, который утверждает объём работ, замороженные положения и решения, принимаемые только человеком. **Нормативный источник:** [conventions.md](conventions.md#15-role-lock-protocol), `Role Lock Protocol`.
 
 ### Coordinator (AI)
-**Meaning:** The planning role that writes HL/TS and rules review dispositions without implementing. **Authority:** [.tfw/workflows/plan.md](workflows/plan.md), `ROLE LOCK: COORDINATOR`.
+**Значение:** Роль планирования: создаёт HL/TS и определяет порядок рассмотрения замечаний, но не выполняет реализацию. **Нормативный источник:** [.tfw/workflows/plan.md](workflows/plan.md), `ROLE LOCK: COORDINATOR`.
 
 ### Researcher (AI)
-**Meaning:** The investigation role that writes RES and research stage files without changing the contract. **Authority:** [.tfw/workflows/research/base.md](workflows/research/base.md), `ROLE LOCK: RESEARCHER`.
+**Значение:** Роль исследования: создаёт RES и файлы этапов исследования, не меняя контракт. **Нормативный источник:** [.tfw/workflows/research/base.md](workflows/research/base.md), `ROLE LOCK: RESEARCHER`.
 
 ### Executor (AI)
-**Meaning:** The delivery role that writes ONB, implementation, evidence, and RF only inside an approved TS. **Authority:** [.tfw/workflows/handoff.md](workflows/handoff.md), `ROLE LOCK: EXECUTOR`.
+**Значение:** Роль выполнения: создаёт ONB, реализацию, свидетельства и RF только в пределах утверждённого TS. **Нормативный источник:** [.tfw/workflows/handoff.md](workflows/handoff.md), `ROLE LOCK: EXECUTOR`.
 
 ### Reviewer (AI — coordinator under the reviewer Role Lock)
-**Meaning:** The independent verification role that writes review artifacts and never implementation or governing HL/TS. **Authority:** [.tfw/workflows/review.md](workflows/review.md), `ROLE LOCK: REVIEWER`.
+**Значение:** Роль независимой проверки: создаёт артефакты Review, не занимается реализацией и не редактирует управляющие HL/TS. **Нормативный источник:** [.tfw/workflows/review.md](workflows/review.md), `ROLE LOCK: REVIEWER`.
 
 ### Principal
 
-**Meaning:** Optional stable project-local participant attribution; it never grants activation or authority. **Authority:** [conventions.md](conventions.md#declared-participants-and-principals), `Declared participants and principals`.
+**Значение:** Необязательная стабильная атрибуция участника в пределах проекта; она не предоставляет активацию или полномочия. **Нормативный источник:** [conventions.md](conventions.md#declared-participants-and-principals), `Declared participants and principals`.
 
 ### Initiation Chain
 
-**Meaning:** Human-rooted working-unit delegation path. **Authority:** [conventions.md](conventions.md#hl-contract), `HL Contract` rule 8.
+**Значение:** Цепочка делегирования рабочих подразделений, исходящая от человека. **Нормативный источник:** [conventions.md](conventions.md#hl-contract), правило 8 `HL Contract`.
 
-## Execution Gates
+## Контрольные точки выполнения
 
 ### Acceptance Criteria (TS)
-**Meaning:** Observable conditions that define whether the scoped result is acceptable. **Authority:** `.tfw/templates/TS.md` §5.
+**Значение:** Наблюдаемые условия, определяющие, приемлем ли результат в заданных границах. **Нормативный источник:** `.tfw/templates/TS.md` §5.
 
 ### Technical Guidance (TS)
-**Meaning:** Non-normative implementation advice subordinate to acceptance criteria. **Authority:** `.tfw/templates/TS.md` §6.
+**Значение:** Необязательные рекомендации по реализации, подчинённые критериям приёмки. **Нормативный источник:** `.tfw/templates/TS.md` §6.
 
 ### Definition of Failure (TS)
-**Meaning:** Explicit outcomes that invalidate delivery even if individual checks appear green. **Authority:** `.tfw/templates/TS.md` §7.
+**Значение:** Явные условия, при которых результат не принимается, даже если отдельные проверки прошли успешно. **Нормативный источник:** `.tfw/templates/TS.md` §7.
 
 ### Principles Check
-**Meaning:** The TS mapping from each frozen design principle to an enforcement site and gate. **Authority:** `.tfw/templates/TS.md` §3.
+**Значение:** В TS каждому замороженному принципу проектирования сопоставлены место обеспечения и контрольная точка. **Нормативный источник:** `.tfw/templates/TS.md` §3.
 
 ### AC Dependency Annotation
-**Meaning:** `[depends: AC-X]` forbids starting a dependent criterion until its prerequisite is verified. **Authority:** `.tfw/templates/TS.md` §5 and `handoff.md` **Implement**.
+**Значение:** Пометка `[depends: AC-X]` запрещает начинать зависимый критерий до проверки предварительного. **Нормативный источник:** `.tfw/templates/TS.md` §5 и `Implement` в `handoff.md`.
 
 ### Execution Loop
-**Meaning:** The Executor implements and verifies each prerequisite AC before any annotated dependent AC proceeds. **Authority:** [.tfw/workflows/handoff.md](workflows/handoff.md#step-2--implement-and-prove), `Step 2 — Implement and prove`.
+**Значение:** Executor выполняет и проверяет каждый предварительный AC до перехода к зависимым критериям с соответствующей пометкой. **Нормативный источник:** [.tfw/workflows/handoff.md](workflows/handoff.md#step-2--implement-and-prove), `Step 2 — Implement and prove`.
 
 ### Pre-TS Gate
-**Meaning:** Planning must inspect the latest dependency RF before specifying a later phase. **Authority:** [.tfw/workflows/plan.md](workflows/plan.md#planning-steps), `Write TS — Executor Freedom Gate`.
+**Значение:** Перед описанием следующего этапа при планировании нужно изучить последний RF его зависимого этапа. **Нормативный источник:** [.tfw/workflows/plan.md](workflows/plan.md#planning-steps), `Write TS — Executor Freedom Gate`.
 
 ### Pre-RF Gate
-**Meaning:** Before writing RF, the Executor opens `.tfw/templates/RF.md` and reads every section heading. **Authority:** [.tfw/workflows/handoff.md](workflows/handoff.md#step-3--rf-and-stop), `Step 3 — RF and stop`.
+**Значение:** Перед созданием RF Executor открывает `.tfw/templates/RF.md` и читает заголовки всех разделов. **Нормативный источник:** [.tfw/workflows/handoff.md](workflows/handoff.md#step-3--rf-and-stop), `Step 3 — RF and stop`.
 
 ### Session Naming
-**Meaning:** A non-authoritative navigation title bound to a resolved task/phase. **Authority:** [conventions.md](conventions.md#session-identity), `Session identity`; workflows own the application checkpoint.
+**Значение:** Неавторитетное навигационное название, привязанное к разрешённому поручению или этапу. **Нормативный источник:** [conventions.md](conventions.md#session-identity), `Session identity`; применение определяется контрольной точкой соответствующего рабочего процесса.
 
 ### Phase Dependencies
-**Meaning:** HL §4's graph and table state predecessor, shared-file, and parallel-execution relationships. **Authority:** `.tfw/templates/HL.md` §4.
+**Значение:** Граф и таблица в HL §4, где указаны предшественники, общие файлы и связи параллельного выполнения. **Нормативный источник:** `.tfw/templates/HL.md` §4.
 
 ## RESEARCH
 
-**Meaning:** The optional Researcher-locked investigation stage between HL framing and executable TS. **Authority:** [.tfw/workflows/research/base.md](workflows/research/base.md), `Core Algorithm`.
+**Значение:** Необязательный этап исследования под Role Lock Researcher между формулировкой HL и исполнимым TS. **Нормативный источник:** [.tfw/workflows/research/base.md](workflows/research/base.md), `Core Algorithm`.
 
 ## Pass (Research)
 
-**Meaning:** A bounded analytical lens inside a stage; passes do not create separate lifecycle state. **Authority:** `.tfw/templates/research/*.md`.
+**Значение:** Ограниченный аналитический ракурс внутри этапа; проходы не создают отдельного состояния жизненного цикла. **Нормативный источник:** `.tfw/templates/research/*.md`.
 
 ## Iteration (Research)
 
-**Meaning:** One complete Briefing→Gather→Extract→Challenge→RES cycle preserved in its own directory. **Authority:** `research/base.md`, `Resume & Iteration Detection`.
+**Значение:** Один полный цикл Briefing→Gather→Extract→Challenge→RES, сохранённый в отдельной папке. **Нормативный источник:** `research/base.md`, `Resume & Iteration Detection`.
 
 ## iterations.yaml
 
-**Meaning:** Coordinator-owned research control state declaring prepared iterations and their
-completion without owning task lifecycle. **Authority:** `.tfw/workflows/plan.md`, `Research`;
-`.tfw/workflows/research/base.md` consumes but never creates or edits it.
+**Значение:** Управляемое Coordinator состояние исследования: в нём указаны подготовленные итерации и их завершение, но не жизненный цикл поручения. **Нормативный источник:** `.tfw/workflows/plan.md`, `Research`; `.tfw/workflows/research/base.md` использует этот файл, но не создаёт и не редактирует его.
 
 ## min_iterations
 
-**Meaning:** The minimum completed research cycles required before the Researcher may close. **Authority:** `tfw.research.min_iterations` in `.tfw/project_config.yaml`.
+**Значение:** Минимальное число завершённых циклов исследования, необходимое Researcher для закрытия этапа. **Нормативный источник:** `tfw.research.min_iterations` в `.tfw/project_config.yaml`.
 
 ## Read-only research scope
 
-**Meaning:** A Researcher activation that permits research traces while keeping implementation and governing artifacts read-only. **Authority:** `research/base.md`, `Role Lock` and `Activation and routing checkpoint`.
+**Значение:** Активация Researcher, разрешающая создавать следы исследования, но оставляющая реализацию и управляющие артефакты доступными только для чтения. **Нормативный источник:** `research/base.md`, `Role Lock` и `Activation and routing checkpoint`.
 
 ## Research — Dimensional Analysis
 
-**Meaning:** Research method mapping design dimensions and testing configurations before selection. **Authority:** [.tfw/workflows/research/base.md](workflows/research/base.md), `Step 5 — Run Stages (Gather → Extract → Challenge)`.
+**Значение:** Метод исследования, при котором перед выбором составляют карту параметров проекта и проверяют различные конфигурации. **Нормативный источник:** [.tfw/workflows/research/base.md](workflows/research/base.md), `Step 5 — Run Stages (Gather → Extract → Challenge)`.
 
 ### Dimension (Research)
-**Meaning:** An independent design axis with explicit alternatives. **Authority:** [Gather](templates/research/2_gather.md#dimensions).
+**Значение:** Независимое измерение проекта с явными вариантами. **Нормативный источник:** [Gather](templates/research/2_gather.md#dimensions).
 
 ### Alternative (Research)
-**Meaning:** One candidate value for a research dimension. **Authority:** [Gather](templates/research/2_gather.md#dimensions).
+**Значение:** Один возможный вариант значения параметра исследования. **Нормативный источник:** [Gather](templates/research/2_gather.md#dimensions).
 
 ### Configuration Space (Research)
-**Meaning:** The combinations induced by selected alternatives across dimensions. **Authority:** [Extract](templates/research/3_extract.md#configuration-space).
+**Значение:** Набор сочетаний выбранных вариантов по всем параметрам. **Нормативный источник:** [Extract](templates/research/3_extract.md#configuration-space).
 
 ### Consistency Check (Research)
-**Meaning:** The explicit test that removes configurations whose alternatives conflict. **Authority:** [Challenge](templates/research/4_challenge.md#consistency-check).
+**Значение:** Явная проверка, исключающая конфигурации с несовместимыми вариантами. **Нормативный источник:** [Challenge](templates/research/4_challenge.md#consistency-check).
 
 ### Surviving Configuration (Research)
-**Meaning:** The configuration remaining after consistency and evidence challenge. **Authority:** [Challenge](templates/research/4_challenge.md#consistency-check).
+**Значение:** Конфигурация, оставшаяся после проверки согласованности и свидетельств. **Нормативный источник:** [Challenge](templates/research/4_challenge.md#consistency-check).
 
 ## Phase
 
-**Meaning:** A scope-bounded unit of a multi-phase task with its own HL→TS→ONB→RF→REVIEW path and
-local lifecycle. **Authority:** [conventions.md](conventions.md#multi-phase-folder-structure),
-`Multi-phase folder structure`.
+**Значение:** Ограниченная по объёму единица многоэтапного поручения со своим маршрутом HL→TS→ONB→RF→REVIEW и локальным жизненным циклом. **Нормативный источник:** [conventions.md](conventions.md#multi-phase-folder-structure), `Multi-phase folder structure`.
 
 ## Step
 
-**Meaning:** One ordered action in a workflow. It has no independent lifecycle. **Authority:**
-[conventions.md](conventions.md#design-rules), `Design Rules`.
+**Значение:** Одно упорядоченное действие в рабочем процессе. У него нет отдельного жизненного цикла. **Нормативный источник:** [conventions.md](conventions.md#design-rules), `Design Rules`.
 
 ## Stage
 
-**Meaning:** One named cognitive subprocedure, such as Gather/Extract/Challenge or
-Map/Verify/Judge. It may own a trace or checkpoint; it is not a task phase. **Authority:**
-the owning Research or Review workflow.
+**Значение:** Именованная мыслительная подзадача, например Gather/Extract/Challenge или Map/Verify/Judge. У неё может быть собственный Trace или контрольная точка, но она не является этапом поручения. **Нормативный источник:** рабочий процесс Research или Review, который ею владеет.
 
 ## Gate
 
-**Meaning:** A condition that decides pass, stop, routing or authority before work continues. It is
-not a synonym for a step. **Authority:** the owning workflow and
-[conventions.md](conventions.md#design-rules), `Design Rules`.
+**Значение:** Условие, определяющее до продолжения работы прохождение, остановку, маршрут или полномочия. Это не синоним шага. **Нормативный источник:** соответствующий рабочий процесс и [conventions.md](conventions.md#design-rules), `Design Rules`.
 
 ## Multi-phase Handoff
 
-**Meaning:** Each phase's Coordinator launches its authorized roles; dependent planning uses the preceding RF. **Authority:** [plan.md](workflows/plan.md#planning-steps), `Coordination Selection Gate` and `Write TS — Executor Freedom Gate`.
+**Значение:** Coordinator каждого этапа запускает разрешённые для него роли; при планировании зависимого этапа используют предшествующий RF. **Нормативный источник:** [plan.md](workflows/plan.md#planning-steps), `Coordination Selection Gate` и `Write TS — Executor Freedom Gate`.
 
 ## Worktree Protocol
 
-**Meaning:** Concurrent-mutation isolation contract. **Authority:** [conventions.md](conventions.md#worktrees-for-concurrent-mutation), `Worktrees for concurrent mutation`.
+**Значение:** Соглашение об изоляции при параллельном изменении файлов. **Нормативный источник:** [conventions.md](conventions.md#worktrees-for-concurrent-mutation), `Worktrees for concurrent mutation`.
 
 ## Landing Commit
 
-**Meaning:** Cross-session deliverable-attribution commit. **Authority:** [conventions.md](conventions.md#landing-a-deliverable-across-sessions), `Landing a deliverable across sessions`.
+**Значение:** Коммит для атрибуции результата, подготовленного в нескольких сеансах. **Нормативный источник:** [conventions.md](conventions.md#landing-a-deliverable-across-sessions), `Landing a deliverable across sessions`.
 
 ## Scope Budget
 
-**Meaning:** Logical touched `VALUE` files and touched text LOC over a phase's declared value-bearing surface. Soft configured triggers prompt decomposition; the owner multiplier limits prospective Coordinator authority against the immutable approved plan. **Authority:** [conventions.md](conventions.md#6-scope-budgets-per-phase), `Scope Budgets (per Phase)` owns classification, accounting and rulings.
+**Значение:** Число затронутых логических файлов `VALUE` и текстовых строк LOC на заявленной ценностной поверхности этапа. Настроенные мягкие пороги предлагают разделить работу; множитель владельца ограничивает будущие полномочия Coordinator неизменяемым утверждённым планом. **Нормативный источник:** [conventions.md](conventions.md#6-scope-budgets-per-phase), раздел `Scope Budgets (per Phase)` о классификации, учёте и решениях.
 
 ## Topic File
 
-**Meaning:** A `knowledge/{category}.md` store of verified project facts for one category. **Authority:** [conventions.md](conventions.md#102-knowledge-infrastructure), `Knowledge Infrastructure`.
+**Значение:** Файл `knowledge/{category}.md` с проверенными фактами проекта по одной категории. **Нормативный источник:** [conventions.md](conventions.md#102-knowledge-infrastructure), `Knowledge Infrastructure`.
 
 ## Knowledge Gate
 
-**Meaning:** Retired global pending-count mechanism, retained only in historical sources. Current material obligations are checked at selected handover, use and close. **Authority:** [conventions.md](conventions.md#knowledge-handover), `Knowledge handover` and `Current knowledge use`.
+**Значение:** Упразднённый общий механизм подсчёта ожидающих задач, сохранённый только в исторических источниках. Сейчас существенные обязательства проверяют при выбранной передаче, использовании и закрытии знаний. **Нормативный источник:** [conventions.md](conventions.md#knowledge-handover), `Knowledge handover` и `Current knowledge use`.
 
 ## Consolidation
 
-**Meaning:** Source-bound qualification and completed dispositions for explicitly selected human knowledge; no global batch, markers or state writes. **Authority:** [.tfw/workflows/knowledge.md](workflows/knowledge.md), Steps 2–4.
+**Значение:** Квалификация с привязкой к источнику и завершённые решения по явно выбранным человеческим знаниям; без глобальной пакетной обработки, маркеров или записи состояния. **Нормативный источник:** [.tfw/workflows/knowledge.md](workflows/knowledge.md), шаги 2–4.
 
 ## Qualified Record
 
-**Meaning:** An independently addressable source-bound claim/decision with intent, scope, grounds,
-disposition, producer, qualifier and real acceptance authority. Presence is not acceptance.
-**Authority:** [conventions.md](conventions.md#knowledge-qualification), `Knowledge qualification`.
+**Значение:** Независимо идентифицируемое утверждение или решение, привязанное к источнику и содержащее цель, область действия, основания, статус, автора, проверившее лицо и реальное полномочие принимать результат. Наличие записи само по себе не означает её приёмку. **Нормативный источник:** [conventions.md](conventions.md#knowledge-qualification), `Knowledge qualification`.
 
 ## Knowledge Handover
 
-**Meaning:** An actual producing-role return preserving available material context or a justified
-absence/unavailable/retention outcome; missing or owed material remains open.
-**Authority:** [conventions.md](conventions.md#knowledge-handover), `Knowledge handover`.
+**Значение:** Фактический возврат от производящей роли, сохраняющий доступный существенный контекст либо обоснованно указывающий на его отсутствие, недоступность или удержание. Недостающие или ожидаемые материалы остаются открытыми. **Нормативный источник:** [conventions.md](conventions.md#knowledge-handover), `Knowledge handover`.
 
 ## Current Knowledge Use
 
-**Meaning:** Apply relevant legacy/record claims only after source/scope/disposition and incoming
-successor/correction/equivalence/conflict checks. Newer time does not resolve conflicting authority.
-**Authority:** [conventions.md](conventions.md#current-knowledge-use), `Current knowledge use`.
+**Значение:** Применяйте подходящие прежние утверждения и записи только после проверки источника, области действия, статуса и входящих связей с преемниками, исправлениями, эквивалентностью или конфликтами. Более поздняя дата сама по себе не разрешает конфликт полномочий. **Нормативный источник:** [conventions.md](conventions.md#current-knowledge-use), `Current knowledge use`.
 
 ## Project Values (PV)
 
-PV is the ordered decision context below, not a fact inventory. New records join the semantic
-priority of their corresponding legacy source. Apply `Current knowledge use` to relevant records
-and incoming relations; role duties follow the table.
+PV — это упорядоченный контекст для решений, а не опись фактов. Новые записи получают смысловой приоритет соответствующего прежнего источника. Для релевантных записей и входящих связей применяйте `Current Knowledge Use`; обязанности ролей перечислены в таблице.
 
-### PV Index (scan order)
+### Индекс PV (порядок просмотра)
 
-| Priority | Source | What it contains |
+| Приоритет | Источник | Что содержит |
 |---|---|---|
-| 0 | **Project North Star** — designated README sections; otherwise master HL §1 at its contract baseline | What the project builds, why, and deliberately does not build |
-| 1 | `.tfw/README.md` `Methodology values` and `Success Criteria` | How TFW work is practiced and what observable success means |
-| 2 | `knowledge/philosophy.md` | Validated principles and design rationale |
-| 3 | `KNOWLEDGE.md` §1 | Architecture Decisions |
-| 4 | `conventions.md` `HL (High Level)`, `Design Rules`, and `Anti-patterns (prohibited)` | Contract, design, naming, and prohibitions |
-| 5 | `knowledge/convention.md` | Agreed standards and patterns |
-| 6 | `knowledge/process.md` | Process facts and workflow patterns |
-| 7 | Other `knowledge/*.md` | Domain, constraint, stakeholder, environment, and risk facts |
+| 0 | **Project North Star** — указанные разделы README; если их нет, раздел 1 основной HL на исходной версии контракта | Что создаёт проект, зачем он нужен и от чего он сознательно отказывается |
+| 1 | `.tfw/README.md`, разделы `Methodology values` и `Success Criteria` | Как вести работу TFW и что считать наблюдаемым успехом |
+| 2 | `knowledge/philosophy.md` | Проверенные принципы и основания проектирования |
+| 3 | `KNOWLEDGE.md` §1 | Архитектурные решения |
+| 4 | `conventions.md`, разделы `HL (High Level)`, `Design Rules` и `Anti-patterns (prohibited)` | Контракт, проектирование, именование и запреты |
+| 5 | `knowledge/convention.md` | Согласованные стандарты и шаблоны |
+| 6 | `knowledge/process.md` | Факты о процессах и шаблоны рабочих процессов |
+| 7 | Остальные `knowledge/*.md` | Факты о предметной области, ограничениях, участниках, среде и рисках |
 
-Priorities 0 and 1 remain distinct semantic items even when one file contains both.
+Приоритеты 0 и 1 остаются разными смысловыми пунктами, даже если собраны в одном файле.
 
-- **Coordinator:** scan P0–P4 and relevant P5–P7; write HL §7.2 with the exact item, link, and application.
-- **Reviewer:** independently scan P0–P4 and relevant P5–P7; verify resolution, existence, semantic match, and relevance in `verify.md`.
-- **Executor:** read HL §7.2 citations; confirm their use and add newly relevant items in ONB §7.
-- **Researcher:** read HL §7.2 citations and cross-reference relevant findings in RES.
+- **Coordinator:** просматривает P0–P4 и релевантные P5–P7; записывает в HL §7.2 точный пункт, ссылку и способ применения.
+- **Reviewer:** независимо просматривает P0–P4 и релевантные P5–P7; проверяет разрешение, существование, смысловое соответствие и релевантность в `verify.md`.
+- **Executor:** изучает ссылки в HL §7.2, проверяет, как они применены, и добавляет новые релевантные пункты в ONB §7.
+- **Researcher:** изучает ссылки в HL §7.2 и связывает с ними относящиеся к делу выводы в RES.
 
-**Authority:** [conventions.md](conventions.md#project-north-star), `.tfw/workflows/{plan,review}.md`, and `.tfw/templates/ONB.md` §7.
+**Нормативный источник:** [conventions.md](conventions.md#project-north-star), `.tfw/workflows/{plan,review}.md` и `.tfw/templates/ONB.md` §7.
 
 ## Config Sync Registry
 
-**Meaning:** The config workflow's closed map from each project setting to exact inline readers and generated adapter copies. **Authority:** [.tfw/workflows/config.md](workflows/config.md), `Config Sync Registry`.
+**Значение:** Закрытая карта рабочего процесса конфигурации: каждому параметру проекта сопоставлены точные места чтения и создаваемые копии адаптеров. **Нормативный источник:** [.tfw/workflows/config.md](workflows/config.md), `Config Sync Registry`.
 
 ## Tool Adapter
 
-**Meaning:** A vendor discovery root and `/tfw-*` command receivers routing to the tool-agnostic core. **Authority:** [conventions.md](conventions.md#9-tool-adapter-pattern) for runtime behavior; [.tfw/adapters/manifest.yaml](adapters/manifest.yaml) for tooling-only copy/check metadata.
+**Значение:** Корень обнаружения инструментов конкретного поставщика и получатели команд `/tfw-*`, перенаправляющие их в ядро, не зависящее от инструмента. **Нормативный источник:** [conventions.md](conventions.md#9-tool-adapter-pattern) для поведения среды выполнения; [.tfw/adapters/manifest.yaml](adapters/manifest.yaml) для метаданных о копиях и проверках.
 
 ## status.md
 
-**Meaning:** The only authority for one task or phase's current lifecycle, owner, and routing spine. **Authority:** [conventions.md](conventions.md#task-control-files), `Task control files`, and `.tfw/templates/status.md`.
+**Значение:** Единственный авторитетный источник текущего жизненного цикла, владельца и маршрута передачи одного поручения или этапа. **Нормативный источник:** [conventions.md](conventions.md#task-control-files), `Task control files`, и `.tfw/templates/status.md`.
 
 ## journal/
 
-**Meaning:** A task-local append-only set of immutable coordination events whose timestamped filenames are their identities. **Authority:** [conventions.md](conventions.md#task-control-files), `Task control files`, and `.tfw/templates/journal/event.md`.
+**Значение:** Дополняемый только в конец набор неизменяемых событий координации одного поручения; идентификатор каждого события — его файл с отметкой времени. **Нормативный источник:** [conventions.md](conventions.md#task-control-files), `Task control files`, и `.tfw/templates/journal/event.md`.
 
 ## Task discovery
 
-**Meaning:** Direct resolution of a selected whole task identifier through configured containers
-to its task-local state and artifacts. Optional read-only projections are disposable and never
-gate a transition. **Authority:** [conventions.md](conventions.md#discovery), `Discovery`.
+**Значение:** Поиск состояния и артефактов поручения в настроенных контейнерах по полному выбранному идентификатору. Дополнительные проекции только для чтения можно удалить; от них не зависит переход между состояниями. **Нормативный источник:** [conventions.md](conventions.md#discovery), `Discovery`.
 
 ## team/
 
-**Meaning:** Declared human and accountable agent-principal profiles, never per-session identities. Machine bindings remain outside project state. **Authority:** [conventions.md](conventions.md#declared-participants-and-principals), `Declared participants and principals`.
+**Значение:** Профили объявленных людей и ответственных участников-агентов, а не идентичности отдельных сеансов. Привязки машин хранят вне состояния проекта. **Нормативный источник:** [conventions.md](conventions.md#declared-participants-and-principals), `Declared participants and principals`.
 
 ## Historical Lookup
 
-Debt Registry — retired; see `tasks/DEBT-SNAPSHOT.md`.
+Debt Registry — устарел; см. `tasks/DEBT-SNAPSHOT.md`.
 
-Task Board — retired; see `tasks/BOARD-SNAPSHOT.md`.
+Task Board — устарел; см. `tasks/BOARD-SNAPSHOT.md`.
 
-Portfolio index — retired; current Full keeps no shared task cache or freshness duty. See D69,
-D73, D75, and D76.
+Индекс портфеля — устарел; текущий режим Full не использует общий кэш задач и не требует следить за его актуальностью. См. D69, D73, D75 и D76.
 
 ## Disposition
 
-**Meaning:** A review item becomes **paid** by a named phase, **promoted** to an existing task, or ruled **not material**; if payment is future, the same act must order that phase in a round with the item's cited condition, or `paid` is deferral. **Authority:** `.tfw/templates/REVIEW.md` §5 and [conventions.md](conventions.md#15-role-lock-protocol), `Role Lock Protocol`.
-Each item retains its class, route and Candidate effect. A non-material TRACE item remains a visible
-observation or finite current-carrier repair; it neither moves the Candidate nor restarts product
-execution. Any pending owed item keeps close open.
+**Значение:** Замечание Review закрывается через **paid** — устранено указанным этапом, **promoted** — передано в существующее поручение, либо признаётся **not material** — несущественным. Если исправление запланировано на будущее, в том же решении нужно назначить этот этап в соответствующем цикле и указать условие из замечания; иначе статус `paid` означает отсрочку. **Нормативный источник:** `.tfw/templates/REVIEW.md` §5 и [conventions.md](conventions.md#15-role-lock-protocol), `Role Lock Protocol`.
+
+Каждое замечание сохраняет свой класс, маршрут и последствия для Candidate. Несущественное замечание класса TRACE остаётся видимым наблюдением или ограниченным исправлением текущего носителя; оно не меняет Candidate и не запускает выполнение продукта заново. Пока остаются ожидающие обязательства по замечаниям, закрыть работу нельзя.
 
 ## project_config.yaml
 
-**Meaning:** Project-owned TFW configuration for identifiers, containers, commands, templates, budgets, and knowledge behavior. **Authority:** `.tfw/project_config.yaml` and `.tfw/templates/project_config.yaml`.
+**Значение:** Конфигурация TFW, принадлежащая проекту: идентификаторы, контейнеры, команды, шаблоны, бюджеты и правила работы со знаниями. **Нормативный источник:** `.tfw/project_config.yaml` и `.tfw/templates/project_config.yaml`.
 
 ## VERSION
 
-**Meaning:** The installed framework semantic version. **Authority:** `.tfw/VERSION`.
+**Значение:** Семантическая версия установленного framework. **Нормативный источник:** `.tfw/VERSION`.
 
 ## CHANGELOG.md
 
-**Meaning:** The versioned history of framework additions, changes, fixes, and removals. **Authority:** `.tfw/CHANGELOG.md`.
+**Значение:** История добавлений, изменений, исправлений и удалений framework с разбивкой по версиям. **Нормативный источник:** `.tfw/CHANGELOG.md`.
 
 ## Compilable Contract
 
-**Meaning:** The deterministic build-time specification for compiling TFW artifacts. **Authority:** [compilable_contract.md](compilable_contract.md).
+**Значение:** Детерминированная спецификация сборки для формирования артефактов TFW. **Нормативный источник:** [compilable_contract.md](compilable_contract.md).
 
 ## Reference Format
 
-**Meaning:** Standard cross-artifact citations resolved into links by the build. **Authority:** [compilable_contract.md](compilable_contract.md#2-reference-format), `Reference Format`.
+**Значение:** Стандартные ссылки между артефактами, которые сборка превращает в гиперссылки. **Нормативный источник:** [compilable_contract.md](compilable_contract.md#2-reference-format), `Reference Format`.
 
 ## Source Manifest
 
-**Meaning:** The ordered project-file inputs used by compilation utilities. **Authority:** [compilable_contract.md](compilable_contract.md#1-source-manifest), `Source Manifest`.
+**Значение:** Упорядоченный список файлов проекта, используемых утилитами сборки. **Нормативный источник:** [compilable_contract.md](compilable_contract.md#1-source-manifest), `Source Manifest`.
 
 ---
 
-## Project-Specific Terms
+## Термины конкретного проекта
 
-A receiving project may replace this section with local terms; no canonical workflow requires it.
+Проект-получатель может заменить этот раздел локальными терминами; ни один канонический рабочий процесс этого не требует.
 
-Standard `/tfw-economics` is installed/updated by default with selected adapters through the
-manifest and [core workflow](workflows/economics.md). It connects results to unique resources,
-uses sourced conditional API prices and preserves task-owned used quote/report epochs. Public
-provider/month observations live at `~/.tfw/rates`, fresh for the exact model/profile for less than
-30 days; lookup uses working first-party tools. Daily remains optional; four formal roles and
-existing authority/acceptance/source routes remain. Old optional/custom installations follow the
-core migration guide before connected writes. Neither API equivalents nor cache freshness prove
-subscription charges, historical unchanged prices, ROI or native cross-host behavior.
+Стандартный `/tfw-economics` по умолчанию устанавливается и обновляется через выбранные адаптеры по manifest и [основному рабочему процессу](workflows/economics.md). Он связывает результаты с отдельными ресурсами, использует обоснованные условные цены API и сохраняет эпохи ценовых расчётов и отчётов, использованных в конкретном поручении. Публичные наблюдения по поставщикам и месяцам хранятся в `~/.tfw/rates` и считаются актуальными менее 30 дней для точной модели и профиля; поиск выполняется действующими инструментами из первых рук. Daily остаётся необязательным; четыре формальные роли и существующие маршруты полномочий, приёмки и источников сохраняются. Перед связанными изменениями старых необязательных или пользовательских установок следует выполнить руководство по миграции основного процесса. Эквивалентность API или свежесть кэша не доказывают размер абонентских платежей, неизменность прошлых цен, окупаемость инвестиций или работу между хостами.

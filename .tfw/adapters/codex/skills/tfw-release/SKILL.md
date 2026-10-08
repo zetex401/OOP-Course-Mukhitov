@@ -1,20 +1,20 @@
 ---
 name: tfw-release
-description: Command /tfw-release routes a project-defined release effect under Trace-First Workflow. Use for /tfw-release, release scoping, versioning, changelog entries, tag planning, or release verification.
+description: Команда /tfw-release организует определённый проектом выпуск по правилам Trace-First Workflow. Используйте для /tfw-release, определения объёма выпуска, версионирования, записей в changelog, планирования тега или проверки выпуска.
 ---
 
 # /tfw-release
 
-This repository skill implements the `/tfw-release` command.
+Этот навык репозитория реализует команду `/tfw-release`.
 
 ## Contract
 
-- Treat literal `/tfw-release` input as a command. Also accept `tfw-release` and matching natural-language requests.
-- Confirm the repository contains `.tfw/`; read `RELEASE.md` only when the project provides it.
-- Resolve the selected project release effect and its authority; do not invent a universal versioning or publication policy.
-- Enforce the release workflow's Full/Daily authority and scope: permit only selected release artifacts and explicit project steps; forbid unrelated code changes.
-- Read `.tfw/workflows/release.md` completely and follow its Read Contract. Root instructions are already active; do not independently preload common files.
-- Do not tag, push, publish, or deploy unless both the workflow and user authorization permit it.
-- Preserve the selected release tree as an isolated complete effect and follow every verification and hard-stop gate.
+- Считайте точный ввод `/tfw-release` командой. Также принимайте `tfw-release` и соответствующие запросы на естественном языке.
+- Убедитесь, что в репозитории есть `.tfw/`; читайте `RELEASE.md`, только если проект его предоставляет.
+- Определите выбранный эффект выпуска проекта и соответствующие полномочия; не придумывайте универсальную политику версий или публикации.
+- Соблюдайте полномочия и границы Full/Daily в процессе выпуска: разрешены только выбранные артефакты выпуска и явно указанные проектом действия; запрещены посторонние изменения кода.
+- Полностью прочитайте `.tfw/workflows/release.md` и следуйте его Read Contract. Корневые инструкции уже действуют; не загружайте общие файлы повторно без необходимости.
+- Не создавайте теги, не отправляйте изменения, не публикуйте и не развёртывайте результат, если это не разрешено одновременно рабочим процессом и пользователем.
+- Сохраняйте выбранный набор файлов выпуска как изолированный полный результат и соблюдайте все контрольные точки проверки и остановки.
 
-Report the resolved version, changelog changes, verification results, and blocked gates.
+Сообщите установленную версию, изменения в changelog, результаты проверки и заблокированные контрольные точки.

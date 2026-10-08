@@ -1,18 +1,18 @@
 ---
 name: tfw-update
-description: Command /tfw-update upgrades and synchronizes local Trace-First Workflow files and adapters while preserving project state. Use for /tfw-update, upstream upgrades, version comparison, migration, or adapter repair.
+description: Команда /tfw-update обновляет и синхронизирует локальные файлы и адаптеры Trace-First Workflow, сохраняя состояние проекта. Используйте для /tfw-update, обновления upstream, сравнения версий, миграции или восстановления адаптера.
 ---
 
 # /tfw-update
 
-This repository skill implements the `/tfw-update` command.
+Этот навык репозитория реализует команду `/tfw-update`.
 
 ## Contract
 
-- Treat literal `/tfw-update` input as a command. Also accept `tfw-update` and matching natural-language requests.
-- Confirm the repository contains `.tfw/`.
-- Enforce the Coordinator role lock: permit `.tfw/` framework/config merges and adapter copies; forbid code changes.
-- Read `.tfw/workflows/update.md` completely and follow its Read Contract. Root instructions are already active; do not independently preload common files.
-- Preserve project state and customizations; follow every pin, classification, adapter, verification, briefing, cleanup, and hard-stop gate.
+- Считайте точный ввод `/tfw-update` командой. Также принимайте `tfw-update` и соответствующие запросы на естественном языке.
+- Убедитесь, что в репозитории есть `.tfw/`.
+- Соблюдайте Role Lock Coordinator: разрешены слияние файлов framework и конфигурации в `.tfw/`, а также копии адаптеров; запрещены изменения кода.
+- Полностью прочитайте `.tfw/workflows/update.md` и следуйте его Read Contract. Корневые инструкции уже действуют; не загружайте общие файлы повторно без необходимости.
+- Сохраняйте состояние и настройки проекта; соблюдайте все контрольные точки фиксации версий, классификации, работы с адаптерами, проверки, информирования, очистки и остановки.
 
-Report framework version status, copied adapters, preserved state, and manual merge risks.
+Сообщите состояние версии framework, скопированные адаптеры, сохранённое состояние и риски ручного слияния.

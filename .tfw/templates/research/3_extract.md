@@ -1,43 +1,43 @@
-# Extract — "What do we NOT see?"
-> **Mindset:** Analyst. You have the raw findings. Now build structure. Make combinations visible that nobody proposed.
-> **Test:** "Does my configuration space reveal at least one combination that nobody proposed in the Briefing?"
+# Extract — «Чего мы НЕ замечаем?»
+> **Роль мышления:** Аналитик. У вас есть исходные выводы; теперь создайте структуру и покажите сочетания, которых никто не предлагал.
+> **Проверка:** «Показывает ли пространство конфигураций хотя бы одно сочетание, которого не предлагали на Briefing?»
 > Parent: [HL-{ID}](../../HL-{ID}.md)
-> Goal: {from HL §1 Vision — one sentence}
+> Goal: {из HL §1 Vision — одним предложением}
 
 ## Configuration Space
 
-Build the full solution space by cross-referencing Gather's dimensions. Use the same dimension names as column headers.
+Постройте полное пространство решений, сопоставив измерения из Gather. Используйте названия измерений как заголовки столбцов.
 
-Do NOT evaluate yet — list all combinations that are not obviously contradictory.
+Пока НЕ оценивайте варианты — перечислите все сочетания, которые явно не противоречат друг другу.
 
-| Config | {D1 from Gather} | {D2 from Gather} | {D3 from Gather} |
+| Конфигурация | {D1 из Gather} | {D2 из Gather} | {D3 из Gather} |
 |--------|-----------------|-----------------|-----------------|
 | C1 | {Alt} | {Alt} | {Alt} |
 | C2 | {Alt} | {Alt} | {Alt} |
 | C3 | {Alt} | {Alt} | {Alt} |
 
-_If >30 combinations: list only configurations where ≥1 dimension differs from the first row's alternatives. Example: if C1 = (A, A, A), then only keep rows where at least one column is not A._
+_Если сочетаний больше 30, перечислите только конфигурации, в которых хотя бы одно измерение отличается от вариантов первой строки. Например, если C1 = (A, A, A), оставьте строки, где хотя бы в одном столбце указано не A._
 
-_If Gather used a comparison matrix (fewer than 3 dimensions): replace this table with a structured comparison of the options identified in Gather._
+_Если на Gather использовали сравнительную матрицу (измерений меньше трёх), замените таблицу структурированным сравнением найденных вариантов._
 
 ## Findings
 
-### {E1: analysis title}
-{content — patterns, comparisons, internal file analysis}
+### {E1: название анализа}
+{содержание — закономерности, сравнения, анализ внутренних файлов}
 
-### {E2: analysis title}
-{content}
+### {E2: название анализа}
+{содержание}
 
 ## Checkpoint
 
-| Found | Remaining |
+| Найдено | Осталось |
 |-------|-----------|
 | {key finding} | {gap, if any} |
 
-**Sufficiency:**
+**Достаточность:**
 - [ ] External source used?
 - [ ] Briefing gap closed?
-- [ ] Configuration Space built from Gather dimensions?
+- [ ] Построено ли Configuration Space на основе измерений Gather?
 
-Stage complete: YES / NO
-→ User decision: ___
+Этап завершён: YES / NO
+→ Решение пользователя: ___

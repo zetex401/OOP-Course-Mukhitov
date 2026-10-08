@@ -1,22 +1,22 @@
 ---
 name: tfw-research
-description: Command /tfw-research runs structured Trace-First Workflow research and creates RES plus stage traces. Use for /tfw-research, a TFW investigation, a research iteration, or a RES artifact.
+description: Команда /tfw-research проводит структурированное исследование Trace-First Workflow и создаёт RES и следы этапов. Используйте для /tfw-research, TFW-исследования, исследовательской итерации или артефакта RES.
 ---
 
 # /tfw-research
 
-This repository skill implements the `/tfw-research` command.
+Этот навык репозитория реализует команду `/tfw-research`.
 
 ## Contract
 
-- Treat literal `/tfw-research` input as a command. Also accept `tfw-research` and matching natural-language requests.
-- Confirm the repository contains `.tfw/`.
-- Enforce the Researcher role lock: permit RES and `research/` stage files; forbid HL, TS, ONB,
-  RF, REVIEW, and code.
-- Read `.tfw/workflows/research/base.md` completely and follow its Read Contract. Root instructions
-  are already active; do not independently preload `AGENTS.md` or any full common library.
-- Let the canonical workflow select the mode and first incomplete stage template; use
-  `.tfw/templates/RES.md` only at synthesis, never overwrite an earlier iteration, and obey every
-  WAIT/STOP gate.
+- Считайте точный ввод `/tfw-research` командой. Также принимайте `tfw-research` и соответствующие запросы на естественном языке.
+- Убедитесь, что в репозитории есть `.tfw/`.
+- Соблюдайте Role Lock Researcher: разрешены RES и файлы этапов в `research/`; запрещены HL, TS,
+  ONB, RF, REVIEW и код.
+- Полностью прочитайте `.tfw/workflows/research/base.md` и следуйте его Read Contract. Корневые
+  инструкции уже действуют; не загружайте отдельно `AGENTS.md` или всю общую библиотеку.
+- Следуйте каноническому рабочему процессу при выборе режима и первого незавершённого шаблона этапа;
+  используйте `.tfw/templates/RES.md` только при синтезе, никогда не перезаписывайте предыдущую
+  итерацию и соблюдайте все контрольные точки WAIT/STOP.
 
-When research ends, direct the user to `/tfw-plan` so a Coordinator can apply the findings.
+После завершения исследования направьте пользователя к `/tfw-plan`, чтобы Coordinator применил выводы.

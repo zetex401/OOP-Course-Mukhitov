@@ -1,48 +1,48 @@
-# Challenge — "What do we NOT expect?"
-> **Mindset:** Critic. You built the configurations. Now attack them. Every survivor needs evidence. Every elimination needs a reason.
-> **Test:** "Would my surviving configurations hold if a different researcher attacked them?"
+# Challenge — «Чего мы НЕ ожидаем?»
+> **Роль мышления:** Критик. Вы составили конфигурации — теперь проверьте их на прочность. Для каждого сохранившегося варианта нужны свидетельства, для каждого исключённого — основания.
+> **Проверка:** «Выдержат ли мои конфигурации проверку другого исследователя?»
 > Parent: [HL-{ID}](../../HL-{ID}.md)
-> Goal: {from HL §1 Vision — one sentence}
+> Goal: {из HL §1 Vision — одним предложением}
 
 ## Consistency Check
 
-Take each pair of dimensions from Gather and ask: "Can Alternative X coexist with Alternative Y?"
+Возьмите каждую пару измерений из Gather и спросите: «Могут ли вариант X и вариант Y существовать одновременно?»
 
-**Incompatible pairs:**
+**Несовместимые пары:**
 
-| Dimension A | Alternative | Dimension B | Alternative | Why incompatible |
+| Измерение A | Вариант | Измерение B | Вариант | Причина несовместимости |
 |------------|-------------|------------|-------------|-----------------|
 | {D1} | {Alt} | {D2} | {Alt} | {reason} |
 
-**Surviving configurations** (from Extract's Configuration Space, after removing rows containing incompatible pairs):
+**Сохранившиеся конфигурации** (из Configuration Space этапа Extract после удаления строк с несовместимыми парами):
 
-| Config | {D1} | {D2} | {D3} | Notes |
+| Конфигурация | {D1} | {D2} | {D3} | Примечания |
 |--------|------|------|------|-------|
 | {Cx} | {Alt} | {Alt} | {Alt} | |
 
-**Unexpected survivors** (configurations that survived but were not initially favored — worth highlighting):
-- {Config}: {why it survived despite being non-obvious}
+**Неожиданно сохранившиеся варианты** (конфигурации, прошедшие проверку, хотя поначалу им не отдавали предпочтения; их стоит выделить):
+- {Конфигурация}: {почему она сохранилась, хотя это не было очевидно}
 
-_If Gather used a comparison matrix instead of a Dimensions table: use this section to stress-test each option against edge cases and counter-evidence._
+_Если на Gather использовали сравнительную матрицу вместо таблицы Dimensions, проверьте здесь каждый вариант на крайних случаях и контрсвидетельствах._
 
 ## Findings
 
-### {C1: edge case / stress test title}
-{content — what could go wrong, alternatives, counter-evidence}
+### {C1: название крайнего случая/стресс-проверки}
+{содержание — что может пойти не так, альтернативы, контрсвидетельства}
 
-### {C2: edge case / stress test title}
-{content}
+### {C2: название крайнего случая/стресс-проверки}
+{содержание}
 
 ## Checkpoint
 
-| Found | Remaining |
+| Найдено | Осталось |
 |-------|-----------|
 | {key finding} | {gap, if any} |
 
-**Sufficiency:**
+**Достаточность:**
 - [ ] External source used?
 - [ ] Briefing gap closed?
-- [ ] Pairwise incompatibility checked? Surviving configurations listed?
+- [ ] Проверена ли несовместимость каждой пары? Перечислены ли сохранившиеся конфигурации?
 
-Stage complete: YES / NO
-→ User decision: ___
+Этап завершён: YES / NO
+→ Решение пользователя: ___

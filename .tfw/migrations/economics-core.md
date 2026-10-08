@@ -1,40 +1,51 @@
-# Economics optional-to-core transition
+# Переход Economics из необязательного компонента в ядро
 
-Pin one full immutable target SHA and VERSION; read its manifest/workflows/config and this guide.
-Economics is now standard for every selected adapter. The manifest expands its exact command set;
-there are still four formal roles. Standalone analysis defaults to Coordinator scope, while
-task-bound analysis preserves the active role/authority/return. Daily remains explicitly opt-in.
+Закрепите полный неизменяемый SHA и VERSION целевой версии; прочитайте её manifest, рабочие
+процессы, конфигурацию и это руководство. Теперь Economics входит в стандартную поставку каждого
+выбранного адаптера. Manifest расширяет точный набор команд; формальных ролей по-прежнему четыре.
+Отдельный анализ по умолчанию относится к области Coordinator, а анализ поручения сохраняет
+активную роль, полномочия и маршрут возврата. Daily по-прежнему подключается только по явному выбору.
 
-Before any connected write compare receiver before-images to the verified previous immutable
-source/receipt and target. The core group is economics workflow, numeric directory/report template,
-manifest/config registration and selected adapter entries/managed blocks. Classify each absent,
-package-owned, project-selected compatible, custom or ambiguous. Classify shared Daily dependencies
-once. Preserve all original task JSONL/revisions, reports, local selected Daily forms and neighbours.
+Перед любой связанной записью сравните исходные копии файлов проекта-получателя с проверенным
+предыдущим неизменяемым источником/квитанцией и целевой версией. В группу ядра входят рабочий
+процесс Economics, каталог числовых данных и шаблон отчёта, регистрация в manifest/конфигурации и
+выбранные входные точки/управляемые блоки адаптеров. Классифицируйте каждый элемент как отсутствующий,
+принадлежащий пакету, совместимый с выбранным проектом, пользовательский или неоднозначный.
+Общие зависимости Daily классифицируйте один раз. Сохраните все исходные JSONL/редакции поручений,
+отчёты, выбранные локальные формы Daily и соседние файлы.
 
-Fresh install uses the clean config template merged with actual project settings and all manifest
-rows for selected adapters; it never installs Daily discovery or copies upstream live project state.
-Update/repair includes economics by default, including equal-version transition/re-entry. Merge
-missing workflow/cache defaults without resetting project/build/scope/owner choices. A compatible
-chosen dated card is preserved with actual hash/epoch; no quote/schema migration rewrites history.
+Новая установка использует чистый шаблон конфигурации, объединённый с фактическими настройками
+проекта и всеми строками manifest для выбранных адаптеров; обнаружение Daily не устанавливается и
+текущее состояние upstream-проекта не копируется. Обновление/восстановление по умолчанию включает
+Economics, в том числе переход или повторный вход при той же версии. Добавляйте отсутствующие
+значения по умолчанию для рабочего процесса/кэша, не сбрасывая решения проекта, сборки, объёма или
+владельца. Совместимая выбранная карточка с датой сохраняется с фактическим хешем/эпохой; миграция
+ценовых предложений или схем не переписывает историю.
 
-An old optional install has `.tfw/extensions/economics/` or optional discovery entries. Verify each
-against its actual prior source. The old canonical path may become the thin compatibility bridge;
-Codex/Antigravity targets become the standard manifest entry. Claude/Cursor use canonical command
-copies. Retire a redundant `.claude/skills/tfw-economics/SKILL.md` only after its package ownership,
-preserved before-image and replacement command are verified under current update authority.
-Unresolved/custom old canonical or entry refuses the whole dependent core write before mutation;
-preserve it and route the actual missing choice. Never install a competing algorithm, silently
-delete a custom alias or claim a preserved custom file equals upstream. Independent unrelated
-groups may proceed. Use existing content-addressed preservation/update receipts, not a new registry.
+Старая необязательная установка содержит `.tfw/extensions/economics/` или дополнительные входные
+точки обнаружения. Сверьте каждую с фактическим предыдущим источником. Прежний канонический путь
+может стать кратким переходом совместимости; цели Codex/Antigravity переходят к стандартной записи
+manifest. Claude/Cursor используют канонические копии команд. Удаляйте избыточный
+`.claude/skills/tfw-economics/SKILL.md` только после проверки принадлежности пакету, сохранённой
+исходной копии и заменяющей команды на основании действующих полномочий обновления. Если прежняя
+каноническая точка или входной файл пользовательские либо неразрешённые, остановите всю зависимую
+запись в ядро до изменения; сохраните их и передайте на решение фактически недостающий выбор.
+Не устанавливайте конкурирующий алгоритм, не удаляйте молча пользовательский псевдоним и не
+утверждайте, что сохранённый пользовательский файл совпадает с upstream. Независимые несвязанные
+группы можно обработать. Используйте существующие квитанции сохранения/обновления с адресацией по
+содержимому, не создавайте новый реестр.
 
-The legacy extension installation/entries are compatibility guidance only, excluded from ordinary
-default payload copying; they never opt into Daily. Custom shared numeric dependencies stop every
-dependent group. Leave the actual public home cache and task-owned used price copies untouched
-during framework install/update; agent acquisition uses the common quote contract separately.
+Установка и входные файлы прежнего расширения служат только руководством по совместимости и
+исключены из обычного копирования пакета по умолчанию; они не подключают Daily. Пользовательские
+общие числовые зависимости останавливают каждую связанную группу. При установке/обновлении
+framework оставьте публичный домашний кэш и использованные в поручениях копии цен без изменений;
+получение данных агентом регулируется отдельным общим контрактом ценовых предложений.
 
-Apply only authorized rows from one pinned tree. Verify all selected manifest sources/targets,
-managed blocks, canonical resolution, preserved before-image hashes, selected config registration,
-source/copy parity and second-run no diff. Refusal leaves the dependent before-image unchanged.
-Report exact SHA/VERSION, applied/preserved/retired/refused paths and remaining authority in the
-existing result/receipt. Filesystem parity is not native behavior; each unavailable host stays
-unproved. No production update/publication or owner result acceptance follows from this guide.
+Применяйте только разрешённые строки из одного закреплённого дерева. Проверьте все выбранные
+источники/цели manifest, управляемые блоки, разрешение канонических ссылок, хеши сохранённых
+исходных копий, регистрацию выбранной конфигурации, совпадение источника/копии и отсутствие
+различий при повторном запуске. При отказе исходная копия зависимого элемента остаётся без изменений.
+В существующем результате/квитанции укажите точные SHA/VERSION, применённые/сохранённые/удалённые/
+отклонённые пути и оставшиеся полномочия. Совпадение файлов не доказывает работу платформы; для
+каждого недоступного хоста она остаётся неподтверждённой. Это руководство не разрешает обновление
+продуктивной среды, публикацию или приёмку результата владельцем.

@@ -1,12 +1,14 @@
 ---
 name: tfw-economics
-description: Compatibility bridge from the previous optional Economics package to the standard canonical workflow.
+description: Совместимый переход от прежнего необязательного пакета Economics к стандартному каноническому рабочему процессу.
 ---
 
-# Economics compatibility bridge
+# Переход совместимости Economics
 
-Read `.tfw/workflows/economics.md` completely at the receiving root. It is the sole canonical
-analysis contract; this bridge adds no algorithm, role or authority. A missing core source stops.
-Standard entries are installed from the adapter manifest by default; Daily remains optional.
-Use [core migration](../../migrations/economics-core.md) before replacing or retiring any existing
-optional/custom source or entry. Preserve history and custom files; no blind deletion is permitted.
+Полностью прочитайте `.tfw/workflows/economics.md` в корне проекта-получателя. Это единственный
+канонический контракт анализа; данный переход не добавляет алгоритмов, ролей или полномочий.
+Если основной источник отсутствует, остановитесь. Стандартные входные точки по умолчанию
+устанавливаются из manifest адаптеров; Daily остаётся необязательным.
+Перед заменой или удалением существующего необязательного либо пользовательского источника или
+входной точки изучите [руководство по миграции ядра](../../migrations/economics-core.md).
+Сохраните историю и пользовательские файлы; удалять их без проверки запрещено.

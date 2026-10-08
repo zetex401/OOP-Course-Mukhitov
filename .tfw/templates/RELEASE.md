@@ -1,35 +1,36 @@
 # RELEASE.md — {Project Name}
 
-> Optional project-owned contract. Create only when this project has releases, publications, or versioned outputs.
+> Необязательный контракт проекта. Создавайте его, только если проект выпускает или публикует материалы либо версионирует результаты.
 
-## 1. What Is a Release?
+## 1. Что считается выпуском?
 
-{Identify the concrete output and condition that this project calls a release.}
+{Укажите конкретный результат и условие, при котором проект считает его выпуском.}
 
-## 2. Audience
+## 2. Аудитория
 
-{Identify who consumes the output.}
+{Укажите, кто использует результат.}
 
-## 3. Version Scheme
+## 3. Схема версий
 
-{State the project's version/identity rule, or `N/A` for a living unversioned output.}
+{Опишите правило версионирования или идентификации проекта либо укажите `N/A`, если результат развивается без версий.}
 
-## 4. Release Triggers
+## 4. Основания для выпуска
 
-{State when the owner chooses to prepare a release.}
+{Укажите, когда владелец решает готовить выпуск.}
 
-## 5. Pre-Release Checklist
+## 5. Контрольный список перед выпуском
 
-{List project-specific readiness evidence and checks for the work routes this project accepts:
-Full task/phase artifacts, Daily selected record/result/checks, or both. State any required independent
-review; do not invent Full artifacts for Daily or copy starter requirements by default.}
+{Перечислите проектные свидетельства готовности и проверки для используемых в проекте маршрутов:
+артефакты поручения/этапа Full, выбранная запись/результат/проверки Daily или оба варианта.
+Укажите обязательную независимую проверку. Не придумывайте артефакты Full для Daily и не копируйте
+требования стартового шаблона без необходимости.}
 
-- [ ] {project-specific check}
+- [ ] {проектная проверка}
 
-## 6. Release Steps
+## 6. Этапы выпуска
 
-{State project-specific preparation and separately authorized delivery effects.}
+{Опишите подготовку, специфичную для проекта, и отдельно — разрешённые действия по доставке результата.}
 
 ---
 
-> Maintained by the project owner. Referenced by `.tfw/workflows/release.md`.
+> Сопровождается владельцем проекта. На этот файл ссылается `.tfw/workflows/release.md`.

@@ -1,22 +1,22 @@
 ---
 name: tfw-review
-description: Command /tfw-review reviews a completed Trace-First Workflow RF against its TS, implementation, and evidence. Use for /tfw-review, a TFW verdict, RF verification, or a REVIEW artifact.
+description: Команда /tfw-review проверяет завершённый RF Trace-First Workflow на соответствие TS, реализации и свидетельствам. Используйте для /tfw-review, вердикта TFW, проверки RF или создания артефакта REVIEW.
 ---
 
 # /tfw-review
 
-This repository skill implements the `/tfw-review` command.
+Этот навык репозитория реализует команду `/tfw-review`.
 
 ## Contract
 
-- Treat literal `/tfw-review` input as a command. Also accept `tfw-review` and matching natural-language requests.
-- Confirm the repository contains `.tfw/`.
-- Enforce the Reviewer role lock: permit review stage files and REVIEW; forbid ONB, RF, HL, TS, RES, code, and implementation changes.
-- Read `.tfw/workflows/review.md` completely and follow its stage-specific Read Contract. Root
-  instructions are already active; do not independently preload `AGENTS.md` or any full common
-  library. Preserve separate Verify PV and Judge Purpose reads.
-- Open `.tfw/templates/review/*` and `.tfw/templates/REVIEW.md` only at their stage gates; verify
-  declarations against actual files/evidence and stop after the verdict and direct Coordinator return.
+- Считайте точный ввод `/tfw-review` командой. Также принимайте `tfw-review` и соответствующие запросы на естественном языке.
+- Убедитесь, что в репозитории есть `.tfw/`.
+- Соблюдайте Role Lock Reviewer: разрешены файлы этапов проверки и REVIEW; запрещены ONB, RF, HL, TS, RES, код и изменения реализации.
+- Полностью прочитайте `.tfw/workflows/review.md` и соблюдайте Read Contract каждого этапа. Корневые
+  инструкции уже действуют; не загружайте отдельно `AGENTS.md` или всю общую
+  библиотеку. Отдельно изучайте PV на этапе Verify и цель на этапе Judge.
+- Открывайте `.tfw/templates/review/*` и `.tfw/templates/REVIEW.md` только на контрольных точках соответствующих этапов; сверяйте утверждения с фактическими файлами и свидетельствами, а после вердикта и непосредственного возврата Coordinator остановитесь.
 
-After APPROVE, return to the existing Coordinator for the canonical closing route. Remain the
-independent Reviewer for affected final claims; never perform capture or declare DONE.
+После APPROVE вернитесь к действующему Coordinator для канонического маршрута закрытия. Оставайтесь
+независимым Reviewer при проверке затронутых итоговых утверждений; никогда не выполняйте фиксацию
+знаний и не объявляйте DONE.

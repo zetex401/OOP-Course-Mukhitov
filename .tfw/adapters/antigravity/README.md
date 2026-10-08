@@ -1,38 +1,39 @@
-# Antigravity Adapter
+# Адаптер Antigravity
 
-Antigravity's current canonical workspace rule root is `.agents/rules/`, and its default skills
-surface is `.agents/skills/`.
+Текущее каноническое место правил рабочего пространства Antigravity — `.agents/rules/`, а каталог
+навыков по умолчанию — `.agents/skills/`.
 
-The exact manifest commands, canonical sources, and roles are declared once in `../manifest.yaml`.
+Точные команды manifest, канонические источники и роли один раз объявлены в `../manifest.yaml`.
 
-## Install or Repair
+## Установка или восстановление
 
-1. Copy `tfw-rules.md.template` to `.agents/rules/tfw.md`.
-2. Copy every manifest command skill to `.agents/skills/tfw-{command}/SKILL.md`.
-3. Preserve foreign neighbors and customized/unowned content.
-4. Repeating install must be a no-op. Verify the vendor root and literal manifest command/role set against
-   the manifest; do not accept whatever files already exist as parity.
+1. Скопируйте `tfw-rules.md.template` в `.agents/rules/tfw.md`.
+2. Скопируйте навык каждой команды из manifest в `.agents/skills/tfw-{command}/SKILL.md`.
+3. Сохраните соседние сторонние файлы и изменённое содержимое, не принадлежащее TFW.
+4. Повторная установка не должна ничего менять. Сверьте каталог платформы и точный набор команд/ролей manifest
+   с самим manifest; не считайте уже существующие файлы доказательством соответствия.
 
-The persistent rule is a compact router. It does not preload full conventions, glossary, or KNOWLEDGE
-and never treats the tooling manifest as runtime authority.
+Постоянное правило служит кратким маршрутизатором. Оно не загружает целиком conventions, glossary или KNOWLEDGE
+и никогда не считает manifest инструментов нормативным источником для среды выполнения.
 
-## Coordination Messaging
+## Сообщения координации
 
-Under `tfw-gates-only`, TFW role units report gate transitions to their Coordinator via
+При режиме `tfw-gates-only` ролевые подразделения TFW сообщают Coordinator о переходах между контрольными точками через
 `send_message`. The target UUID is extracted from the phase or task `status.md` field
-`coordinator_route` by stripping the `antigravity:thread:local:` prefix.
+`coordinator_route`: для этого из него удаляют префикс `antigravity:thread:local:`.
 
-| Role | Reports |
+| Роль | Что сообщает |
 |---|---|
 | Researcher | Completion of each research iteration; RES artifact delivery |
 | Executor | ONB start; blockers requiring `gate_answer`; RF completion |
 | Reviewer | REV start; REVIEW verdict (APPROVE / REVISE / REJECT) |
 
-Cross-session addressed messaging between active Antigravity threads is fully supported by the
-platform. Role units must send formal notifications directly upon completing gate work instead of
-delegating status delivery to the human owner.
+Платформа полностью поддерживает адресованные сообщения между активными сеансами Antigravity.
+Завершив работу на контрольной точке, ролевые подразделения должны отправлять формальные уведомления
+напрямую, а не поручать передачу статуса владельцу-человеку.
 
-Economics is installed/updated by default from the manifest with selected adapters and resolves
-`.tfw/workflows/economics.md`. Four formal roles remain; analysis retains an active Role Lock.
-Daily opt-in is separate. Public tariff cache/used task copies follow the common economics README;
-old optional/custom receivers follow `migrations/economics-core.md` before connected writes.
+Economics по умолчанию устанавливается и обновляется из manifest с выбранными адаптерами и
+использует `.tfw/workflows/economics.md`. Сохраняются четыре формальные роли; анализ соблюдает
+активный Role Lock. Подключение Daily — отдельное решение. Общий кэш публичных тарифов и копии
+ценовых предложений, использованных в поручениях, описаны в общей инструкции Economics; перед
+записью в старые необязательные или пользовательские точки входа изучите `migrations/economics-core.md`.

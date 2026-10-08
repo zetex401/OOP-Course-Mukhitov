@@ -1,18 +1,18 @@
 ---
 name: tfw-config
-description: Command /tfw-config audits or changes Trace-First Workflow configuration and propagates values to every registered inline location. Use for /tfw-config, config verification, project_config.yaml changes, or Config Sync Registry updates.
+description: Команда /tfw-config проверяет или изменяет конфигурацию Trace-First Workflow и распространяет значения по всем зарегистрированным встроенным местам. Используйте для /tfw-config, проверки конфигурации, изменений project_config.yaml или обновления Config Sync Registry.
 ---
 
 # /tfw-config
 
-This repository skill implements the `/tfw-config` command.
+Этот навык репозитория реализует команду `/tfw-config`.
 
 ## Contract
 
-- Treat literal `/tfw-config` input as a command. Also accept `tfw-config` and matching natural-language requests.
-- Confirm the repository contains `.tfw/`.
-- Enforce the Coordinator role lock: permit `project_config.yaml`, workflow/convention inline values, and adapter copies; forbid code and task-artifact changes.
-- Read `.tfw/workflows/config.md` completely and follow its Read Contract. Root instructions are already active; do not independently preload common files.
-- Follow every edit approval, registry-completeness, adapter-sync, verification, and hard-stop gate.
+- Считайте точный ввод `/tfw-config` командой. Также принимайте `tfw-config` и соответствующие запросы на естественном языке.
+- Убедитесь, что в репозитории есть `.tfw/`.
+- Соблюдайте Role Lock Coordinator: разрешены `project_config.yaml`, встроенные значения в рабочих процессах и соглашениях, а также копии адаптеров; запрещены изменения кода и артефактов поручений.
+- Полностью прочитайте `.tfw/workflows/config.md` и следуйте его Read Contract. Корневые инструкции уже действуют; не загружайте общие файлы повторно без необходимости.
+- Соблюдайте все контрольные точки согласования правок, полноты реестра, синхронизации адаптеров, проверки и остановки.
 
-Report keys checked or changed, synchronized files, and remaining mismatches.
+Сообщите, какие ключи проверены или изменены, какие файлы синхронизированы и какие расхождения остались.

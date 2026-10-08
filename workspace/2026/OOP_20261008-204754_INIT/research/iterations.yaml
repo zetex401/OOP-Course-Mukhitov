@@ -1,0 +1,19 @@
+task_id: OOP_20261008-204754_INIT
+title: "Исследование проекта для завершения TFW Full Init"
+min_iterations: 2
+max_iterations: 3
+iterations:
+  - number: 1
+    focus: "Подтвердить факты и неизвестные проекта, важные для TFW Full Init"
+    hypotheses: []
+    status: complete
+    res_file: research/iter1/RES.md
+    agent: codex
+    sources: [codebase, external]
+  - number: 2
+    focus: "Проверить, можно ли завершить TFW Full Init на подтверждённых решениях и локальных материалах, оставив неизвестные детали сайта открытыми"
+    hypotheses: [H1]
+    status: complete
+    res_file: research/iter2/RES.md
+    agent: codex
+    sources: [codebase, external]

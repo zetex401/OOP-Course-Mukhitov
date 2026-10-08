@@ -1,14 +1,15 @@
-# Knowledge: {Category}
+# Знания: {Category}
 
-> Topic file for `{category}` facts. Updated by `/tfw-knowledge`.
-> See KNOWLEDGE.md §4 for the index.
+> Файл темы с фактами категории `{category}`. Обновляется командой `/tfw-knowledge`.
+> Индекс см. в KNOWLEDGE.md §4.
 
-> **Source format**: Use reference patterns (e.g., `RF TFW-18 §6`, `REVIEW TFW-22`).
-> Build-time resolver converts these to hyperlinks. See compilable_contract.md §2.
+> **Формат источника**: Используйте шаблоны ссылок (например, `RF TFW-18 §6`, `REVIEW TFW-22`).
+> При сборке система ссылок превращает их в гиперссылки. См. compilable_contract.md §2.
 
 | # | Fact | Verified | Source(s) | Added |
 |---|------|----------|-----------|-------|
 
-Legacy topic rows remain readable at their original identities. New qualified changes use independent
-records and exact legacy path/F/heading plus source-epoch relations. Check incoming relations before
-current use; do not rewrite old accepted meaning merely to adopt the new carrier.
+Прежние строки темы остаются доступными под исходными идентификаторами. Новые квалифицированные
+изменения записывайте отдельно и связывайте с точным путём/идентификатором/заголовком прежней
+записи и эпохой источника. Перед текущим использованием проверяйте входящие связи; не переписывайте
+ранее принятое значение только ради перехода на новый носитель.

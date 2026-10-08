@@ -1,46 +1,47 @@
-# Map — "What must be true?"
-> **Mindset:** Experienced newcomer. Understand the accepted result before judging it.
-> **Test:** "Can I name the material claims, harms, boundaries, evidence identities and limits?"
+# Map — «Что должно быть верно?»
+> **Роль мышления:** Опытный новичок. Прежде чем оценивать результат, разберитесь, что принято.
+> **Проверка:** «Могу ли я назвать существенные утверждения, возможный вред, границы, идентичность свидетельств и ограничения?»
 > RF: [RF path](...)
 > TS: [TS path](...)
 
-## Understanding
+## Понимание
 
-{2–3 sentences: accepted result, purpose, key decisions and scope}
+{2–3 предложения: принятый результат, цель, основные решения и объём}
 
-## Accepted Claims and Boundaries
+## Принятые утверждения и границы
 
-Map the result before selecting checks. Safety/security, human acceptance authority and
-accepted-result identity are mandatory even when no ordinary claim sample selects them.
+Сначала составьте карту результата, затем выбирайте проверки. Безопасность, полномочие человека
+принимать результат и точная идентичность принятого результата обязательны, даже если их не выбрала
+обычная выборка утверждений.
 
-| ID | Layer | Accepted claim / authority boundary | Risk or concrete harm | Affected behavior / dependencies | Relevant environment | Oracle / authority | Evidence identity (`subject@revision`, source) | Required? |
+| ID | Слой | Принятое утверждение / граница полномочий | Риск или конкретный вред | Затронутое поведение / зависимости | Релевантная среда | Эталон / полномочие | Идентичность свидетельства (`subject@revision`, источник) | Обязательно? |
 |---|---|---|---|---|---|---|---|---|
 | C1 | VALUE / ASSURANCE / TRACE | {claim or boundary} | {harm if false} | {behavior and dependencies} | {environment} | {oracle or ruler} | {exact identity} | yes / selected |
 
-## TS ↔ RF Alignment
+## Соответствие TS ↔ RF
 
-| TS requirement | RF claim | Claim IDs | Aligned? |
+| Требование TS | Утверждение RF | ID утверждений | Соответствует? |
 |---|---|---|---|
 | {AC / DoF item} | {RF section} | {C1…} | ✅ / ❌ / ⚠️ partial |
 
-## Verification Selection
+## Выбор проверок
 
-| Claim IDs | Planned check or reusable evidence | Why this depth | Known gap or limit |
+| ID утверждений | Запланированная проверка или повторно используемое свидетельство | Почему такая глубина проверки | Известный пробел или ограничение |
 |---|---|---|---|
 | {C1…} | {action / artifact} | {risk, dependency, environment, oracle} | {none or explicit limit} |
 
-## Deviations from TS
+## Отклонения от TS
 
-{List RF work outside TS, TS items not addressed, or "No deviations." A deviation is not a finding
-until Verify establishes fact, harm and material consequence.}
+{Перечислите работу RF за пределами TS, невыполненные пункты TS или укажите «Отклонений нет».
+Отклонение становится замечанием только после того, как Verify установит факт, вред и существенное последствие.}
 
 ## Checkpoint
 
-**Self-check:**
-- [ ] Read RF §§1–5, governing TS AC/DoF, HL purpose/principles, ONB and referenced predecessors?
-- [ ] Mapped every material accepted claim and the mandatory safety/security, authority and result-identity boundaries?
-- [ ] Bound each claim to affected behavior/dependencies, environment, oracle/authority and exact evidence identity?
-- [ ] Recorded a replayable verification selection and every known gap or limit?
-- [ ] Avoided classifying by filename, discrepancy count or artifact volume?
+**Самопроверка:**
+- [ ] Прочитаны ли разделы RF §§1–5, критерии AC/DoF управляющего TS, цель и принципы HL, ONB и указанные предшественники?
+- [ ] Нанесены ли на карту все существенные принятые утверждения и обязательные границы безопасности, полномочий и идентичности результата?
+- [ ] Связано ли каждое утверждение с затронутым поведением/зависимостями, средой, эталоном/полномочием и точной идентичностью свидетельства?
+- [ ] Записан ли воспроизводимый выбор проверок и каждый известный пробел или предел?
+- [ ] Исключена ли классификация по имени файла, числу расхождений или объёму артефактов?
 
-Stage complete: YES / NO
+Этап завершён: YES / NO

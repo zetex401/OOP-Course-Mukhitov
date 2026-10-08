@@ -1,69 +1,69 @@
 # ONB — {ID} / Phase {X}: {Title}
 
-> **Current filename**: `ONB__{ID}.md` or `ONB__phase-{x}__{phase_slug}.md`; later rounds append to this file. Derive under `conventions.md` → `Artifact file naming`.
+> **Текущее имя файла**: `ONB__{ID}.md` или `ONB__phase-{x}__{phase_slug}.md`; последующие циклы дополняют этот файл. Правило см. в `conventions.md` → `Artifact file naming`.
 
 > **Date**: YYYY-MM-DD
-> **Author**: {executor}
-> **Status**: 🟠 ONB — Awaiting answers
+> **Автор**: {executor}
+> **Статус**: 🟠 ONB — Ожидаются ответы
 > **Parent HL**: [HL-{ID}](path-to-HL)
 > **TS**: [TS Phase {X}](path-to-TS)
-> **Producer unit**: {actual native Executor address}
+> **Producer unit**: {фактический нативный адрес Executor}
 > **Parent Coordinator**: {status.md coordinator_route}
-> **Activation / dispatch source**: {owner-direct activation or immutable dispatch ref}
-> **Coordination authority**: {exact status.md coordination_authority}
-> **Originating proposer**: {principal and unit, or `none`}
+> **Activation / dispatch source**: {активация владельцем напрямую или ссылка на неизменяемую отправку}
+> **Coordination authority**: {точное значение coordination_authority из status.md}
+> **Originating proposer**: {principal и подразделение либо `none`}
 
 ---
 
-## 1. Understanding
-{One-paragraph summary of what needs to be done and why}
+## 1. Понимание
+{Кратко опишите одним абзацем, что нужно сделать и зачем}
 
-## 2. Entry Points
-{Key files and code areas relevant to the task}
+## 2. Точки входа
+{Ключевые файлы и области кода, относящиеся к поручению}
 
-Identify the affected baseline obligations (authority/selection, Role Locks, ordered reads,
-launch and gates, review/REVISE, accounting, knowledge handover, close and installed copies) that
-the approved TS must preserve or explicitly supersede. Name exact task-owned temporary resources
-and intended later disposition; do not create a separate inventory.
+Укажите обязательства исходного состояния, на которые влияет поручение (полномочия/выбор, Role Lock,
+порядок чтения, запуск и контрольные точки, review/REVISE, учёт, передача знаний, закрытие и
+установленные копии) и которые утверждённый TS должен сохранить или явно заменить. Назовите точные
+временные ресурсы поручения и их дальнейшую судьбу; не создавайте отдельную опись.
 
-## 3. Questions (blocking — cannot proceed without answers)
+## 3. Вопросы (блокирующие — без ответов продолжать нельзя)
 
-| # | Question | Blocking reason | Answer authority / event ref | Operational effect |
+| # | Вопрос | Причина блокировки | Полномочие ответить / ссылка на событие | Последствие для работы |
 |---|---|---|---|---|
 | 1 | {question} | {why work cannot proceed} | {task-local `gate_answer` ref or `pending`} | {what becomes permitted, or `none while pending`} |
 
-The Executor owns this table. The answering authority appends `gate_answer`; no Coordinator or human
-edits the Executor-owned ONB.
+За эту таблицу отвечает Executor. Уполномоченный участник добавляет `gate_answer`; ни Coordinator,
+ни человек не редактируют принадлежащий Executor файл ONB.
 
-## 4. Recommendations (suggestions, not blocking)
-1. {suggestion and rationale}
+## 4. Рекомендации (предложения, не блокирующие работу)
+1. {предложение и его обоснование}
 
-## 5. Risks Found (edge cases, potential issues not in TS)
-1. {risk description}
+## 5. Выявленные риски (крайние случаи и возможные проблемы, не описанные в TS)
+1. {описание риска}
 
-## 6. Inconsistencies with Code (spec vs reality)
-1. {what TS says} vs {what code actually does}
+## 6. Несоответствия коду (спецификация и фактическое поведение)
+1. {что указано в TS} vs {что фактически делает код}
 
-## 7. Knowledge Citations
+## 7. Ссылки на знания
 
-> Executor: read coordinator's citations in HL §7.2. For each item:
-> - Confirm you read it (link + item name)
-> - State how you applied it OR why it doesn't apply to your work
-> - Add any NEW items you found relevant that coordinator missed
+> Executor: изучите ссылки Coordinator в HL §7.2. Для каждого пункта:
+> - Подтвердите, что прочитали его (ссылка и название пункта)
+> - Укажите, как применили его ИЛИ почему он не относится к вашей работе
+> - Добавьте НОВЫЕ релевантные пункты, которые Coordinator мог пропустить
 
-| # | HL §7.2 ref | Read? | Applied / N/A | Notes |
+| # | Ссылка HL §7.2 | Прочитано? | Применено / N/A | Примечания |
 |---|-------------|-------|---------------|-------|
 | 1 | {D-number or F-number from HL §7.2} | ✅ | {how applied or why N/A} | |
 
-> For new projects where HL §7.2 says "No applicable knowledge items": write "No applicable knowledge items — confirmed."
+> Если в HL §7.2 нового проекта указано «Нет применимых пунктов знаний», напишите: «Нет применимых пунктов знаний — подтверждено».
 
-> **Cross-references**: use Reference Format (e.g. `RF TFW-18`, `D24`, `TD-72`). See compilable_contract.md §2. Build script resolves to hyperlinks.
+> **Перекрёстные ссылки**: используйте Reference Format (например, `RF TFW-18`, `D24`, `TD-72`). См. compilable_contract.md §2. Сборщик превращает их в гиперссылки.
 
-### Material handover at this return
+### Передача существенного контекста при возврате
 
-Apply `conventions.md` → `Knowledge handover`. Record producer/unit, source/epoch, inspected scope,
-material or justified-none, uncertainty, continuation, and any unresolved owner/decision; do not
-duplicate or replace the original source.
+Следуйте `conventions.md` → `Knowledge handover`. Запишите автора/подразделение, источник/эпоху,
+изученную область, существенные сведения или обоснованное отсутствие, неопределённость, продолжение
+и нерешённые вопросы владельца/решения; не дублируйте и не заменяйте исходный источник.
 
 ---
 

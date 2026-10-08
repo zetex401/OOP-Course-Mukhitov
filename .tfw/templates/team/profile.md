@@ -5,19 +5,19 @@ type: human
 since: YYYY-MM-DD
 ---
 
-**Participant profile.** Declared attribution, not authentication. It grants and verifies
-nothing.
+**Профиль участника.** Заявленная атрибуция, а не аутентификация. Он ничего не предоставляет и не подтверждает.
 
 <!--
-CANONICAL TEMPLATE — copy into team/ as {handle}.md, one file per participant.
+КАНОНИЧЕСКИЙ ШАБЛОН — копируйте в team/ под именем {handle}.md, отдельный файл для каждого участника.
 
-A principal is a stable project-local handle backed by a valid human or agent profile. It is
-never a provider, model, executable, process, session, workflow role, or directly addressable
-working unit. Never create one per run, session, Coordinator, Researcher, Executor, or Reviewer.
-One optional principal may attribute several distinct units without merging their addresses,
-parents, work, authority, or proposal origins.
+Principal — это стабильный идентификатор внутри проекта, подтверждённый действительным профилем
+человека или агента. Это никогда не поставщик, модель, исполняемый файл, процесс, сеанс, роль
+рабочего процесса или подразделение, доступное для прямой адресации. Не создавайте отдельный
+principal для каждого запуска, сеанса, Coordinator, Researcher, Executor или Reviewer. Один
+необязательный principal может указывать на несколько разных подразделений, не объединяя их
+адреса, родительские подразделения, работу, полномочия или происхождение предложений.
 
-| Key | Bound | Human | Agent |
+| Ключ | Ограничение | Человек | Агент |
 |---|---|---|---|
 | `handle` | `[a-z0-9][a-z0-9-]*`; matches filename | required | required |
 | `name` | non-empty; ≤80 code points | required | required |
@@ -29,16 +29,18 @@ parents, work, authority, or proposal origins.
 | `may_rule_amendments` | legacy Boolean `true` or `false` | forbidden | optional; read-only |
 | `mentality` | non-empty guidance | forbidden | optional |
 
-The original four keys remain a valid human profile. Optional roles must be non-empty;
-omitted means unknown/not supplied, while exact `not_applicable` means known not to apply.
-Roles are context, never authentication, permission, task scope, or workflow role.
+Исходные четыре ключа по-прежнему образуют действительный профиль человека. Необязательные роли
+не должны быть пустыми; отсутствие значения означает «неизвестно/не указано», а точное значение
+`not_applicable` — «заведомо неприменимо». Роли задают контекст, но не аутентифицируют участника,
+не предоставляют разрешений, не определяют объём поручения и не заменяют роли рабочего процесса.
 
-An agent is valid only when `accountable_to` resolves to `type: human`. A historical
-`may_rule_amendments` Boolean remains readable but is never issued and grants no route, activation
-or amendment authority. Current authority comes only from the exact immutable object named by the
-task routing spine. `mentality` guides style only and cannot alter permissions or a Role Lock.
+Профиль агента действителен, только если `accountable_to` указывает на участника с `type: human`.
+Историческое логическое поле `may_rule_amendments` остаётся читаемым, но больше не выдаётся и не
+предоставляет маршрут, активацию или полномочия на поправки. Текущие полномочия исходят только от
+точного неизменяемого объекта, указанного в маршруте передачи поручения. `mentality` задаёт только
+стиль и не может менять разрешения или Role Lock.
 
-Compatible four-key human:
+Совместимый профиль человека с четырьмя ключами:
 
 ```yaml
 ---
@@ -49,7 +51,7 @@ since: 2025-09-08
 ---
 ```
 
-Current agent principal:
+Текущий principal агента:
 
 ```yaml
 ---
@@ -64,6 +66,7 @@ mentality: critical opponent
 ---
 ```
 
-New agent profiles omit `may_rule_amendments`. Create a profile before a binding or current `writer` names it. Every event still carries
-human `on_behalf_of`. Full writer, tool, token, and binding semantics: `conventions.md` §4.
+В новых профилях агента не указывайте `may_rule_amendments`. Создайте профиль до того, как на него
+сошлётся привязка или текущий `writer`. Каждое событие по-прежнему содержит человеческое поле
+`on_behalf_of`. Полные правила writer, инструмента, токена и привязки см. в `conventions.md` §4.
 -->

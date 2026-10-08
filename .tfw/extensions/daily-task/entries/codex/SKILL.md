@@ -1,11 +1,12 @@
 ---
 name: tfw-daily-task
-description: Execute a bounded Daily request using the optional canonical TFW Daily Task skill.
+description: Выполняйте ограниченное поручение Daily, используя необязательный канонический навык TFW Daily Task.
 ---
 
-# TFW Daily Task entry
+# Входная точка TFW Daily Task
 
-Resolve the receiving project root and read `.tfw/extensions/daily-task/SKILL.md` completely before
-task action. Follow that canonical skill's ordered context and authority gates and selected local
-record form. A missing or ambiguous canonical source stops this route. This entry adds no algorithm
-and is not a formal Full role command.
+Перед началом работы определите корень проекта-получателя и полностью прочитайте
+`.tfw/extensions/daily-task/SKILL.md`. Следуйте порядку контекстных и полномочных контрольных точек
+канонического навыка и выбранной локальной форме записи. Если канонический источник отсутствует
+или его нельзя однозначно определить, остановите этот маршрут. Эта входная точка не добавляет
+алгоритмов и не является формальной ролевой командой Full.

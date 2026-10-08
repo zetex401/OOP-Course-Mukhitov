@@ -1,11 +1,13 @@
 ---
 name: tfw-economics
-description: Command /tfw-economics explains task, project, period or product-interest economics with sourced prices and preserved valuation basis.
+description: Команда /tfw-economics объясняет экономику поручения, проекта, периода или продуктового интереса на основе источников цен и сохранённых оснований оценки.
 ---
 
 # /tfw-economics
 
-Resolve the receiving project root and read `.tfw/workflows/economics.md` completely.
-Follow its selection, source, quote and report contract. Preserve an active formal role's authority
-and sole return route; standalone analysis grants no lifecycle or acceptance. Missing or ambiguous
-canonical source stops the route. This standard thin entry adds no algorithm or fifth formal role.
+Определите корень проекта-получателя и полностью прочитайте `.tfw/workflows/economics.md`.
+Следуйте его правилам выбора, источников, ценовых предложений и отчётов. Сохраняйте полномочия
+активной формальной роли и её единственный маршрут возврата; отдельный анализ не предоставляет
+статус жизненного цикла или право принимать результат. Если канонический источник отсутствует
+или его нельзя однозначно определить, остановите маршрут. Эта стандартная краткая входная точка
+не добавляет алгоритмов и пятой формальной роли.

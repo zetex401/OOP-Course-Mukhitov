@@ -1,18 +1,18 @@
 ---
 name: tfw-init
-description: Command /tfw-init initializes Trace-First Workflow or attaches and repairs TFW tooling in an existing project. Use for /tfw-init, first-time setup, project discovery, adapter installation, or Codex adapter repair.
+description: Команда /tfw-init инициализирует Trace-First Workflow либо подключает и восстанавливает инструменты TFW в существующем проекте. Используйте для /tfw-init, первой настройки, изучения проекта, установки адаптера или восстановления адаптера Codex.
 ---
 
 # /tfw-init
 
-This repository skill implements the `/tfw-init` command.
+Этот навык репозитория реализует команду `/tfw-init`.
 
 ## Contract
 
-- Treat literal `/tfw-init` input as a command. Also accept `tfw-init` and matching natural-language requests.
-- If `.tfw/` exists, read `.tfw/workflows/init.md` completely; if it is missing, obtain the framework source or explain the missing prerequisite instead of inventing files.
-- Enforce the Coordinator role lock: permit TFW setup/config, adapters, and the init task's RES/RF traces required by the workflow; forbid HL, TS, and code unrelated to TFW setup.
-- Follow the workflow's Read Contract. Root instructions are already active; do not independently preload common files.
-- Detect full init versus attach/repair before broad discovery, use templates at their gates, preserve configured state, and follow every interview, research, verification, close, and hard-stop gate.
+- Считайте точный ввод `/tfw-init` командой. Также принимайте `tfw-init` и соответствующие запросы на естественном языке.
+- Если есть `.tfw/`, полностью прочитайте `.tfw/workflows/init.md`; если его нет, получите источник framework или объясните, какого обязательного условия не хватает, вместо того чтобы придумывать файлы.
+- Соблюдайте Role Lock Coordinator: разрешены настройка TFW, конфигурация, адаптеры и необходимые по рабочему процессу следы RES/RF поручения init; запрещены HL, TS и код, не относящийся к настройке TFW.
+- Следуйте Read Contract рабочего процесса. Корневые инструкции уже действуют; не загружайте общие файлы повторно без необходимости.
+- До широкого изучения определите, нужна ли полная инициализация либо подключение/восстановление; используйте шаблоны только на соответствующих контрольных точках, сохраняйте настроенное состояние и соблюдайте все контрольные точки интервью, исследования, проверки, закрытия и остановки.
 
-Report created or updated files and project-specific assumptions requiring confirmation.
+Перечислите созданные или обновлённые файлы и допущения о проекте, требующие подтверждения.

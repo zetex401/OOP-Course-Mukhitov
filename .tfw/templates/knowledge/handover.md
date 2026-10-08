@@ -1,20 +1,21 @@
-# Knowledge handover — {task-id}: {checkpoint}
+# Передача знаний — {task-id}: {checkpoint}
 
-Use only when an actual interim/stopped return has no suitable existing HL/ONB/RF/RES/REVIEW or
-stage section. The producing role owns its available context. This is source evidence, not an
-accepted project record or a required file per participant.
+Используйте этот файл только если при фактическом промежуточном возврате или остановке нет
+подходящего раздела HL/ONB/RF/RES/REVIEW либо этапа. За доступный контекст отвечает производящая
+роль. Это свидетельство источника, а не принятая запись проекта и не обязательный файл для каждого участника.
 
-| Field | Actual return |
+| Поле | Фактический возврат |
 |---|---|
-| Producer | Principal, role and exact native unit |
-| Owning task/checkpoint | Task/phase, transfer/stopping point and actual time |
-| Bounded context inspected | Exact source locator/version, or limits of available context |
-| Material statement/outcome | Captured insight, justified-none, unavailable or retain-only with grounds |
-| Source and uncertainty | Human origin or technical evidence; unavailable information stays unknown |
-| Existing reusable source | Exact locator/claim and why sufficient, or why this fallback is needed |
-| Continuation | Completed return or exact missing material decision/action and existing owner |
+| Producer | Principal, роль и точное нативное подразделение |
+| Owning task/checkpoint | Task/phase, точка передачи или остановки и фактическое время |
+| Bounded context inspected | Точная ссылка/версия источника либо границы доступного контекста |
+| Material statement/outcome | Зафиксированный вывод, обоснованное отсутствие, недоступность или сохранение без изменений с основаниями |
+| Source and uncertainty | Человеческий источник или техническое свидетельство; недоступные сведения остаются неизвестными |
+| Existing reusable source | Точная ссылка/утверждение и почему их достаточно, либо почему нужен этот резервный вариант |
+| Continuation | Завершённый возврат либо точное решение/действие по недостающим материалам и текущий ответственный |
 
-An empty file, silence or unchecked claim is not a return. Justified-none names inspected scope;
-unavailable is not none. Retain-only requires an authorized completed disposition that no
-publication/resolution is owed; an owed effect remains open. Preserve rejected/interrupted source
-work without fabricating success. Return to the actual Coordinator through the authorized channel.
+Пустой файл, молчание или непроверенное утверждение не являются возвратом. При обоснованном
+отсутствии укажите изученный объём; недоступность не означает отсутствие. Для сохранения без
+изменений требуется разрешённое завершённое решение, что публикация или урегулирование не нужны;
+обязанный эффект остаётся открытым. Сохраняйте отвергнутую или прерванную исходную работу, не
+выдумывая успешный результат. Возвратите материалы фактическому Coordinator по разрешённому каналу.

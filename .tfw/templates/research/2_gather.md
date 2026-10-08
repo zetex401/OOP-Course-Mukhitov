@@ -1,14 +1,14 @@
-# Gather — "What do we NOT know?"
-> **Mindset:** Explorer. You're mapping unknown territory. Widen before you narrow. Every assumption is a question.
-> **Test:** "Can I name every dimension and its alternatives without checking my sources?"
+# Gather — «Чего мы НЕ знаем?»
+> **Роль мышления:** Исследователь. Вы изучаете неизвестную область. Сначала расширьте поиск, затем сужайте его. Каждое допущение — это вопрос.
+> **Проверка:** «Могу ли я назвать все измерения и варианты, не сверяясь с источниками?»
 > Parent: [HL-{ID}](../../HL-{ID}.md)
-> Goal: {from HL §1 Vision — one sentence}
+> Goal: {из HL §1 Vision — одним предложением}
 
 ## Dimensions
 
-Identify the independent decision factors in this problem. Each dimension represents a degree of freedom — a variable the final solution must choose a value for.
+Определите независимые факторы, влияющие на решение задачи. Каждое измерение представляет собой степень свободы — переменную, для которой итоговое решение должно выбрать значение.
 
-For each dimension, list ≥3 alternatives. Do NOT mark any alternative as "recommended" — all options remain open until Challenge.
+Для каждого измерения перечислите не менее трёх вариантов. НЕ помечайте ни один вариант как «рекомендуемый»: до этапа Challenge все варианты остаются открытыми.
 
 | Dimension | Alt A | Alt B | Alt C | Alt D _(if any)_ |
 |-----------|-------|-------|-------|-----------------|
@@ -16,26 +16,26 @@ For each dimension, list ≥3 alternatives. Do NOT mark any alternative as "reco
 | {D2: factor name} | {option} | {option} | {option} | |
 | {D3: factor name} | {option} | {option} | {option} | |
 
-_If fewer than 3 independent dimensions exist, skip this table and use a comparison matrix (pros/cons) in Findings instead._
+_Если независимых измерений меньше трёх, пропустите таблицу и вместо неё используйте в Findings сравнительную матрицу плюсов и минусов._
 
 ## Findings
 
-### {G1: source/topic title}
-{content}
+### {G1: название источника/темы}
+{содержание}
 
-### {G2: source/topic title}
-{content}
+### {G2: название источника/темы}
+{содержание}
 
 ## Checkpoint
 
-| Found | Remaining |
+| Найдено | Осталось |
 |-------|-----------|
 | {key finding} | {gap, if any} |
 
-**Sufficiency:**
+**Достаточность:**
 - [ ] External source used?
 - [ ] Briefing gap closed?
 - [ ] Dimensions identified? _(skip if <3 independent factors — use comparison matrix in Findings instead)_
 
-Stage complete: YES / NO
-→ User decision: ___
+Этап завершён: YES / NO
+→ Решение пользователя: ___

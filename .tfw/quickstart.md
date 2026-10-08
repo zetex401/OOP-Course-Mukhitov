@@ -1,111 +1,75 @@
 ---
-description: TFW Quick Start — reading list for AI agents before first initialization
+description: Краткое руководство TFW — что агенту нужно прочитать до первой инициализации
 ---
 
-# Quick Start — For AI Agents
+# Краткое руководство — для ИИ-агентов
 
-> You are about to help a user adopt Trace-First Workflow (TFW) — a methodology
-> that makes decisions, reasoning, and knowledge permanent across AI sessions.
-> It works for any domain: software, analytics, writing, business processes.
+> Вы помогаете пользователю начать работу с Trace-First Workflow (TFW) — методологией,
+> которая сохраняет решения, основания и знания между сеансами работы с ИИ.
+> Она подходит для разных областей: разработки ПО, аналитики, работы с текстами и бизнес-процессов.
 
-## Agent Role
+## Роль агента
 
-You are a **TFW Guide** — you help the user adopt and navigate TFW.
+Вы — **TFW Guide**: помогаете пользователю применять TFW и ориентироваться в нём.
 
-- Be direct, concrete, token-efficient
-- Recommend workflows by slash command (`/tfw-plan`, `/tfw-handoff`, `/tfw-review`)
-- Explain only when the user asks or in tutorial mode
-- Your value: **continuity** — the user's decisions survive beyond this session
+- Говорите прямо и конкретно, не тратьте слова без пользы
+- Рекомендуйте рабочие процессы по slash-командам (`/tfw-plan`, `/tfw-handoff`, `/tfw-review`)
+- Объясняйте только по просьбе пользователя или в режиме обучения
+- Ваша ценность — **преемственность**: решения пользователя сохраняются после завершения текущего сеанса
 
-## Step 1: Get TFW files
+## Шаг 1. Получите файлы TFW
 
-If the `.tfw/` directory is not already in the project, fetch only the framework of one release into
-a new temporary directory `<temp>` outside the project. `<tag>` is the release the user names, else
-the highest exact `vX.Y.Z` that `git ls-remote --tags --refs https://github.com/saubakirov/trace-first-starter`
-lists; suffixed pre-release tags never count.
+Если в проекте ещё нет каталога `.tfw/`, загрузите только framework одной версии в новую временную папку `<temp>` вне проекта. `<tag>` — версия, которую назвал пользователь; иначе возьмите наибольшую точную версию формата `vX.Y.Z`, которую возвращает `git ls-remote --tags --refs https://github.com/saubakirov/trace-first-starter`. Теги предварительных версий с суффиксами не подходят.
 
     git clone -c core.autocrlf=false -c core.attributesFile= --filter=blob:none --sparse --depth 1 --branch <tag> https://github.com/saubakirov/trace-first-starter <temp>
     git -C <temp> sparse-checkout set .tfw editions
     git -C <temp> count-objects -vH
 
-About 1 MiB of `size-pack` is expected; much more means a full download, so say so. If Git rejects
-an option, repeat without `--filter=blob:none`, `--sparse` and `sparse-checkout` (clone
-`--no-checkout`), writing only `.tfw` and `editions` by `git -C <temp> checkout HEAD -- .tfw editions`,
-and say so.
+Ожидаемый размер `size-pack` — около 1 MiB. Если он намного больше, значит, загрузился весь репозиторий; сообщите об этом. Если Git отвергнет параметр, повторите без `--filter=blob:none`, `--sparse` и `sparse-checkout` (используйте `clone --no-checkout`), а затем запишите только `.tfw` и `editions` командой `git -C <temp> checkout HEAD -- .tfw editions`. Сообщите пользователю, что пришлось применить этот способ.
 
-For a new receiver, copy only framework-owned `.tfw/` content from the selected source.
-Exclude its `project_config.yaml`, `knowledge_state.yaml`, `update_receipts/`, `.upstream/`
-and other project state; keep the clean config and knowledge record/handover templates. Do not copy upstream task
-containers, `team/`, `knowledge/`, root project files or maintainer `tools/`/tests.
-Init creates receiver config and a clean `KNOWLEDGE.md` entry from templates and uses `workspace/` by default,
-without a container-choice question or historical scaffold. Honor an explicitly requested
-custom path. A complete starter clone is the framework's configured project, not a fresh receiver.
+Для нового проекта-получателя копируйте из выбранного источника только файлы `.tfw/`, принадлежащие framework. Исключите `project_config.yaml`, `knowledge_state.yaml`, `update_receipts/`, `.upstream/` и прочее состояние исходного проекта; оставьте чистую конфигурацию и шаблоны записей о знаниях и их передаче. Не копируйте контейнеры поручений upstream, `team/`, `knowledge/`, файлы корня проекта или `tools/` и тесты сопровождающих. Инициализация создаёт конфигурацию проекта-получателя и чистую запись в `KNOWLEDGE.md` по шаблонам, а по умолчанию использует `workspace/` — не задавайте вопрос о выборе контейнера и не создавайте каркас для прошлых задач. Соблюдайте явно запрошенный пользователем путь. Полный starter clone уже является настроенным проектом framework, а не новым проектом-получателем.
 
-When `.tfw/` already belongs to the receiver, preserve its config, state and purpose. Use
-init's attach/repair route or the ordinary pinned update; never replace them with upstream state.
+Если `.tfw/` уже принадлежит проекту-получателю, сохраните его конфигурацию, состояние и назначение. Используйте маршрут подключения или восстановления из init либо обычное закреплённое обновление; не заменяйте содержимое данными upstream.
 
-## Step 2: Learn TFW
+## Шаг 2. Изучите TFW
 
-Read these files in order. Do not skip — each builds on the previous:
+Прочитайте файлы по порядку. Не пропускайте их: каждый следующий опирается на предыдущий.
 
-1. **`.tfw/README.md`** — the philosophy: why traces matter more than output
-2. **`.tfw/glossary.md`** — terminology: what HL, TS, RF, Coordinator, Executor mean
-3. **`.tfw/conventions.md`** — formal rules: naming, statuses, scope budgets, anti-patterns
+1. **`.tfw/README.md`** — философия: почему Trace важнее одного только результата
+2. **`.tfw/glossary.md`** — термины: что означают HL, TS, RF, Coordinator и Executor
+3. **`.tfw/conventions.md`** — формальные правила: имена, статусы, бюджеты объёма и антипаттерны
 
-After reading, you should understand:
-- The task lifecycle (TODO → HL_DRAFT → RES → TS_DRAFT → ONB → RF → REV → KNW → DONE),
-  and that a multi-phase task sits at 🧩 PHASES while each phase runs that flow in its
-  own `status.md` — the task file never summarizes them
-- The four roles (Coordinator plans, Researcher investigates, Executor implements,
-  Reviewer verifies)
-- That every task produces trace files — the project's permanent memory
-- That each task lives in its own folder under the configured container, nested by creation
-  year, and carries its own `status.md` — the only authority for its state. Nothing at the
-  project root is edited to move a task forward, which is what lets several people work at
-  once. Full has no shared task cache or freshness duty; resolve the selected whole ID and
-  read its task-local trace directly.
+После этого вы должны понимать:
 
-## Step 3: Recommend to the human
+- Жизненный цикл поручения (`TODO → HL_DRAFT → RES → TS_DRAFT → ONB → RF → REV → KNW → DONE`) и то, что многоэтапное поручение находится в состоянии `🧩 PHASES`, пока каждый этап проходит этот цикл в собственном `status.md`. Файл поручения не сводит состояния этапов в одно.
+- Четыре роли: Coordinator планирует, Researcher исследует, Executor выполняет, Reviewer проверяет.
+- Каждое поручение создаёт Trace-файлы — постоянную память проекта.
+- Каждое поручение живёт в отдельной папке внутри настроенного контейнера, сгруппированной по году создания, и содержит собственный `status.md` — единственный источник истины о его состоянии. Для продвижения поручения не редактируют файлы в корне проекта: благодаря этому несколько человек могут работать одновременно. В режиме Full нет общего кэша задач и обязанности следить за его актуальностью: разрешите полный идентификатор выбранного поручения и читайте его локальный Trace.
 
-Tell the user:
-"We recommend reading `.tfw/README.md` — it explains the philosophy behind TFW
-and takes about 5 minutes. You don't need to read anything else — I'll handle the rest."
+## Шаг 3. Дайте пользователю рекомендацию
 
-## Step 4: Initialize
+Скажите пользователю:
 
-Now run the initialization workflow:
+> «Рекомендуем прочитать `.tfw/README.md`: там объясняется философия TFW, чтение займёт около пяти минут. Остальное читать не обязательно — с ним разберусь я».
 
-    Read .tfw/workflows/init.md and follow it.
+## Шаг 4. Инициализируйте проект
 
-This will guide you through project discovery, an interview with the user,
-and creation of all TFW project files.
+Запустите процесс инициализации:
 
-If you are Codex, also read `.tfw/adapters/codex/README.md`. The init workflow uses
-that contract to install `/tfw-*` commands in a new project or safely attach/repair
-them in an existing TFW project without resetting its state.
+    Прочитайте .tfw/workflows/init.md и следуйте ему.
 
-For an existing project, continue with the ordinary route named by the current need:
-read `.tfw/workflows/update.md` before an upstream update, or `.tfw/workflows/release.md`
-before release preparation. Update attempts produce an immutable receipt; release work is
-project-defined and does not assume a universal versioning or publication policy.
+Он проведёт вас через изучение проекта, беседу с пользователем и создание файлов TFW.
 
-The stable `KNOWLEDGE.md` entry leads to relevant legacy topics and independent records. Read scope,
-grounds, source, disposition and incoming relations before applying knowledge. Capture material
-context at producing-role returns and check actual handovers at the existing close. There is no
-global pending-count gate, new knowledge-state scaffold, mandatory index or receiver runtime.
+Если вы Codex, прочитайте также `.tfw/adapters/codex/README.md`. Этот документ задаёт правила установки команд `/tfw-*` в новом проекте либо безопасного подключения или восстановления команд в существующем TFW-проекте без сброса его состояния.
 
-## Step 5: After setup
+Для существующего проекта используйте обычный маршрут, соответствующий текущей потребности: перед обновлением upstream прочитайте `.tfw/workflows/update.md`, а перед подготовкой выпуска — `.tfw/workflows/release.md`. Попытки обновления создают неизменяемую запись; выпуск определяется самим проектом и не предполагает универсальной политики версий или публикации.
 
-Once initialization is complete and the first task is closed, suggest:
+Стабильная запись в `KNOWLEDGE.md` ведёт к актуальным прежним темам и отдельным записям. Прежде чем применять знания, проверьте их область действия, основания, источник, статус и входящие связи. При возврате от каждой производящей роли фиксируйте существенный контекст, а при закрытии поручения проверяйте фактическую передачу материалов. Общего ограничения на число незавершённых задач, нового каркаса состояния знаний, обязательного индекса или среды выполнения для проекта-получателя нет.
 
-"If you found TFW useful, consider starring the repository — it helps others discover it:
-https://github.com/saubakirov/trace-first-starter ⭐"
+## Шаг 5. После настройки
 
-Standard `/tfw-economics` is installed/updated by default with selected adapters through the
-manifest and [core workflow](workflows/economics.md). It connects results to unique resources,
-uses sourced conditional API prices and preserves task-owned used quote/report epochs. Public
-provider/month observations live at `~/.tfw/rates`, fresh for the exact model/profile for less than
-30 days; lookup uses working first-party tools. Daily remains optional; four formal roles and
-existing authority/acceptance/source routes remain. Old optional/custom installations follow the
-core migration guide before connected writes. Neither API equivalents nor cache freshness prove
-subscription charges, historical unchanged prices, ROI or native cross-host behavior.
+Когда инициализация завершена и первое поручение закрыто, предложите пользователю:
+
+> «Если TFW оказался полезен, добавьте репозиторию звезду — это поможет другим найти его: https://github.com/saubakirov/trace-first-starter ⭐»
+
+Стандартный `/tfw-economics` по умолчанию устанавливается и обновляется через выбранные адаптеры по manifest и [основному рабочему процессу](workflows/economics.md). Он связывает результаты с отдельными ресурсами, использует обоснованные условные цены API и сохраняет эпохи ценовых расчётов и отчётов, использованных в конкретном поручении. Публичные наблюдения по поставщикам и месяцам хранятся в `~/.tfw/rates` и считаются актуальными менее 30 дней для точной модели и профиля; поиск выполняется действующими инструментами из первых рук. Daily остаётся необязательным; четыре формальные роли и существующие маршруты полномочий, приёмки и источников сохраняются. Перед связанными изменениями старых необязательных или пользовательских установок следует выполнить руководство по миграции основного процесса. Эквивалентность API или свежесть кэша не доказывают размер абонентских платежей, неизменность прошлых цен, окупаемость инвестиций или работу между хостами.

@@ -1,32 +1,32 @@
-# Briefing — "What should we investigate?"
-> **Mindset:** Strategist. You're planning an investigation, not doing it. Frame what matters. Resist solving.
-> **Test:** "Can I explain WHY we're investigating this and what would change our approach?"
+# Briefing — «Что нужно исследовать?»
+> **Роль мышления:** Стратег. Вы планируете исследование, а не проводите его. Определите главное и не переходите к решению.
+> **Проверка:** «Могу ли я объяснить, ЗАЧЕМ мы это исследуем и что могло бы изменить наш подход?»
 > Parent: [HL-{ID}](../../HL-{ID}.md)
-> Goal: {from HL §1 Vision — one sentence}
-> Producer unit: {actual native Researcher address}
+> Goal: {из HL §1 Vision — одним предложением}
+> Producer unit: {фактический нативный адрес Researcher}
 > Parent Coordinator: {status.md coordinator_route}
-> Activation / dispatch source: {owner-direct activation or immutable dispatch ref}
-> Coordination authority: {exact status.md coordination_authority}
-> Originating proposer: {principal and unit, or `none`}
+> Activation / dispatch source: {активация владельцем напрямую или ссылка на неизменяемую отправку}
+> Coordination authority: {точное значение coordination_authority из status.md}
+> Originating proposer: {principal и подразделение либо `none`}
 
-## Research Plan
-{3-5 bullets per stage: what to investigate. If obvious from briefing, note candidate decision factors (dimensions) you expect to decompose in Gather.}
+## План исследования
+{3–5 пунктов на этап: что нужно исследовать. Если это понятно из брифинга, укажите возможные факторы решения (измерения), которые планируете разложить на этапе Gather.}
 
-## Hypotheses (from HL §10)
+## Гипотезы (из HL §10)
 
 | # | Hypothesis | HL Status |
 |---|-----------|-----------|
-| H1 | {text} | open |
+| H1 | {текст} | open |
 
-## Scope Intent
-- **In scope:** {what research covers}
-- **Out of scope:** {what research does NOT cover}
+## Границы исследования
+- **Входит в объём:** {что охватывает исследование}
+- **Не входит в объём:** {что исследование НЕ охватывает}
 
-## Guiding Questions
-1. {≤3 questions for the user}
+## Направляющие вопросы
+1. {не более 3 вопросов пользователю}
 
-## User Direction
-{Record user answers and steering decisions here during briefing discussion}
+## Указания пользователя
+{Записывайте здесь ответы и решения пользователя, направляющие исследование во время обсуждения брифинга}
 
 ---
-Stage complete: YES / NO
+Этап завершён: YES / NO

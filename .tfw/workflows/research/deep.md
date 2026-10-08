@@ -1,32 +1,32 @@
-# Research Mode: Deep
+# Режим исследования: Deep
 
-> **Mindset Override:** "Hypothesize → Test → Revise → Test"
-> Rigorous, hypothesis-driven investigation. Challenge everything.
+> **Режим работы:** «Выдвинуть гипотезу → проверить → пересмотреть → проверить»
+> Строгое исследование на основе гипотез. Проверяйте каждое положение.
 
-## When to Use
-- Many unknowns, high architectural impact
-- HL §10 contains unresolved hypotheses
-- Decision is irreversible or costly to change
+## Когда использовать
+- Много неизвестного, высокое влияние на архитектуру
+- В HL §10 остались непроверенные гипотезы
+- Решение необратимо или дорого обходится его изменение
 
-## Stage Behavior
-- **OODA loops per stage:** up to N (from YAML `loops_per_stage`, default: 3)
-- **Verify user tech claims:** yes (2x cross-check)
-- **Require counter-evidence:** yes
+## Работа на этапе
+- **Циклы OODA на этап:** до N (из YAML `loops_per_stage`, по умолчанию: 3)
+- **Проверять технические утверждения пользователя:** да (две перекрёстные проверки)
+- **Требовать контрсвидетельства:** да
 
-## Checkpoint Criteria
-Generic (from base.md):
+## Критерии контрольной точки
+Общие критерии из base.md:
 - [ ] External source used?
 - [ ] Briefing gap closed?
 
-Mode-specific:
-- [ ] Hypothesis tested? (at least 1 from HL §10)
-- [ ] Counter-evidence sought? (actively looked for reasons approach might fail)
+Для этого режима:
+- [ ] Проверена ли хотя бы одна гипотеза из HL §10?
+- [ ] Искали ли контрсвидетельства — причины, по которым подход может не сработать?
 
-## Metacognitive Check (at each checkpoint)
-Ask yourself: "Did I discover something NEW, or just confirm what I already knew?"
-IF only confirmed → flag this in checkpoint. Consider: what sources haven't I checked?
+## Метакогнитивная проверка (на каждой контрольной точке)
+Спросите себя: «Я открыл что-то НОВОЕ или лишь подтвердил уже известное?»
+Если только подтвердили — отметьте это на контрольной точке. Подумайте, какие источники ещё не проверены.
 
-## Exit Criteria
-- Min 2 decisions per stage
-- Min 1 hypothesis tested per stage
-- Metacognitive check completed at each checkpoint
+## Условия завершения
+- Не менее двух решений на этап
+- Не менее одной проверенной гипотезы на этап
+- Метакогнитивная проверка выполнена на каждой контрольной точке

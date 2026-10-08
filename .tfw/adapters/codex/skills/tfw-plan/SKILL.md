@@ -1,20 +1,20 @@
 ---
 name: tfw-plan
-description: Command /tfw-plan plans a Trace-First Workflow task and creates or revises HL/TS artifacts. Use for /tfw-plan, TFW task inception, scope planning, or phase specifications.
+description: Команда /tfw-plan планирует поручение Trace-First Workflow и создаёт или пересматривает артефакты HL/TS. Используйте для /tfw-plan, начала TFW-поручения, планирования объёма или описания этапов.
 ---
 
 # /tfw-plan
 
-This repository skill implements the `/tfw-plan` command.
+Этот навык репозитория реализует команду `/tfw-plan`.
 
 ## Contract
 
-- Treat literal `/tfw-plan` input as a command. Also accept `tfw-plan` and matching natural-language requests.
-- Confirm the repository contains `.tfw/`.
-- Enforce the Coordinator role lock: permit HL and TS; forbid ONB, RF, RES, REVIEW, and code.
-- Read `.tfw/workflows/plan.md` completely and follow its Read Contract and gates. Root instructions
-  are already active; do not independently preload `AGENTS.md` or any full common library.
-- Open `.tfw/templates/HL.md` and `.tfw/templates/TS.md` only at their workflow gates.
-- Stop when the workflow routes to research, handoff, execution, or review.
+- Считайте точный ввод `/tfw-plan` командой. Также принимайте `tfw-plan` и соответствующие запросы на естественном языке.
+- Убедитесь, что в репозитории есть `.tfw/`.
+- Соблюдайте Role Lock Coordinator: разрешены HL и TS; запрещены ONB, RF, RES, REVIEW и код.
+- Полностью прочитайте `.tfw/workflows/plan.md` и соблюдайте его Read Contract и контрольные точки. Корневые инструкции
+  уже действуют; не загружайте отдельно `AGENTS.md` или всю общую библиотеку.
+- Открывайте `.tfw/templates/HL.md` и `.tfw/templates/TS.md` только на соответствующих контрольных точках рабочего процесса.
+- Остановитесь, когда рабочий процесс направит к исследованию, передаче, выполнению или проверке.
 
-When the workflow routes onward, name the exact next command, such as `/tfw-research` or `/tfw-handoff`.
+При передаче по маршруту дальше укажите точную следующую команду, например `/tfw-research` или `/tfw-handoff`.

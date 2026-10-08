@@ -1,36 +1,37 @@
-# Update outcome — {project name}
+# Итог обновления — {project name}
 
-> **Installed target**: `{from-version}` → `{to-version}` · **Date**: YYYY-MM-DD · **Language**: `tfw.content_language`
-> **Source**: `{target-ref}` at `{target-sha}`
-> **Receipt**: `{receipt-path}`
+> **Целевая установка**: `{from-version}` → `{to-version}` · **Дата**: YYYY-MM-DD · **Язык**: `tfw.content_language`
+> **Источник**: `{target-ref}` at `{target-sha}`
+> **Квитанция**: `{receipt-path}`
 
-## What happened
+## Что произошло
 
-{State the actual outcome first: completed, partially completed, refused, source-blocked, or interrupted and recovered.}
+{Сначала укажите фактический итог: завершено, частично завершено, отклонено, заблокировано источником либо прервано с последующим восстановлением.}
 
-## What is useful now
+## Что теперь доступно
 
-{List only benefits supported by the selected release and/or facts observed in this run. Use the owner's
-language: say what the change lets them do, not what the procedure calls it. If the agent's technique
-matters, describe it as supporting detail after the owner-facing benefit. An empty changelog category is
-not a reason to invent a benefit.}
+{Перечисляйте только преимущества, подтверждённые выбранным выпуском и/или фактами, полученными
+в этой попытке. Пишите языком владельца: объясняйте, что позволяет сделать изменение, а не как
+его называет процедура. Если важен метод агента, упомяните его после пользы для владельца. Пустая
+категория changelog не даёт оснований придумывать преимущество.}
 
-## What changed or was preserved
+## Что изменилось или было сохранено
 
-{Describe material project-facing changes, preserved purpose/settings/history, and any skipped/refused group.}
+{Опишите существенные изменения, заметные пользователю проекта, сохранённые цель/настройки/историю и группы, которые были пропущены или отклонены.}
 
-## What remains and what to do next
+## Что осталось и что делать дальше
 
-{State unresolved limitations, unavailable checks, recovery action, or the next ordinary project action.}
+{Укажите нерешённые ограничения, недоступные проверки, действие по восстановлению или следующий обычный шаг проекта.}
 
-## Optional detail
+## Дополнительные сведения
 
-{One link or path to the receipt/checklist. Omit when the owner does not need it.}
+{Одна ссылка или путь к квитанции/контрольному списку. Уберите раздел, если владельцу это не нужно.}
 
 <!--
-This is an outcome-led rendering, not a second update procedure. Use the CHANGELOG for release-supported
-benefits and the receipt/run evidence for actual receiver facts. Lead with what changed for the owner;
-procedural terms and agent technique are supporting detail, not the outcome. Never claim a project test,
-savings, reliability, owner reaction, or comprehension that the evidence does not establish. The message
-may be rendered again from an immutable receipt; that is not a new update or fresh verification.
+Это описание результата, а не вторая процедура обновления. Подтверждённые выпуском преимущества
+берите из CHANGELOG, а факты о проекте-получателе — из квитанции и свидетельств выполнения.
+Сначала укажите, что изменилось для владельца; термины процедуры и методы агента — лишь пояснения,
+а не результат. Не заявляйте о проверках проекта, экономии, надёжности, реакции владельца или
+понимании, если свидетельства этого не подтверждают. Сообщение можно заново сформировать по
+неизменяемой квитанции; это не новое обновление и не повторная проверка.
 -->

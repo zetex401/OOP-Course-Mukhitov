@@ -1,23 +1,23 @@
-# Research Mode: Focused
+# Режим исследования: Focused
 
-> **Mindset Override:** "Scan → Assess → Report"
-> Quick, scoped investigation. One question, one answer, move on.
+> **Режим работы:** «Просмотреть → оценить → сообщить»
+> Краткое исследование с чёткими границами: один вопрос, один ответ, затем переход дальше.
 
-## When to Use
-- Topic is understood, specific question needs answering
-- Time-constrained, need fast turnaround
-- Low uncertainty — looking for confirmation, not discovery
+## Когда использовать
+- Тема понятна, нужно ответить на конкретный вопрос
+- Сроки ограничены и нужен быстрый результат
+- Неопределённость мала: требуется подтверждение, а не поиск нового
 
-## Stage Behavior
-- **OODA loops per stage:** 1 (single pass)
-- **Verify user tech claims:** yes (1x cross-check)
-- **Require counter-evidence:** no
+## Работа на этапе
+- **Циклы OODA на этап:** 1 (один проход)
+- **Проверять технические утверждения пользователя:** да (одна перекрёстная проверка)
+- **Требовать контрсвидетельства:** нет
 
-## Checkpoint Criteria
-Generic only (from base.md):
+## Критерии контрольной точки
+Только общие критерии из base.md:
 - [ ] External source used?
 - [ ] Briefing gap closed?
 
-## Exit Criteria
-- Min 1 decision per stage
-- Max 2 user-facing turns per stage
+## Условия завершения
+- Не менее одного решения на этап
+- Не более двух обращений к пользователю на этап

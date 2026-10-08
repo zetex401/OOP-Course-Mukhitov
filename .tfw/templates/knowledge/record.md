@@ -1,41 +1,42 @@
-# Knowledge record — {record-id}: {title}
+# Запись знаний — {record-id}: {title}
 
-> One material claim/decision and its completed or explicitly unresolved disposition.
-> Presence is not acceptance. Fill applicable fields; reasoned N/A only when inapplicable.
+> Одно существенное утверждение/решение и завершённый либо явно неразрешённый статус.
+> Наличие записи не означает её принятия. Заполняйте подходящие поля; обоснованно указывайте N/A только если поле неприменимо.
 
-| Field | Value |
+| Поле | Значение |
 |---|---|
-| Record identity | Stable locally allocated ID; no global allocator |
-| Publication intent | Exact source claim/checkpoint and intended effect; retain on equal retry |
-| Kind | human knowledge / technical-reference decision |
-| Statement | Complete material claim or decision |
-| Applicability | Exact project, actor, condition, time and scope |
-| Grounds and uncertainty | Evidence, rationale, limitations and what remains unknown |
-| Disposition | observed / accepted / retain-only / rejected / superseded / unresolved |
-| Source | Exact locator, claim/heading and inspected epoch; Git object/path or preserved evidence |
-| Originating task and unit | Actual source task, phase/checkpoint and native producer address |
-| Producer | Actual author of this record, distinct from original source when copied |
-| Qualifier | Existing responsible role/principal and actual working unit |
-| Acceptance authority | Actual owner/valid grant and exact decision reference, or explicitly absent |
-| Completed effect or missing decision | Actual publication/reuse/retention; exact owed action and existing owner |
-| Relations | Kind, target identity/epoch, scope and grounds; explicit none after lookup |
+| Идентичность записи | Стабильный локально назначенный ID; общего генератора нет |
+| Намерение публикации | Точное исходное утверждение/контрольная точка и предполагаемый эффект; при идентичном повторе сохраняйте запись |
+| Тип | human knowledge / техническое или справочное решение |
+| Утверждение | Полное существенное утверждение или решение |
+| Применимость | Точный проект, участник, условие, время и область действия |
+| Основания и неопределённость | Свидетельства, обоснование, ограничения и то, что остаётся неизвестным |
+| Статус | observed / accepted / retain-only / rejected / superseded / unresolved |
+| Источник | Точная ссылка, утверждение/заголовок и изученная эпоха; объект/путь Git или сохранённое свидетельство |
+| Исходное поручение и подразделение | Фактическое поручение-источник, этап/контрольная точка и нативный адрес автора |
+| Автор | Фактический автор этой записи; при копировании отличается от исходного источника |
+| Квалифицирующее лицо | Действующая ответственная роль/principal и фактическое рабочее подразделение |
+| Полномочие приёмки | Фактический владелец/действующее делегирование и точная ссылка на решение либо явное отсутствие полномочия |
+| Завершённый эффект или недостающее решение | Фактическая публикация/повторное использование/сохранение; точное ожидаемое действие и текущий ответственный |
+| Связи | Тип, идентичность/эпоха цели, область и основания; после поиска явно укажите отсутствие связей |
 
-## Source and decision context
+## Источник и контекст решения
 
-Preserve enough context to assess the claim without inventing unseen conversation or copying every
-source section. Human-only knowledge retains human provenance; technical findings retain technical
-sources. Two paraphrases of one origin are not independent corroboration.
+Сохраните достаточно контекста для оценки утверждения, не придумывая невидимую беседу и не копируя
+все разделы источника. Для знаний от человека сохраняйте их человеческое происхождение; для
+технических выводов — технические источники. Два пересказа одного источника не являются независимым подтверждением.
 
-## Relations and current use
+## Связи и текущее использование
 
-Relations may be equivalence/duplicate, scoped successor, correction or unresolved conflict.
-A legacy target names its exact path, D/F/heading identity and source epoch. Preserve old meaning;
-a scoped successor replaces only that scope. Search `knowledge/records/` for incoming references
-to this identity and material ancestors before use; follow relevant chains in both directions.
-A newer timestamp does not resolve overlapping conflict.
+Связь может обозначать эквивалентность/дубликат, преемника с ограниченной областью, исправление
+или неразрешённый конфликт. Для прежней записи указывайте точный путь, идентичность D/F/заголовка
+и эпоху источника. Сохраняйте прежний смысл; преемник меняет только указанную область. До
+использования найдите в `knowledge/records/` входящие ссылки на эту запись и существенных предков;
+проследите нужные цепочки в обоих направлениях. Более новая отметка времени не разрешает пересекающийся конфликт.
 
-## Retry and continuation
+## Повтор и продолжение
 
-Compare actual source, material intent, effect and acceptance. Equal retry reuses completed output;
-divergent intent refuses replacement until an authorized correction resolves it. Retain-only states
-why no publication/resolution is owed; unavailable acceptance-critical context keeps close open.
+Сравните фактический источник, существенное намерение, эффект и приёмку. При идентичном повторе
+используйте готовый результат; при ином намерении откажитесь от замены, пока разрешённое исправление
+не устранит расхождение. Статус retain-only объясняет, почему публикация/урегулирование не требуются;
+если отсутствует важный для приёмки контекст, поручение нельзя закрыть.

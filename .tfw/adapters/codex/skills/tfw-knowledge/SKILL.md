@@ -1,19 +1,19 @@
 ---
 name: tfw-knowledge
-description: Command /tfw-knowledge consolidates Trace-First Workflow Fact Candidates into verified project knowledge. Use for /tfw-knowledge, selected handovers, human-knowledge qualification, independent records or currentness.
+description: Команда /tfw-knowledge обобщает Fact Candidates Trace-First Workflow и превращает их в подтверждённые знания проекта. Используйте для /tfw-knowledge, выбранной передачи знаний, квалификации знаний от человека, отдельных записей или проверки актуальности.
 ---
 
 # /tfw-knowledge
 
-This repository skill implements the `/tfw-knowledge` command.
+Этот навык репозитория реализует команду `/tfw-knowledge`.
 
 ## Contract
 
-- Treat literal `/tfw-knowledge` input as a command. Also accept `tfw-knowledge` and matching natural-language requests.
-- Confirm the repository contains `.tfw/`.
-- Enforce the Coordinator role lock: permit selected human-knowledge records and current owning effect references; forbid code, technical decisions, source/marker/state writes and maintained inventories.
-- Read `.tfw/workflows/knowledge.md` completely and follow its Read Contract. Root instructions are already active; do not independently preload common files.
-- Treat every Fact Candidate as unverified until the workflow verifies it; never invent facts or resolve contradictions without the user.
-- Follow source/intent/authority and incoming-relation checks, every required decision and hard-stop gate; existing explicit authority can satisfy a settled decision.
+- Считайте точный ввод `/tfw-knowledge` командой. Также принимайте `tfw-knowledge` и соответствующие запросы на естественном языке.
+- Убедитесь, что в репозитории есть `.tfw/`.
+- Соблюдайте Role Lock Coordinator: разрешены выбранные записи человеческих знаний и ссылки на актуальные эффекты их владельца; запрещены код, технические решения, запись в источники/маркеры/состояние и поддерживаемые описи.
+- Полностью прочитайте `.tfw/workflows/knowledge.md` и следуйте его Read Contract. Корневые инструкции уже действуют; не загружайте общие файлы повторно без необходимости.
+- Считайте каждый Fact Candidate непроверенным, пока рабочий процесс его не проверит; не выдумывайте факты и не разрешайте противоречия без пользователя.
+- Проверяйте источник, намерение, полномочия и входящие связи; соблюдайте все необходимые решения и контрольные точки остановки. Уже существующие явные полномочия могут подтвердить принятое ранее решение.
 
-Report promoted, rejected, deferred, and unchanged facts with their sources.
+Перечислите повышенные до подтверждённых, отвергнутые, отложенные и оставленные без изменений факты с указанием источников.

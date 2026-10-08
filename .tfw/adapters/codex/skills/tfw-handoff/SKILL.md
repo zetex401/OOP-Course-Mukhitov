@@ -1,21 +1,21 @@
 ---
 name: tfw-handoff
-description: Command /tfw-handoff executes an approved Trace-First Workflow TS and creates ONB, implementation changes, evidence, and RF. Use for /tfw-handoff or implementation of an approved TFW task or phase.
+description: Команда /tfw-handoff выполняет утверждённый TS Trace-First Workflow и создаёт ONB, изменения реализации, свидетельства и RF. Используйте для /tfw-handoff или выполнения утверждённого поручения или этапа TFW.
 ---
 
 # /tfw-handoff
 
-This repository skill implements the `/tfw-handoff` command.
+Этот навык репозитория реализует команду `/tfw-handoff`.
 
 ## Contract
 
-- Treat literal `/tfw-handoff` input as a command. Also accept `tfw-handoff` and matching natural-language requests.
-- Confirm the repository contains `.tfw/`.
-- Enforce the Executor role lock: permit ONB, RF, evidence, and implementation changes within the approved TS; forbid HL, TS, RES, REVIEW, and scope changes.
-- Read `.tfw/workflows/handoff.md` completely and follow its checkpoint Read Contract. Root
-  instructions are already active; do not independently preload `AGENTS.md` or any full common
-  library. On return, let the workflow resolve the highest lineage and prior REVIEW.
-- Use `.tfw/templates/ONB.md`, `.tfw/templates/evidence/EV.md`, and `.tfw/templates/RF.md` only at their workflow gates.
-- Follow every approval, build, evidence, and Pre-RF gate, then stop after RF.
+- Считайте точный ввод `/tfw-handoff` командой. Также принимайте `tfw-handoff` и соответствующие запросы на естественном языке.
+- Убедитесь, что в репозитории есть `.tfw/`.
+- Соблюдайте Role Lock Executor: в пределах утверждённого TS разрешены ONB, RF, свидетельства и изменения реализации; запрещены HL, TS, RES, REVIEW и изменение объёма.
+- Полностью прочитайте `.tfw/workflows/handoff.md` и следуйте его Read Contract для контрольных точек. Корневые
+  инструкции уже действуют; не загружайте отдельно `AGENTS.md` или всю общую
+  библиотеку. При возврате следуйте рабочему процессу, чтобы определить высший источник происхождения и предыдущий REVIEW.
+- Используйте `.tfw/templates/ONB.md`, `.tfw/templates/evidence/EV.md` и `.tfw/templates/RF.md` только на соответствующих контрольных точках рабочего процесса.
+- Соблюдайте все контрольные точки согласования, сборки, свидетельств и Pre-RF, затем остановитесь после RF.
 
-When RF is complete, direct the user to `/tfw-review`.
+После завершения RF направьте пользователя к `/tfw-review`.

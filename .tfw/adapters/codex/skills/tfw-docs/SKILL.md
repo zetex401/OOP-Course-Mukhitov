@@ -1,18 +1,18 @@
 ---
 name: tfw-docs
-description: Command /tfw-docs updates Trace-First Workflow project documentation after review. Use for /tfw-docs or qualified technical/reference records and selected architecture/legacy ranges from RF/REVIEW results.
+description: Команда /tfw-docs обновляет документацию проекта Trace-First Workflow после проверки. Используйте для /tfw-docs, квалифицированных технических и справочных записей, а также выбранных архитектурных или прежних сведений из результатов RF/REVIEW.
 ---
 
 # /tfw-docs
 
-This repository skill implements the `/tfw-docs` command.
+Этот навык репозитория реализует команду `/tfw-docs`.
 
 ## Contract
 
-- Treat literal `/tfw-docs` input as a command. Also accept `tfw-docs` and matching natural-language requests.
-- Confirm the repository contains `.tfw/`.
-- Enforce the Coordinator role lock: permit selected technical/reference records and documentation/convention ranges owned by the workflow; forbid code, implementation, debt, human-knowledge promotion and historical source edits.
-- Read `.tfw/workflows/docs.md` completely and follow its Read Contract. Root instructions are already active; do not independently preload common files.
-- Follow its triage, approval, traceability, and stop gates.
+- Считайте точный ввод `/tfw-docs` командой. Также принимайте `tfw-docs` и соответствующие запросы на естественном языке.
+- Убедитесь, что в репозитории есть `.tfw/`.
+- Соблюдайте Role Lock Coordinator: разрешены выбранные технические и справочные записи, а также разделы документации и соглашений, за которые отвечает этот процесс; запрещены код, реализация, работа с задолженностью, повышение человеческих знаний до статуса подтверждённых и изменение исторических источников.
+- Полностью прочитайте `.tfw/workflows/docs.md` и следуйте его Read Contract. Корневые инструкции уже действуют; не загружайте общие файлы повторно без необходимости.
+- Соблюдайте контрольные точки сортировки, согласования, прослеживаемости и остановки.
 
-If Fact Candidates remain, direct the user to `/tfw-knowledge`.
+Если остались Fact Candidates, направьте пользователя к `/tfw-knowledge`.
