@@ -1,10 +1,15 @@
 task_id: OOP_20261013-230804_BASE
-title: "Совместимость минимального фронтенда и доступность проверок локального результата"
+title: "Совместимость минимального фронтенда и готовность входов TS"
 min_iterations: 2
 max_iterations: 3
 iterations:
   - number: 1
     focus: "Проверить H1/H2 утверждённого HL: соразмерность и совместимость React/Vite с целевым Node/npm; доступность сборки, запуска, проверки навигации и адаптивности без серверной инфраструктуры и наполнения курса."
     hypotheses: [H1, H2]
-    status: pending
+    status: complete
     res_file: research/iter1/RES.md
+  - number: 2
+    focus: "Закрыть только Q1/Q2 и Thread1 RES iter1: публичная воспроизводимая предпосылка Node24 (версия, Windows locator, команды и границы фактического наличия) и наблюдаемый контракт пяти представлений (URL/history/focus/reflow/build evidence) для TS. Принять iter1 и не повторять общий stack comparison. Не устанавливать продукт/Node в систему, не создавать app/scaffold/lock и не изменять README/HL/TS; реальную install/build/UI-проверку оставить исполнению."
+    hypotheses: [H1, H2]
+    status: pending
+    res_file: research/iter2/RES.md
