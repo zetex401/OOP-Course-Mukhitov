@@ -11,5 +11,5 @@ iterations:
   - number: 2
     focus: "Закрыть только Q1/Q2 и Thread1 RES iter1: публичная воспроизводимая предпосылка Node24 (версия, Windows locator, команды и границы фактического наличия) и наблюдаемый контракт пяти представлений (URL/history/focus/reflow/build evidence) для TS. Принять iter1 и не повторять общий stack comparison. Не устанавливать продукт/Node в систему, не создавать app/scaffold/lock и не изменять README/HL/TS; реальную install/build/UI-проверку оставить исполнению."
     hypotheses: [H1, H2]
-    status: pending
+    status: complete
     res_file: research/iter2/RES.md
