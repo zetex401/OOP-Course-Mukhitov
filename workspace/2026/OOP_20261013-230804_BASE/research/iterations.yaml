@@ -1,0 +1,10 @@
+task_id: OOP_20261013-230804_BASE
+title: "Совместимость минимального фронтенда и доступность проверок локального результата"
+min_iterations: 2
+max_iterations: 3
+iterations:
+  - number: 1
+    focus: "Проверить H1/H2 утверждённого HL: соразмерность и совместимость React/Vite с целевым Node/npm; доступность сборки, запуска, проверки навигации и адаптивности без серверной инфраструктуры и наполнения курса."
+    hypotheses: [H1, H2]
+    status: pending
+    res_file: research/iter1/RES.md
