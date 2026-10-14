@@ -1,35 +1,33 @@
 import { useEffect, useRef, useState } from 'react';
+import StudyMaterial from './StudyMaterial.jsx';
 
 const sections = [
   { id: 'home', title: 'Главная' },
   {
     id: 'theory', title: 'Теория', number: '01',
     description: 'Понятные объяснения основ ООП и примеры кода.',
-    future: 'Здесь появятся материалы об объектах, классах и принципах ООП. Будем разбирать примеры и учиться понимать структуру программ.',
   },
   {
     id: 'practice', title: 'Практика', number: '02',
     description: 'Учебные задания и работа с примерами.',
-    future: 'Здесь появятся задания для самостоятельной работы. Позже обсудим взаимную проверку решений по понятным критериям.',
   },
   {
     id: 'tests', title: 'Тестирование', number: '03',
     description: 'Вопросы для проверки понимания и сверки решений.',
-    future: 'Здесь появятся вопросы по изученным темам и способы сверить решения. Сейчас действующих тестов и оценивания нет.',
   },
   {
     id: 'results', title: 'Результаты', number: '04',
     description: 'Итоги обучения и личный прогресс.',
-    future: 'Здесь будем видеть результаты учебной работы и прогресс. Сейчас результаты не рассчитываются и не сохраняются.',
   },
 ];
 
-function currentSection() {
-  return sections.find((section) => `#${section.id}` === window.location.hash) || sections[0];
+function currentSection(hash) {
+  return sections.find((section) => `#${section.id}` === (hash === '#answers' ? '#tests' : hash)) || sections[0];
 }
 
 export default function App() {
-  const [section, setSection] = useState(currentSection);
+  const [hash, setHash] = useState(() => window.location.hash);
+  const section = currentSection(hash);
   const heading = useRef(null);
   const movedFocus = useRef(false);
 
@@ -37,7 +35,7 @@ export default function App() {
     function navigate() {
       const active = document.activeElement;
       movedFocus.current = active !== document.body && !!active?.closest('main');
-      setSection(currentSection());
+      setHash(window.location.hash);
     }
     window.addEventListener('hashchange', navigate);
     return () => window.removeEventListener('hashchange', navigate);
@@ -51,7 +49,12 @@ export default function App() {
       heading.current?.focus();
       movedFocus.current = false;
     }
-  }, [section]);
+    if (hash === '#answers') {
+      const answers = document.getElementById('answers');
+      answers?.scrollIntoView();
+      answers?.querySelector('summary')?.focus();
+    }
+  }, [section, hash]);
 
   return (
     <>
@@ -83,18 +86,18 @@ export default function App() {
               <h1 id="page-title" ref={heading} tabIndex={-1}>ООП — учебная платформа</h1>
               <p className="hero-description">Разбираемся в объектно-ориентированном программировании: от понятных объяснений к самостоятельной практике.</p>
               <a className="primary-link" href="#theory">Начать обучение <span aria-hidden="true">→</span></a>
-              <p className="muted hero-note">Это первый каркас. Материалы и учебные функции добавим позже.</p>
+              <p className="muted hero-note">Неделя 1 · Python 3.12+ · Инкапсуляция и инварианты · Модель Avtobys</p>
             </section>
             <section className="section-list" aria-labelledby="sections-title">
               <div className="section-intro">
                 <h2 id="sections-title">Разделы обучения</h2>
-                <p className="muted">Выберите, с чего продолжить знакомство с платформой.</p>
+                <p className="muted">Пройдите теорию, выполните лабораторную и обсудите решение с напарником.</p>
               </div>
               <div className="card-grid">
                 {sections.slice(1).map((item) => (
                   <a className="section-card" key={item.id} href={`#${item.id}`}>
                     <span className="card-number" aria-hidden="true">{item.number}</span>
-                    <span className="badge">Скоро</span>
+                    <span className="badge">Неделя 1</span>
                     <h3>{item.title}</h3>
                     <p>{item.description}</p>
                     <span className="card-action">Перейти в раздел <span aria-hidden="true">→</span></span>
@@ -102,18 +105,14 @@ export default function App() {
                 ))}
               </div>
             </section>
+            <StudyMaterial section="home" />
           </>
         ) : (
-          <section className="placeholder" aria-labelledby="page-title">
-            <p className="eyebrow">Раздел {section.number} · Учимся вместе</p>
+          <section className="lesson" aria-labelledby="page-title">
+            <p className="eyebrow">Неделя 1 · Раздел {section.number}</p>
             <h1 id="page-title" ref={heading} tabIndex={-1}>{section.title}</h1>
             <p className="placeholder-description">{section.description}</p>
-            <div className="notice">
-              <span className="badge">Заглушка · наполнение впереди</span>
-              <h2>Раздел готовится</h2>
-              <p>{section.future}</p>
-              <p className="muted">Пока можно изучить структуру сайта и переходить между разделами.</p>
-            </div>
+            <StudyMaterial section={section.id} showAnswers={hash === '#answers'} />
             <a className="back-link" href="#home">← На главную</a>
           </section>
         )}

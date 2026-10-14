@@ -46,9 +46,9 @@ nav a[aria-current] { background: #eaf1ff; color: #1d4ed8; font-weight: 650; }
 .section-card p { color: #65738b; margin-bottom: 20px; }
 .card-action { color: #1d4ed8; font-size: .9rem; font-weight: 600; }
 .card-action span { margin-left: 12px; }
-.placeholder { padding: 54px 0 60px; max-width: 800px; min-height: 530px; }
+.lesson { padding: 54px 0 60px; max-width: 800px; min-height: 530px; }
 .placeholder-description { font-size: 1.15rem; color: #4b5c75; }
-.notice { background: #fff; border: 1px solid #dde5f0; border-radius: 14px; padding: 28px; margin: 28px 0; }
+.study-panel { background: #fff; border: 1px solid #dde5f0; border-radius: 14px; padding: 28px; margin: 28px 0; }
 .notice h2 { margin-top: 20px; }
 .notice p:last-child { margin-bottom: 0; }
 .back-link { display: inline-block; font-weight: 600; text-underline-offset: 4px; }
@@ -64,7 +64,34 @@ nav a[aria-current] { background: #eaf1ff; color: #1d4ed8; font-weight: 650; }
   .hero { padding: 36px 0 32px; }
   .hero-description { font-size: 1rem; }
   .card-grid { grid-template-columns: 1fr; gap: 14px; }
-  .section-card, .notice { padding: 22px; }
-  .placeholder { padding: 36px 0 44px; min-height: auto; }
+  .section-card, .study-panel { padding: 22px; }
+  .lesson { padding: 36px 0 44px; min-height: auto; }
   .placeholder-description { font-size: 1rem; }
+}
+
+.study-panel { min-width: 0; margin-bottom: 28px; }
+main > .study-panel { max-width: 800px; }
+.study-text { overflow-wrap: anywhere; }
+.study-text h2 { margin: 36px 0 18px; }
+.study-text > h2:first-child { margin-top: 0; }
+.study-text h3 { margin-top: 28px; }
+.study-text li { margin-bottom: 8px; }
+.study-text p { white-space: pre-line; }
+code { font-family: ui-monospace, Consolas, monospace; font-size: .9em; }
+:not(pre) > code { background: #edf2fa; padding: 2px 5px; border-radius: 4px; }
+pre { max-width: 100%; overflow-x: auto; background: #f1f5fb; border: 1px solid #dde5f0; border-radius: 8px; padding: 18px; line-height: 1.65; }
+pre code { white-space: pre; }
+.table-scroll { overflow-x: auto; margin: 22px 0; }
+table { width: 100%; border-collapse: collapse; font-size: .93rem; }
+th, td { padding: 12px; border: 1px solid #dde5f0; text-align: left; vertical-align: top; min-width: 110px; }
+th { background: #edf3ff; }
+summary { cursor: pointer; font-weight: 650; color: #1d4ed8; }
+details[open] > summary { margin-bottom: 24px; }
+details details { margin-top: 20px; }
+summary:focus-visible, pre:focus-visible, .table-scroll:focus-visible { outline: 3px solid #1d4ed8; outline-offset: 4px; }
+.download-link { font-size: .9rem; margin-bottom: 24px; }
+@media (max-width: 600px) {
+  .study-panel { padding: 20px 16px; }
+  .study-text h2 { font-size: 1.3rem; }
+  pre { padding: 12px; }
 }
