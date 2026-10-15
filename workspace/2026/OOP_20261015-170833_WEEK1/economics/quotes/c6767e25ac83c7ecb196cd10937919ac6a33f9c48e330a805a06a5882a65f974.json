@@ -1,0 +1,42 @@
+{
+  "kind": "task_price_basis",
+  "observations": [
+    {
+      "checked_at": "2026-10-15T15:41:30.0501329+00:00",
+      "conditions": {
+        "context_band": "input_at_most_272000",
+        "regional_processing": "none",
+        "service_tier": "standard",
+        "valuation": "conditional_API_scenario"
+      },
+      "currency": "USD",
+      "effective_from": null,
+      "model": "gpt-6.1-sol",
+      "notes": [
+        "Current official model-page quote. Standard short-context conditional API scenario; actual tier/context band/region unknown. Not a subscription invoice.",
+        "Hash covers fetched public web-tool payload, not raw HTTP HTML.",
+        "TTL-specific cache-write rates unspecified and left null; observed writes zero. Tools/region/long-context premiums excluded; effective date unknown."
+      ],
+      "provider": "openai",
+      "published_on": null,
+      "quote_id": "3153ae08e165562437810398a20444456b9afc9843e0f3373e1a8aebdd2d2f8d",
+      "rates": {
+        "cache_write_1h": null,
+        "cache_write_5m": null,
+        "cached": "0.10",
+        "fresh": "2.00",
+        "output": "10.00"
+      },
+      "schema_version": 1,
+      "source_evidence": {
+        "https://developers.openai.com/api/docs/models/gpt-6.1-sol": "3d61810d10477f605fff1058b7efed5032d65fe20eb57d806a5ac6a224983736"
+      },
+      "source_urls": [
+        "https://developers.openai.com/api/docs/models/gpt-6.1-sol"
+      ],
+      "unit": "per_1M_text_tokens"
+    }
+  ],
+  "schema_version": 1,
+  "valuation_kind": "current_revaluation"
+}
