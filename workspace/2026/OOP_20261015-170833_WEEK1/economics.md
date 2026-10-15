@@ -22,3 +22,15 @@ Collect/validate/receive прошли. Numeric diagnostic всего source pref
 После cutoff не покрыты дальнейшие коммиты, передача отдельному Coordinator и финальный ответ. При передаче будет возвращён последний доступный bounded срез того же источника без суммирования перекрывающихся revisions. Другие producing roles ещё не запускались; будущий расход неизвестен. Тариф, API-эквивалент и фактическое денежное списание не подтверждены; стоимость **неизвестна**, подписка не приравнена к token bill.
 
 Получатель: owner:ars и фактически принявший передачу task Coordinator. Продолжение: каждый реально активированный unit возвращает только свой числовой вклад; финальный Coordinator сверяет actual dispatch/returns и не смешивает BASE, прежний Daily и WEEK1. Сопоставимая денежная оценка требует доказанного точного model/profile тарифа.
+
+## Собственный ограниченный возврат при передаче
+
+После первого среза получен **неперекрывающийся** [coordinator-r2.jsonl](economics/coordinator-r2.jsonl), revision 2, range `[281,398)`, complete=false, cutoff `2026-10-15T12:19:11.234360+00:00`. SHA256 `49845f8c09edd2a4cab9e9002ccd93ac9809d5c54125784e8b83d48f9b16e1b4`; collect/validate/receive прошли, идентичные bytes находятся в [roles](economics/roles/49845f8c09edd2a4cab9e9002ccd93ac9809d5c54125784e8b83d48f9b16e1b4.jsonl). Это продолжение по отдельному диапазону, не covering successor и не повторное суммирование cumulative prefix. Граница конца r1 ровно совпадает с началом r2; сумма собственного покрытого интервала `[100,398)` воспроизведена из usage rows двух файлов:
+
+| Input | Cached внутри input | Fresh | Output | Total |
+|---:|---:|---:|---:|---:|
+| 5 222 468 | 5 119 744 | 102 724 | 30 142 | 5 252 610 |
+
+Reasoning 10 061 входит в output. Это только возврат прежнего Coordinator, не экономика всей незавершённой WEEK1. Последний сбор предшествует финальному commit/send/сообщению и UI-открытию; этот ограниченный хвост объявлен непокрытым, повторный сбор ради самого сбора не требуется.
+
+Фактически создан successor Coordinator codex:thread:local:01a13f7d-7bd4-77f3-9c52-77ec80f172bf; он подтвердил handover по native gate. Его собственный расход ещё не возвращён, источник принадлежит ему и прежним unit не читается; это явный пробел текущего покрытия, не ноль. Эффективный маршрут передан согласно immutable selection journal/20261015-171810__coordination_selected__e39d.md @579f92bf45958537df4e3615759c87e468ec9e98, lifecycle остаётся HL_DRAFT. Стоимость по-прежнему неизвестна. Scratch/raw PDF exports и screenshots не создавались; только task-owned compact contributions и TRACE. Продолжение — новый Coordinator на owner HL gate.
