@@ -44,3 +44,7 @@ No established deviation at Map. Human novice timing/H2 and group readiness rema
 - [x] No verdict inferred from filenames or counts.
 
 Этап завершён: YES.
+
+### Continuation · 2026-10-16
+
+Тот же unit продолжен exact командой со ссылкой `journal/20261016-104004__dispatch__a3c7.md@970e692449460ae2fd0d45d788a23d5153ba1ad4`, source/parent прежний Coordinator. Объект/dispatch прочитан; полный current status REV и все семь полей маршрута совпадают с исходной активацией, Candidate/TS/denominator неизменны. Новых ролей/мандата/решений не создано, завершённые проверки не перезапускались. Предыдущая команда cleanup+capture не была исполнена: provider approval review не завершился по usage limit. После возобновления собственный numeric source остаётся тем же exact rollout/start0; capture/validate успешно выполнены, cleanup завершён. Фактически source отражает gpt-6.1-sol/high до прерывания и medium после продолжения; Reviewer не задавал model/effort override и не выводит эффективные настройки из dispatch.
