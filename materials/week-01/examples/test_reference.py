@@ -6,11 +6,19 @@ from uuid import UUID
 
 import pytest
 
-from reference_solution import (
-    Bus, Route, TransitCard, SingleTripTicket,
-    CapacityExceededError, CardBlockedError, InsufficientFundsError,
-    TicketAlreadyUsedError, TicketExpiredError,
-)
+import importlib
+import os
+
+MODEL_NAME = os.environ.get("WEEK1_MODEL", "reference_solution")
+model = importlib.import_module(MODEL_NAME)
+print(f"WEEK1 contract model: {MODEL_NAME} -> {model.__file__}")
+Bus, Route, TransitCard, SingleTripTicket = (getattr(model, name) for name in (
+    "Bus", "Route", "TransitCard", "SingleTripTicket"))
+(CapacityExceededError, CardBlockedError, InsufficientFundsError,
+ TicketAlreadyUsedError, TicketExpiredError) = (getattr(model, name) for name in (
+    "CapacityExceededError", "CardBlockedError", "InsufficientFundsError",
+    "TicketAlreadyUsedError", "TicketExpiredError"))
+
 
 D = Decimal
 BOUGHT = datetime(2026, 1, 15, 10, 0, tzinfo=timezone.utc)
@@ -232,3 +240,53 @@ def test_ticket_uuid_and_price():
     assert first.price == D("100.00") and first.issued_at == BOUGHT
     with pytest.raises(ValueError):
         SingleTripTicket(D("0.00"), BOUGHT)
+
+
+def test_route_invalid_inputs_and_readonly_interface():
+    for stops in ([], ["A"], ["A", " A "]):
+        with pytest.raises(ValueError):
+            Route("32", stops)
+    with pytest.raises(TypeError):
+        Route("32", ("A", "B"))
+    with pytest.raises(ValueError):
+        Route(" ", ["A", "B"])
+    route = Route("32", ["A", "B"])
+    for name, value in (("route_number", "X"), ("base_fare", D("-1")), ("stops", ())):
+        with pytest.raises(AttributeError):
+            setattr(route, name, value)
+
+
+def test_invalid_assignment_preserves_bus_route_and_passengers():
+    bus = Bus("123 AB 02", 10)
+    route = Route("32", ["A", "B"])
+    bus.assign_route(route)
+    bus.board_passengers(1)
+    with pytest.raises(TypeError):
+        bus.assign_route("32")
+    assert bus.route is route and bus.current_passengers == 1
+    bus.remove_route()
+    assert bus.route is None and bus.current_passengers == 1
+    with pytest.raises(ValueError):
+        Bus(" ", 10)
+
+
+def test_invalid_block_reason_preserves_active_card():
+    card = TransitCard("KZ-01", D("100.00"))
+    with pytest.raises(ValueError):
+        card.block(" ")
+    assert not card.is_blocked and card.block_reason == ""
+    assert card.balance == D("100.00")
+    for name, value in (("discount_rate", D("1")), ("is_blocked", True), ("block_reason", "X")):
+        with pytest.raises(AttributeError):
+            setattr(card, name, value)
+
+
+def test_invalid_bus_preserves_new_ticket_and_readonly_data():
+    ticket = SingleTripTicket(D("100.00"), BOUGHT)
+    with pytest.raises(TypeError):
+        ticket.validate("bus", now=BOUGHT)
+    assert not ticket.is_validated
+    for name, value in (("price", D("0")), ("issued_at", BOUGHT),
+                        ("ticket_code", "X"), ("is_validated", True)):
+        with pytest.raises(AttributeError):
+            setattr(ticket, name, value)

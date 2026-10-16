@@ -1,4 +1,19 @@
-# Теория. Объект отвечает за допустимое состояние
+# Теория недели 1. Инкапсуляция и защита инвариантов
+
+Один комплект: лекция 1 и лабораторная 1. Результат часа — объяснить класс/экземпляр, состояние/поведение и показать, где объект защищает правило. Python 3.12+; сначала проверьте готовность по [маршруту](README.md).
+
+## План теории: 60 минут
+
+| Минуты | Действие и результат |
+|---|---|
+| 0–5 | Проверить Python/pytest и короткую функцию/мутацию списка по README; назвать фактические gaps |
+| 5–15 | Разделы 1–2: найти поломку словаря, различить класс, два экземпляра и их идентичность |
+| 15–30 | Разделы 3–5: сформулировать инварианты, публичный интерфейс и защиту коллекции |
+| 30–45 | Разделы 6–7: проследить Decimal/скидку и отказ без повреждения состояния |
+| 45–55 | Разделы 8–9: связать правила четырёх сущностей с тестовыми наблюдениями; билет 59:59/60:00 |
+| 55–60 | Прочитать границу C16-V, команды starter и план практики; назвать самостоятельные переходы |
+
+Итого 60 минут, интервалы не пересекаются. Вопросы и короткие действия входят в эти интервалы. План не является измерением темпа новичка. Установка среды и освоение базового Python не выдаются за пятиминутную проверку: при обнаруженном gap полный путь ещё не подтверждён.
 
 ## 1. Зачем нужны объекты: начнём с поломки
 
@@ -178,7 +193,7 @@ except InsufficientFundsError:
 
 ## 9. Разобранный сценарий
 
-Откройте [эталон](examples/reference_solution.py) после собственной попытки и проследите:
+Проследите приведённую ниже трассу карты. [Полный эталон](examples/reference_solution.py) откройте после собственной лабораторной попытки; для этого теоретического разбора он не требуется.
 
 1. `TransitCard("KZ-01", Decimal("200.00"), Decimal("0.5"))` проверяет стартовые данные.
 2. `pay(Decimal("100.00"))` вычисляет 50.00 и оставляет баланс 150.00.
@@ -186,3 +201,113 @@ except InsufficientFundsError:
 4. `unblock()` снова разрешает допустимые операции.
 
 Каждый шаг объясните словами: какое правило проверили, какое состояние изменили и что осталось неизменным. Затем переходите к [лабораторной](practice.md).
+
+
+## Необязательное продолжение
+
+Сохранённые прежние примеры композиции и полиморфизма относятся к комплектам 2–3. Они не нужны для завершения WEEK1, не оцениваются её самопроверкой и не добавляют обязательного времени.
+
+## 10. Отношения объектов и композиция
+
+Зависимость Uses-A возникает, когда метод использует другой объект. Ассоциация Has-A связывает объекты; агрегация позволяет компоненту существовать независимо, композиция связывает его жизненный цикл с владельцем. Наследование Is-A подходит для подстановки по общему контракту. Комбинации вроде StudentSuburbanFare создают рост иерархии: скидку, зону и время удобнее соединять как независимые политики.
+
+В примере калькулятор получает политику скидки через конструктор. Новая политика реализует тот же контракт, поэтому код расчёта не меняется. Protocol описывает структурный контракт; классу достаточно подходящего метода. Его аннотация сама не проверяет объект во время исполнения.
+
+```python
+from decimal import Decimal
+from typing import Protocol
+
+
+class DiscountPolicy(Protocol):
+    def discount(self, fare: Decimal) -> Decimal: ...
+
+
+class StandardDiscountPolicy:
+    def discount(self, fare: Decimal) -> Decimal:
+        return Decimal("0.00")
+
+
+class StudentDiscountPolicy:
+    def discount(self, fare: Decimal) -> Decimal:
+        return fare * Decimal("0.5")
+
+
+class FareCalculator:
+    def __init__(self, discount_policy: DiscountPolicy):
+        self.discount_policy = discount_policy
+
+    def calculate(self, fare: Decimal) -> Decimal:
+        return fare - self.discount_policy.discount(fare)
+
+
+assert FareCalculator(StandardDiscountPolicy()).calculate(Decimal("100.00")) == Decimal("100.00")
+assert FareCalculator(StudentDiscountPolicy()).calculate(Decimal("100.00")) == Decimal("50.00")
+```
+
+Проверьте две суммы. Объясните, как два калькулятора могут использовать одну политику: это совместно используемый независимый компонент. Полный движок со скидками, зонами, временем и округлением остаётся заданием [лабораторной 2](../../.tfw/COURSE-MATERIALS/02_Лабораторная_02_Композитный_движок_тарификации_и_платежей.pdf).
+
+## 11. Полиморфный вызов и явный контракт
+
+Полиморфизм позволяет клиенту вызывать один метод у разных реализаций без ветвления по конкретному классу. Duck Typing опирается на доступное поведение, ABC задаёт номинальный абстрактный базовый класс и не позволяет создать экземпляр с нереализованным абстрактным методом, Protocol описывает структурное соответствие. Выбор контракта зависит от задачи; одинаковое имя метода ещё не гарантирует одинаковый смысл.
+
+В компактном примере из темы исходного комплекта 3 диспетчер доставляет одно неизменяемое событие обработчикам общего контракта. Падение одного обработчика сохраняется как ошибка и не прерывает аудит.
+
+```python
+from dataclasses import dataclass
+from decimal import Decimal
+from typing import Protocol
+
+
+@dataclass(frozen=True)
+class CardTapEvent:
+    card_id: str
+    amount: Decimal
+
+
+class EventHandler(Protocol):
+    def handle(self, event: CardTapEvent) -> None: ...
+
+
+class AuditLogHandler:
+    def __init__(self):
+        self.audit_records: list[CardTapEvent] = []
+
+    def handle(self, event: CardTapEvent) -> None:
+        self.audit_records.append(event)
+
+
+class FailingHandler:
+    def handle(self, event: CardTapEvent) -> None:
+        raise RuntimeError("Сбой уведомления")
+
+
+class EventDispatcher:
+    def __init__(self):
+        self.handlers: list[EventHandler] = []
+        self.errors: list[str] = []
+
+    def subscribe(self, handler: EventHandler) -> None:
+        self.handlers.append(handler)
+
+    def dispatch(self, event: CardTapEvent) -> int:
+        delivered = 0
+        for handler in self.handlers:
+            try:
+                handler.handle(event)
+                delivered += 1
+            except Exception as error:
+                self.errors.append(str(error))
+        return delivered
+
+
+dispatcher = EventDispatcher()
+audit = AuditLogHandler()
+dispatcher.subscribe(FailingHandler())
+dispatcher.subscribe(audit)
+event = CardTapEvent("KZ-01", Decimal("50.00"))
+assert dispatcher.dispatch(event) == 1
+assert audit.audit_records == [event]
+assert dispatcher.errors == ["Сбой уведомления"]
+```
+
+Проследите порядок вызовов и проверьте три утверждения. Этот фрагмент показывает доставку одного типа события; полный набор типов, подписку по типу, unsubscribe и детектор повторных прикладываний реализуйте самостоятельно по [лабораторной 3](../../.tfw/COURSE-MATERIALS/02_Лабораторная_03_Полиморфный_процессор_событий_Event_Dispatcher.pdf). Все исходные контракты и критерии сохраняются в [трёхнедельном маршруте](../course-plan.md).
