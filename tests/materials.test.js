@@ -5,7 +5,7 @@ import { dirname, resolve } from 'node:path';
 import { groups } from '../src/assessment.js';
 
 test('all local Markdown destinations in the module and preserved archive resolve', () => {
-  const files = ['README.md', 'materials/course-plan.md', ...readdirSync('materials/week-01').filter((name) => name.endsWith('.md')).map((name) => `materials/week-01/${name}`)];
+  const files = ['README.md', 'materials/course-plan.md', ...readdirSync('materials/week-02').filter((name) => name.endsWith('.md')).map((name) => `materials/week-02/${name}`), ...readdirSync('materials/week-01').filter((name) => name.endsWith('.md')).map((name) => `materials/week-01/${name}`)];
   for (const file of files) {
     for (const link of readFileSync(file, 'utf8').matchAll(/\[[^\]]+\]\(([^)]+)\)/g)) {
       if (/^https?:|^#/.test(link[1])) continue;
