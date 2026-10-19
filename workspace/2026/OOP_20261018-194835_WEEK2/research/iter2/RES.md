@@ -2,7 +2,7 @@
 
 > **Date:** 2026-10-19
 > **Author:** Codex, Researcher
-> **Status:** RES — черновик Synthesis сохранён при STOP; iteration 2 не объявлена завершённой
+> **Status:** RES — iteration 2 complete; рекомендация Coordinator, не product PASS
 > **Parent HL:** [HL-OOP_20261018-194835_WEEK2](../../HL-OOP_20261018-194835_WEEK2.md)
 > **Mode:** Pipeline / focused
 > **Producer unit:** `codex:thread:local:01a14fe6-b83e-7b91-9916-9d8ebad36666`
@@ -11,15 +11,17 @@
 > **Coordination authority:** `HL-OOP_20261018-194835_WEEK2.md @ e9a75b3e09263fba3591108c92f1e8eb10d6b04d`
 > **Originating proposer:** `none`
 
-## STOP / точка продолжения
+> **Resume dispatch:** `journal/20261019-140650__dispatch__fc6b.md` @ `70685065c72334308399f81c92906f3bf039ab6c`, тот же Researcher, iteration 2 H2/focused. Проверены текущие status/HL/control: routing, delegated baseline, reporting и selection_ref неизменны. Новый dispatch передаёт явное «теперь продолжай дальше» от ars и снимает прежний STOP только для завершения economics и проверки/возврата Synthesis. Принятые стадии повторно не исследовались, scope и owner reservations сохранены.
 
-После подготовки содержательного черновика получен адресный STOP своего Coordinator `codex:thread:local:01a14f63-57a8-7632-8582-7198710cff4b`: передан запрос ars остановить работу до нового явного поручения владельца, без автоматического возобновления. Новые стадии и материальная работа прекращены. Ниже сохранены уже достигнутые выводы Synthesis; это не завершённый durable RES return. Не выполнены новый bounded economics capture и заключительная проверка/возврат завершённого RES. При возможном будущем явном поручении сначала проверить действительность activation, актуальные task/control/route и этот STOP; автоматически продолжать по прежнему Synthesis gate нельзя. Никакие HL/TS/status/control или продуктовые файлы этим сохранением не изменяются.
+## Исторический STOP checkpoint
+
+После подготовки содержательного черновика получен адресный STOP своего Coordinator `codex:thread:local:01a14f63-57a8-7632-8582-7198710cff4b`, передавший просьбу ars. Работа остановлена и черновик сохранён @ `fe3a5e08b9ce84e8383bc94abecdc24c83a83547`; тогда новый economics capture и заключительная проверка не выполнялись, завершение iteration 2 не объявлялось. Этот checkpoint остаётся в истории. Разрешённое новым dispatch продолжение завершает только эти оставшиеся шаги; прежний gate сам по себе не использован как разрешение возобновить работу. HL/TS/status/control или продуктовые файлы Researcher не изменяет.
 
 ## Research Context
 
 Проверена H2: различает ли путь «теория → предоставленный пример → собственный тарифный сервис → свои проверки/объяснение/самопроверка» понимание обязанностей и передачи зависимостей от повторения готового примера. Основа — выбранные рабочие байты HL §2.1 и принятый [RES iter1](../iter1/RES.md) @ `4907927390c06bf3d1bb5ac5c5c461d8ec581f85`. Рекомендован **H2-BB внутри C1 первой итерации**: краткая опора перехода без готового решения и явная связь существующей рубрики с собственной работой. Исследовательских оснований достаточно для точного TS; обучение реального участника и готовность продукта не подтверждались.
 
-Governing status/HL/control проверены по `f243992266f1bd0dd62dc5579aaf53856b209edc`: owner ars, lifecycle RES, upstream `owner:ars`, delegated baseline, authority и Parent выше, `dialogue: tfw-gates-only`, `reporting: native-gates`, `selection_ref: baseline`; PHASE отсутствует. В этом control первая итерация complete, единственная pending — вторая H2. Локальные более ранние pending-поля не использовались. Researcher не изменяет status, HL, journal или iterations.yaml.
+Governing status/HL/control проверены по `70685065c72334308399f81c92906f3bf039ab6c`: owner ars, lifecycle RES, upstream `owner:ars`, delegated baseline, authority и Parent выше, `dialogue: tfw-gates-only`, `reporting: native-gates`, `selection_ref: baseline`; PHASE отсутствует. В этом control первая итерация complete, единственная pending — вторая H2. Локальные более ранние pending-поля не использовались. Researcher не изменяет status, HL, journal или iterations.yaml.
 
 ## Briefing
 
@@ -93,7 +95,7 @@ No strategic insights. Нового человеческого стратеги�
 ## Iteration Status
 
 - **Iteration:** 2 of 2 (min) / 3 (max).
-- **Completion:** Synthesis остановлен на черновике по запросу ars через своего Coordinator; завершение итерации не заявлено, control Researcher не меняет.
+- **Completion:** после сохранённого STOP и нового явного continuation завершены оставшиеся собственные economics и проверка Synthesis; control обновляет только Coordinator.
 - **Hypotheses tested:** H2 — условно поддержана на уровне согласованности учебного проектирования с H2-BB; фактическое освоение не измерено.
 - **Hypotheses deferred:** глубокий повтор H1/H3 не назначен; выводы/пределы RES iter1 сохраняются. Новых гипотез Researcher не создаёт.
 - **Gaps discovered:** readiness и реальные время/эффект участников unavailable; текущая подача требует bounded уточнений, не дополнительного исследования ради безусловного обещания. Продуктовые запуск/интерфейс/регрессии/приёмка ещё впереди.
@@ -115,7 +117,7 @@ No strategic insights. Нового человеческого стратеги�
 - [ ] **MORE NEEDED**
 - [ ] **BLOCKED**
 
-Исследователь рекомендует, Coordinator решает. SUFFICIENT здесь — сохранённый содержательный вывод черновика, а не разрешение продолжить после STOP. Он не принимает продукт, не утверждает TS и не снимает owner reservations. Researcher остановлен до нового явного поручения ars; прежний gate не разрешает автоматического возобновления.
+Исследователь рекомендует, Coordinator решает. SUFFICIENT не принимает продукт, не утверждает TS и не снимает owner reservations. После durable return Researcher останавливается; дальнейшая работа возможна только по действительному новому назначению, не автоматически.
 
 ## Conclusion
 
@@ -123,13 +125,21 @@ H2 проверена через соответствие умения, само
 
 ### Material handover at this return
 
-Producer — собственный Researcher unit в заголовке; получатель — только его Parent Coordinator. Epoch — 2026-10-19, исходные 26 SHA-256 HL §2.1, сверенные и совпавшие на Gather/Extract/Challenge; последний governing ref `f243992266f1bd0dd62dc5579aaf53856b209edc`. Выбранные исходники из `C:/Users/Арс/OneDrive/Desktop/web-oop-mukhitov` не менялись. Стадии сохраняют точные области адресного чтения и версии; дополнительная теория WEEK1 имеет SHA-256 `bb1e34d73f0e482190b8fb1945bbf3b4fd2e48b34a4a23a936c9bdc976594582` и совпадает с принятым Candidate `d7c03d57881084e0215f205adced6fcaa82a1deb`; это только prerequisite reference, не принятие нового walkthrough. Публикации/официальные документы и пределы прочтения приведены в стадиях; новые внешние выводы при Synthesis не добавлялись.
+Producer — собственный Researcher unit в заголовке; получатель — только его Parent Coordinator. Epoch — 2026-10-19, исходные 26 SHA-256 HL §2.1, сверенные и совпавшие на Gather/Extract/Challenge; последний governing ref `70685065c72334308399f81c92906f3bf039ab6c`. Выбранные исходники из `C:/Users/Арс/OneDrive/Desktop/web-oop-mukhitov` не менялись. Стадии сохраняют точные области адресного чтения и версии; дополнительная теория WEEK1 имеет SHA-256 `bb1e34d73f0e482190b8fb1945bbf3b4fd2e48b34a4a23a936c9bdc976594582` и совпадает с принятым Candidate `d7c03d57881084e0215f205adced6fcaa82a1deb`; это только prerequisite reference, не принятие нового walkthrough. Публикации/официальные документы и пределы прочтения приведены в стадиях; новые внешние выводы при Synthesis не добавлялись.
 
 Материал — D1–D5, R1–R5, карта свидетельств и достаточность H2 в пределах C1. `Current knowledge use` / `Knowledge handover` применены: принятый WEEK1 и BASE-frontend сохраняют исходные области; поиск входящих ссылок BASE-frontend в records вновь нашёл только саму запись. Code/file observations не повышены до human knowledge. **Owed resolution** — решение Coordinator по рекомендациям и точному TS; **unavailable** — скрин из predecessor, реальная готовность/темп/эффект и будущие продуктовые проверки. Их ограниченная зависимость/actor указаны в T1–T3; неизвестное не скрывается как принятие. Новое исполнение, product tests/build/browser, студенческое решение и изменение общих управляющих файлов не выполнялись. Новых scratch/экспортов в проекте нет.
 
 ### Собственная economics contribution
 
-Новый successor не собирался: STOP получен до этого шага. Последний уже возвращённый measured capture — revision 2, [файл](../../economics/roles/4f79804b230ad374b14a1c5eb889d44a7a60c0ca31fa4340272b43f68c76e93d.jsonl), SHA-256 `4f79804b230ad374b14a1c5eb889d44a7a60c0ca31fa4340272b43f68c76e93d`, диапазон `[0,601)`, `complete: false`, cutoff `2026-10-19T01:18:31.622567+00:00`, источник собственного unit `codex.rollout:01a14fe6-b83e-7b91-9916-9d8ebad36666`. Он не покрывает всю последующую итерацию 2 и не переименован в новый capture. Прежний typed failure revision 1 / SHA-256 `ee36894ace862ca9c89fbe9f273e4537b6ab3b80e0bf6a6accf43391e944d4b3` сохранён отдельно от измерения. Новые числа, cutoff, покрытие и факт ошибки сбора не выдумываются: новая попытка не выполнялась. Economics и окончательная проверка остаются точкой продолжения только при новом явном поручении владельца.
+После разрешённого продолжения собран, проверен `validate` и принят `receive` собственный **revision 3**, [точные JSONL-байты](../../economics/roles/70e20bdb811688e1d1a6db6d20a244c9a88b8b9902a6770a7f639adac0f4e99b.jsonl). SHA-256 файла `70e20bdb811688e1d1a6db6d20a244c9a88b8b9902a6770a7f639adac0f4e99b`, диапазон строк `[0,1132)`, cutoff `2026-10-19T09:08:54.459261+00:00` / `2026-10-19T14:08:54.459261+05:00`. `complete: true` относится только к этому выбранному физическому bound, не к закрытию всего поручения/открытого turn.
+
+Binding проверен: `CODEX_THREAD_ID = session_meta.id = 01a14fe6-b83e-7b91-9916-9d8ebad36666`; provider/source `codex.rollout`, версия `0.163.0-alpha.10.2`; точный rollout `C:/Users/Арс/.codex/sessions/2026/10/18/rollout-2026-10-18T21-44-45-01a14fe6-b83e-7b91-9916-9d8ebad36666.jsonl`, начало `2026-10-18T16:44:45.128Z`, timezone `+05:00`. Prefix текущего bound: SHA-256 `48a167fb0fd0960f8fb66901bb86f4e6741c9f83ce3a204ddca85d33e4825e5d`, 8 290 212 bytes. Это единый собственный источник, без чтения чужих transcripts или суммирования чужих расходов.
+
+Successor покрывает и явно называет прежний measured revision 2 / SHA-256 `4f79804b230ad374b14a1c5eb889d44a7a60c0ca31fa4340272b43f68c76e93d` `[0,601)`. Неизменность его исходного prefix проверена перед сбором и самим collector: `869f82da7a60cd22909bfe0f66902dc666c06287755deb746d270b282a2e6b32`. Receiver может выбрать revision 3 вместо revision 2 для итогов; **накопленные ревизии не складываются**. Оба файла сохраняются. Typed failure revision 1 / SHA-256 `ee36894ace862ca9c89fbe9f273e4537b6ab3b80e0bf6a6accf43391e944d4b3` остаётся отдельным нечисловым исходом прежней попытки; он не заменяет/не прибавляет измерение. STOP не превращён в несуществующий capture или несуществующую ошибку сбора.
+
+Фактический cumulative срез revision 3: **input 27 683 061** (fresh 667 637, cached 27 015 424), **output 138 117**, **total 27 821 178**; reasoning 37 397 уже входит в output, cache writes — 0. Четыре compact daily/model записи включают 134 уникальных response usage и 13 завершённых native turns; completed-turn duration **3 435.352 s**, collector operation **0.063 s**. Модель/effort наблюдаемого источника — `gpt-6.1-sol/high`; это не назначение будущих запусков. Duration не равна календарному времени, периоду паузы или времени других ролей. Текущий turn ещё открыт, его завершённая duration неизвестна.
+
+Diagnostics сохранены в manifest: native response/thread total 27 821 178 согласован; отдельный token_count total 27 269 925 расходится с ним, поэтому выбран проверенный response stream, а не сумма двух счётчиков. Цена не рассчитывалась; подписочная стоимость не выводится из токенов. Временный capture удалён в том же вызове после receive. Финальная правка RES, проверка/commit, доставка и финальный ответ находятся за конечным cutoff; этот хвост раскрыт один раз и не запускает рекурсивный сбор.
 
 ---
 
