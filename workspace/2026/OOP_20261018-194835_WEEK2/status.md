@@ -3,7 +3,7 @@ id: OOP_20261018-194835_WEEK2
 title: "Вторая неделя ООП: SOLID и DI"
 goal: "Завершить согласованный локальный модуль WEEK2 по SOLID и DI через полный TFW, используя существующие изменения как входные материалы."
 value: "Студент получает понятный путь от теории и предоставленного примера к самостоятельному расширению, проверке и сохранению результата при сохранении WEEK1."
-lifecycle: ONB
+lifecycle: RF
 owner: ars
 authority: TS__OOP_20261018-194835_WEEK2.md
 coordinator_route: "codex:thread:local:01a14f63-57a8-7632-8582-7198710cff4b"
@@ -14,7 +14,7 @@ coordination_authority: "HL-OOP_20261018-194835_WEEK2.md @ e9a75b3e09263fba35911
 reporting: native-gates
 selection_ref: baseline
 created: 20261018-194835
-updated: 20261019-145452
+updated: 20261019-151023
 ---
 
-**Task state.** This file is the only authority for this task's live state.
+**Task state.** This file is the only authority for this task's live state. Any downstream projection is disposable and never outranks it.
