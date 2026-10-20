@@ -1,23 +1,26 @@
 import { useEffect, useRef } from 'react';
-import { groups, questions, MODULE_VERSION, resultText } from './assessment.js';
+import * as week1Model from './assessment.js';
+import { courseHref } from './course.js';
 
-export function AttemptResult({ attempt, dispatch }) {
+export function AttemptResult({ attempt, dispatch, model = week1Model, week = 1 }) {
+  const { resultText } = model;
+  const testsHref = courseHref(week, 'tests');
   const title = useRef(null);
   const copyField = useRef(null);
   useEffect(() => { if (attempt.result) title.current?.focus(); }, [attempt.result]);
   if (!attempt.result) return <article className="study-panel"><h2>Результата пока нет</h2>
     <p>Завершите все 20 компонентов в разделе «Тестирование». Ответы сохраняются при переходах в этой вкладке. Перезагрузка страницы начинает заново.</p>
-    <a className="primary-link" href="#tests">Продолжить самопроверку</a></article>;
+    <a className="primary-link" href={testsHref}>Продолжить самопроверку</a></article>;
   return <article className="study-panel result-panel">
     <p className="eyebrow">Завершённая онлайн-попытка</p>
     <h2 ref={title} tabIndex={-1}>Самопроверка: {attempt.result.score}/20</h2>
     <p>{attempt.result.version}<br /><time dateTime={attempt.result.completedAt}>{new Date(attempt.result.completedAt).toLocaleString('ru-RU')}</time></p>
-    <p>Проверены выбранные ответы. Написание Python-кода и свободное объяснение проверяются отдельно в лабораторной: 5 + 7 + 5 + 3 = 20. Эти две оценки не складываются.</p>
+    <p>Проверены выбранные ответы. {model.labSummary || 'Написание Python-кода и свободное объяснение проверяются отдельно в лабораторной: 5 + 7 + 5 + 3 = 20. Эти две оценки не складываются.'}</p>
     <div className="attempt-actions"><button type="button" onClick={() => {
       copyField.current?.focus();
       copyField.current?.select();
     }}>Выделить результат для копирования</button>
-      <a href="#tests">Посмотреть разбор всех ответов</a>
+      <a href={testsHref}>Посмотреть разбор всех ответов</a>
       <button type="button" className="secondary-button" onClick={() => dispatch({ type: 'reset' })}>Новая попытка — сбросить ответы</button></div>
     <label className="result-copy">Текст результата для копирования
       <textarea ref={copyField} readOnly rows={8} value={resultText(attempt)} />
@@ -26,7 +29,8 @@ export function AttemptResult({ attempt, dispatch }) {
   </article>;
 }
 
-export default function Assessment({ attempt, dispatch }) {
+export default function Assessment({ attempt, dispatch, model = week1Model, week = 1 }) {
+  const { groups, questions, MODULE_VERSION } = model;
   const firstMissing = useRef(null);
   useEffect(() => { if (attempt.missing.length) firstMissing.current?.focus(); }, [attempt.missing]);
   const answered = Object.keys(attempt.answers).length;
@@ -61,6 +65,6 @@ export default function Assessment({ attempt, dispatch }) {
       </section>)}
       {!attempt.result && <button className="finish-button" type="submit">Завершить попытку</button>}
     </form>
-    {attempt.result && <AttemptResult attempt={attempt} dispatch={dispatch} />}
+    {attempt.result && <AttemptResult attempt={attempt} dispatch={dispatch} model={model} week={week} />}
   </>;
 }

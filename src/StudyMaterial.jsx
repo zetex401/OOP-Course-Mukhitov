@@ -1,3 +1,4 @@
+import { useRef, useState } from 'react';
 import overview from '../materials/week-01/README.md?raw';
 import theory from '../materials/week-01/theory.md?raw';
 import practice from '../materials/week-01/practice.md?raw';
@@ -6,6 +7,14 @@ import answers from '../materials/week-01/answers.md?raw';
 import solution from '../materials/week-01/examples/reference_solution.py?raw';
 import tests from '../materials/week-01/examples/test_reference.py?raw';
 import coursePlan from '../materials/course-plan.md?raw';
+import week2Overview from '../materials/week-02/README.md?raw';
+import week2Theory from '../materials/week-02/theory.md?raw';
+import week2Example from '../materials/week-02/examples/solid_demo.py?raw';
+import week2Walkthrough from '../materials/week-02/walkthrough.md?raw';
+import week2Practice from '../materials/week-02/practice.md?raw';
+import week2Quiz from '../materials/week-02/quiz.md?raw';
+import week2Answers from '../materials/week-02/answers.md?raw';
+import { courseHref } from './course.js';
 
 const downloads = import.meta.glob('../materials/**/*', {
   query: '?url', import: 'default', eager: true,
@@ -14,8 +23,43 @@ const sources = import.meta.glob('../.tfw/COURSE-MATERIALS/*.pdf', {
   query: '?url', import: 'default', eager: true,
 });
 const pages = { 'README.md': '#home', 'theory.md': '#theory', 'practice.md': '#practice', 'quiz.md': '#tests', 'answers.md': '#answers' };
+const week2Pages = { ...pages, 'practice.md': '#practice-contract', 'walkthrough.md': '#practice' };
+
+function CodeBlock({ code, language = 'text', label }) {
+  const content = useRef(null);
+  const [status, setStatus] = useState('');
+
+  async function copy() {
+    try {
+      await navigator.clipboard.writeText(code);
+      setStatus('Скопировано');
+    } catch {
+      const selection = window.getSelection();
+      if (selection && content.current) {
+        const range = document.createRange();
+        range.selectNodeContents(content.current);
+        selection.removeAllRanges();
+        selection.addRange(range);
+        content.current.parentElement.focus();
+        setStatus('Код выделен — нажмите Ctrl+C или Cmd+C');
+      } else {
+        setStatus('Выделите код и скопируйте его вручную');
+      }
+    }
+  }
+
+  return <div className="code-block">
+    <div className="code-toolbar">
+      <span>{label || (language === 'powershell' ? 'Терминал · PowerShell' : language === 'python' ? 'Код · Python' : 'Образец вывода / структура')}</span>
+      {language !== 'text' && <button type="button" className="secondary-button" onClick={copy}>Копировать</button>}
+    </div>
+    <pre tabIndex={0} aria-label={label || `Пример кода: ${language}`}><code ref={content}>{code}</code></pre>
+    <span className="copy-status" role="status">{status}</span>
+  </div>;
+}
 
 function materialLink(path, base) {
+  if (base === 'week-02' && week2Pages[path]) return courseHref(2, week2Pages[path].slice(1));
   if (base === 'week-01' && pages[path]) return pages[path];
   const parts = ['..', 'materials', ...base.split('/').filter(Boolean), ...path.split('/')];
   const resolved = [];
@@ -24,6 +68,8 @@ function materialLink(path, base) {
     else if (part !== '.') resolved.push(part);
   }
   const key = resolved.join('/');
+  const week2Page = key.startsWith('../materials/week-02/') ? key.slice('../materials/week-02/'.length) : null;
+  if (week2Pages[week2Page]) return courseHref(2, week2Pages[week2Page].slice(1));
   const page = key.startsWith('../materials/week-01/') ? key.slice('../materials/week-01/'.length) : null;
   return pages[page] || downloads[key] || sources[key];
 }
@@ -49,12 +95,12 @@ function Markdown({ text, base = 'week-01' }) {
     const key = i;
     if (!line.trim()) { i++; continue; }
     if (line.startsWith('```')) {
-      const language = line.slice(3);
+      const [language, ...label] = line.slice(3).trim().split(/\s+/);
       const code = [];
       i++;
       while (i < lines.length && !lines[i].startsWith('```')) code.push(lines[i++]);
       i++;
-      blocks.push(<pre key={key} tabIndex={0} aria-label={`Пример кода: ${language || 'текст'}`}><code>{code.join('\n')}</code></pre>);
+      blocks.push(<CodeBlock key={key} language={language || 'text'} label={label.join(' ')} code={code.join('\n')} />);
     } else if (/^#{1,3} /.test(line)) {
       const [, marks, title] = line.match(/^(#{1,3}) (.*)$/);
       const Heading = marks.length < 3 ? 'h2' : 'h3';
@@ -97,7 +143,32 @@ function CoursePlans() {
   </details>;
 }
 
-export default function StudyMaterial({ section, showAnswers }) {
+export default function StudyMaterial({ section, showAnswers, week = 1 }) {
+  if (week === 2) {
+    const file = { home: 'README.md', theory: 'theory.md', practice: 'walkthrough.md', tests: 'quiz.md', results: 'practice.md' }[section];
+    const text = { home: week2Overview, theory: week2Theory, practice: week2Walkthrough, tests: week2Quiz, results: week2Practice.slice(week2Practice.indexOf('## Отдельная ручная')) }[section];
+    return <>
+      <article className="study-panel">
+        <p className="download-link"><Download base="week-02" file={file}>Скачать материал (.md)</Download></p>
+        {section === 'tests' ? <details><summary>Бумажная версия правил и вопросов</summary><Markdown text={text} base="week-02" /></details> : <Markdown text={text} base="week-02" />}
+      </article>
+      {section === 'practice' && <details className="study-panel" id="practice-contract" open={showAnswers || undefined}>
+        <summary>Самостоятельная работа: требования, критерии и сдача</summary>
+        <Download base="week-02" file="practice.md">Скачать задание (.md)</Download>
+        <Markdown text={week2Practice} base="week-02" />
+      </details>}
+      {section === 'tests' && <details className="study-panel" id="answers" open={showAnswers || undefined}>
+        <summary>Открыть ответы и разбор после своей попытки</summary>
+        <Markdown text={week2Answers} base="week-02" />
+        <Download base="week-02" file="answers.md">Скачать разбор (.md)</Download>
+      </details>}
+      {section === 'theory' && <details className="study-panel"><summary>Полный пример из лекции · Python</summary>
+        <p>Учебная демонстрация с имитацией оборудования. Все зависимости собираются в bootstrap; реальные платежи и устройства не используются.</p>
+        <Download base="week-02" file="examples/solid_demo.py">Скачать solid_demo.py</Download>
+        <CodeBlock code={week2Example} language="python" label="solid_demo.py · полный пример" />
+      </details>}
+    </>;
+  }
   if (section === 'home') return <><article className="study-panel"><Markdown text={overview} /></article><CoursePlans /></>;
   if (section === 'results') return <><article className="study-panel">
     <h2>Отдельная ручная проверка лабораторной</h2>
