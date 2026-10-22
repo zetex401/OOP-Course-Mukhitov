@@ -1,0 +1,10 @@
+task_id: OOP_20261022-133027_REFACTOR
+title: "Проверка браузерного Python, существующих контрактов и безопасной чистки"
+min_iterations: 1
+max_iterations: 1
+iterations:
+  - number: 1
+    focus: "H1–H3 из утверждённого HL §10: совместимость исполнения Python на странице, достаточность текущей архитектуры и доказанные кандидаты очистки; матрица бизнес-процессов и UI/UML служит основанием TS"
+    hypotheses: [H1, H2, H3]
+    status: pending
+    res_file: research/iter1/RES.md
